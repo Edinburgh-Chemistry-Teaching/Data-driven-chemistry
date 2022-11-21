@@ -4,10 +4,12 @@ This will be the readme file for a series of workshop material for an introducto
 
 
 ## Authors:
-- Antonia Mey
-- Claire Hobday
-- Valentina Erastova
+- Antonia Mey*
 - James Cumby
+- Valentina Erastova
+- Jasmin Güven
+- Claire Hobday
+- Hannah Pollack
 
 ## Content:
 1. Introduction to Jupyter and Problem Solving
