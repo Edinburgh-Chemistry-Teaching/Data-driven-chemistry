@@ -40,6 +40,5 @@ I'll be a statement of need when I grow up
 
 I'll be a conclusion
 # Acknowledgments
-We would like to acknowledge Matteo Degiacomi and Software Carpentries
-
+We would like to acknowledge Matteo Degiacomi, Software Carpentries, and all the PhD student demonstrators who helped with teaching the material, giving feedback and creating some of the assignments. 
 # References
