@@ -17,8 +17,8 @@ authors:
     orcid: 0000-0002-xxxx-xxxx
     affiliation: "1"
   - name: Rafal Szabla
-  	 orcid: 0000-0002-xxxx-xxxx
-  	 affiliation: "2"
+    orcid: 0000-0002-xxxx-xxxx
+    affiliation: "2"
   - name: Jasmin Güven
     orcid: 0000-0002-xxxx-xxxx
     affiliation: "1"
@@ -28,6 +28,8 @@ authors:
 affiliations:
  - name: EaStCHEM School of Chemistry, University of Edinburgh, Edinburgh, United Kingdom 
    index: 1
+ - name: Warclaw
+   index: 2
 
 date: 23 November 2022
 bibliography: paper.bib
