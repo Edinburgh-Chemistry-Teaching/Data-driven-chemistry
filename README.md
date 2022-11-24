@@ -12,6 +12,11 @@ This will be the readme file for a series of workshop material for an introducto
 - Hannah Pollack
 
 ## Content:
+
+|  Name      | Content Summary                 | Materials |
+|------------|---------------------------------|-----------|
+|Session 1   | An Introduction to algorithmic thinking |[![Session1](https://colab.research.google.com/assets/colab-badge.svg)(https://google.com) |
+
 1. Introduction to Jupyter and Problem Solving
 2. Variables 
 3. Loops
