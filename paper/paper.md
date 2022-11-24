@@ -54,7 +54,9 @@ The modern world is a digital world allowing for upscaling and automation of che
 
 I'll be a conclusion
 
-# Acknowledgments
+# Author contributions and Acknowledgements 
+- Here we list which author has contributed to which lesson
+
 We would like to acknowledge Matteo Degiacomi, Software Carpentries, and all the PhD student demonstrators who helped with teaching the material, giving feedback and creating some of the assignments. 
 
 # References
