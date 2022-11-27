@@ -3,13 +3,14 @@
 This will be the readme file for a series of workshop material for an introductory Python course for UG chemistry students. 
 
 
-## Authors:
-- Antonia Mey*
+## Authors in alphabetical order:
 - James Cumby
 - Valentina Erastova
 - Jasmin Güven
 - Claire Hobday
+- Antonia Mey
 - Hannah Pollack
+(- Rafal Szabla ?)
 
 ## Content:
 
