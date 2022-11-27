@@ -61,6 +61,7 @@ The course is structured similarly to [@muller2022pcp]. The first four units, gi
 
 ## Content
 Data-Driven Chemistry consists of 10 Units, each meant for a 3-hour workshop session, either in-person or online. A summary of each unit can be found in the table below:
+
 | Unit | Content Summary                 | Materials |
 |------|---------------------------------|-----------|
 | 1    | An Introduction to algorithmic thinking and using Jupyter              |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_01/Unit_01.ipynb)|
