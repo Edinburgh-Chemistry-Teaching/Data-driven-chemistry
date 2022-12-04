@@ -9,8 +9,8 @@ This will be the readme file for a series of workshop material for an introducto
 - Jasmin Güven
 - Claire Hobday
 - Antonia Mey
-- Hannah Pollack
-(- Rafal Szabla ?)
+- Hannah Pollak
+- (Rafal Szabla ?)
 
 ## Content:
 
