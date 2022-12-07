@@ -6,11 +6,13 @@ This will be the readme file for a series of workshop material for an introducto
 ## Authors in alphabetical order:
 - James Cumby
 - Valentina Erastova
+- Matteo Degiacomi
 - Jasmin Güven
 - Claire Hobday
 - Antonia Mey
 - Hannah Pollak
-- (Rafal Szabla ?)
+- Rafal Szabla
+ 
 
 ## Content:
 
