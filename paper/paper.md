@@ -8,7 +8,7 @@ authors:
     orcid: 0000-0003-xxxx-xxxx
     affiliation: "1"
   - name: Valentina Erastova
-    orcid: 0000-0002-xxxx-xxxx
+    orcid: 0000-0002-6747-3297
     affiliation: "1"
   - name: Jasmin Güven
     orcid: 0000-0002-xxxx-xxxx
@@ -25,11 +25,16 @@ authors:
   - name: Rafal Szabla
     orcid: 0000-0002-xxxx-xxxx
     affiliation: "2"
+  - name: Matteo T Degiacomi (?)
+    orcid: 0000-0002-xxxx-xxxx
+    affiliation: "3"
 affiliations:
  - name: EaStCHEM School of Chemistry, University of Edinburgh, Edinburgh, United Kingdom 
    index: 1
  - name: Warclaw
    index: 2
+ - name: Durham
+   index: 3 
 
 date: 23 November 2022
 bibliography: paper.bib
