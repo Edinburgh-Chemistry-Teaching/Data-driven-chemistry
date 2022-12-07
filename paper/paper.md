@@ -98,13 +98,14 @@ We present a modular course to teach Python for Chemistry undergraduate students
 
 # Author's Contribution
 Authors are listed in alphabetical order, specific contributions by each author are found in the following: James Cumby (JC), Valentina Erastova (VE), Claire Hobday (CH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since 2021/22 and contributed roughly equally to the material creation and teaching. See below for more details. Rafal Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run as a Physical chemistry lab replacement in a shortened form. Matteo T Degiacomi (MTD) has shared his original materials, developed in 2018 for the Durham University Chemistry research students. 
-**JC:** Is the course organiser for the module taught at the University of Edinburgh and created the material for `Unit_01` and `Unit_09`, contributed to `Unit_05`, gave feedback on everyones material, and helped edit the manuscript.   
+
+**JC:** Is the course organiser for the module taught at the University of Edinburgh and created the material for `Unit_01` and `Unit_09`, contributed to `Unit_06`, gave feedback on everyones material, and helped edit the manuscript.   
 **MTD** Contributed material to `Unit_05` and `Unit_06`, and helped edit the manuscript.    
 **VE:** Created material for `Unit_05` and `Unit_08`, contributed to `Unit_06`, and helped edit the manuscript.   
 **JG:** Contributed material to `Unit_09`, and helped edit the manuscript.    
 **CH:** Created material for `Unit_03` and `Unit_04`, and helped edit the manuscript.   
 **ASJSM:** Created material for `Unit_02`, `Unit_06`, `Unit_07`, and `Unit_10`, provided feedback and small contributions to most other units, and wrote the manuscript.    
-**HP:** Contributed material to `Unit_05`, `Unit_08`, and helped edit the manuscript.    
+**HP:** Contributed material to `Unit_05` and `Unit_08`, and helped edit the manuscript.    
 **RS:** Created the material for molecular geometries forming part of `Unit_06`, and gave feedback on the manuscript. 
 
 
