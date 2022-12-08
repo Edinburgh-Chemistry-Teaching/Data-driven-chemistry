@@ -8,7 +8,7 @@ authors:
   - name: James Cumby
     orcid: 0000-0003-xxxx-xxxx
     affiliation: "1"
-  - name: Matteo T. Degiacomi (?)
+  - name: Matteo T. Degiacomi
     orcid: 0000-0002-xxxx-xxxx
     affiliation: "3"
   - name: Valentina Erastova
@@ -44,7 +44,7 @@ bibliography: paper.bib
 # Summary
 Data-Driven Chemistry is a course aimed at undergraduate students in Chemistry with no prior knowledge of programming and programmatic data analysis. It is designed as a 10-week-long course, introducing Python programming and its usage in data analysis typically required for a Chemistry degree. The course consists of 10 Units, designed to be used in a blended learning environment of live coding and explanations, followed by a set of in-course tasks to be solved individually or through pair programming.
 Generally, we aimed to follow Carpentry design ideas as closely as possible for each Unit. While, in principle, this course is designed to be taught as a whole, each Unit will cover a set of self-contained topics. The idea behind the modular design is to make the reuse and mix-and-matched with other courses as easy as possible.
-The original material was hosted online using the Notable service provided by the University of Edinburgh, for the user convinience, here we have migrated the content to Google Colab. The online hosting on Colab will enable self-guided learning, as well as classroom-based learning, ensuring that the learning is not only limited to a university classroom setting.
+The original material was hosted online using the Notable service provided by the University of Edinburgh, for the user convenience, here we have migrated the content to Google Colab. The online hosting on Colab will enable self-guided learning, as well as classroom-based learning, ensuring that the learning is not only limited to a university classroom setting.
 
 # Statement of Need
 The modern world is digital, allowing for upscaling and automation of chemical processes through robots [@], but also fast production of large-scale datasets [@]. Data analyses carried out with Graphical User Interfaces (GUI), or spreadsheet-based tools are often limited in robustness, speed, and reproducibility. Programmatic solutions fare much better in this context, but programming is not typically taught as a skill across Chemistry degrees, unlike in Physics, Mathematics, or even Biology [@white2022data]. Both the Royal Society of Chemistry [@employability] and the American Chemical Society [@neiles2020professional] have identified good computational skills as a key for graduate employability [@hill2019undergraduate]. Our course is designed to address this gap in the undegraduate Chemistry  curriculum at the University of Edinburgh, and thus, to ensure that Chemistry graduates remain competitive with other STEM graduates. The material is made available as open source, with the hope that it may be used in other educational settings.
@@ -81,13 +81,13 @@ A summary of each unit can be found in the Table 1 below:
 | 10   | Applications III:   -- more specifics                                                       |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_010/Unit_10.ipynb)|
 *Table 1: Summary of course material*
 
-The content is roughly grouped into three main parts. `Unit_01` to `Unit_04` introduce concepts around algorithmic thinking and Python syntax, including variables, loops, functions, libraries, documentation, how to get help, and how to read-in files. This was largely adapted from [Plotting and Programming in Python](http://swcarpentry.github.io/python-novice-gapminder/). `Unit_05` to `Unit_07` introduce concepts from SciPy [@virtanen2020scipy], NumPy [@harris2020array], Matplotlib [@hunter2007matplotlib] and Pandas [@team2022pandasdev] to carry out basic statistical analysis and plotting of chemistry-related data. Our strategy here was to incorporate as many other aspects of the chemistry curriculum while teaching Python. For example, students will have already seen a lot of mathematical concepts around fitting data and comparing distributions, but now are presented with a dataset relevant to their degree. The domain specific twist aims to boost motivation in students to engage with these mathematical concepts. Therefore, `Unit_08` to `Unit_10` coveenrs specific application examples from different areas of chemistry, and some of the applications directly tie into the student's lab experiments (e.g. UV-Vis spectroscopy and NMR data). 
+The content is roughly grouped into three main parts. `Unit_01` to `Unit_04` introduce concepts around algorithmic thinking and Python syntax, including variables, loops, functions, libraries, documentation, how to get help, and how to read-in files. This was largely adapted from [Plotting and Programming in Python](http://swcarpentry.github.io/python-novice-gapminder/). `Unit_05` to `Unit_07` introduce concepts from SciPy [@virtanen2020scipy], NumPy [@harris2020array], Matplotlib [@hunter2007matplotlib] and Pandas [@team2022pandasdev] to carry out basic statistical analysis and plotting of chemistry-related data. Our strategy here was to incorporate as many other aspects of the chemistry curriculum while teaching Python. For example, students will have already seen a lot of mathematical concepts around fitting data and comparing distributions, but now are presented with a dataset relevant to their degree. The domain specific twist aims to boost motivation in students to engage with these mathematical concepts. Therefore, `Unit_08` to `Unit_10` cover specific application examples from different areas of chemistry, and some of the applications directly tie into the student's lab experiments (e.g. UV-Vis spectroscopy and NMR data). 
 To ensure sufficient support to the students, at each 3-hour long workshop attended by around 100 learners, ten teaching assistants were available. Furthermore, 1-hour long Q&A sessions with the teaching assistants were organised every other week.  
 
 
 # Assessment and feedback
 
-The course was formally assessed at the University of Edinburgh, using NBGrader environment [@jupyter2019nbgrader]. However, we also made use of informal feedback within the sessions with built-in quizzes into the Jupyter Notebooks using (Mentimeter)[https://www.mentimeter.com]. We polled students to test their understanding of the material, to promote critical thinking and check, rather than assume, their background knowledge. We also used Mentimeter to gather feedback after each session, which helped us to improve the material further. Generally, the usage of embedded quizzes helped with engagement from students. Figure 1 shows an example of a Mentimeter quiz.   
+The course was formally assessed at the University of Edinburgh using NBGrader [@jupyter2019nbgrader]. However, we also made use of informal feedback within the sessions with built-in quizzes into the Jupyter Notebooks using (Mentimeter)[https://www.mentimeter.com]. We polled students to test their understanding of the material, to promote critical thinking, and check their background knowledge. We also used Mentimeter to gather feedback after each session, which helped us to improve the material further. Generally, the usage of embedded quizzes helped with engagement from students. Figure 1 shows an example of a Mentimeter quiz.   
 ![image](figures/Mentimeter.png)
 *Figure 1: Example of how a Mentimeter poll can be directly embedded into a Jupyter notebook.*
 
@@ -97,16 +97,16 @@ The course was formally assessed at the University of Edinburgh, using NBGrader 
 We present a modular course to teach Python for Chemistry undergraduate students, targeted at complete novices. We hope it is of value to other Chemistry students and educators. Running the material through Google Colab removes all installation requirement, making the course more easily accessible to novices - from students in guided university settings to other chemistry enthusiasts. 
 
 # Author's Contribution
-Authors are listed in alphabetical order, specific contributions by each author are found in the following: James Cumby (JC), Valentina Erastova (VE), Claire Hobday (CH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since 2021/22 and contributed roughly equally to the material creation and teaching. See below for more details. Rafal Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run as a Physical chemistry lab replacement in a shortened form. Matteo T Degiacomi (MTD) has shared his original materials, developed in 2018 for the Durham University Chemistry research students. 
+Authors are listed in alphabetical order, specific contributions by each author are found in the following: James Cumby (JC), Valentina Erastova (VE), Claire Hobday (CH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since 2021/22 and contributed roughly equally to the material creation and teaching. See below for more details. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run as a Physical chemistry lab replacement in a shortened form. Matteo T Degiacomi (MTD) has shared his original materials, developed in 2018 for the Durham University Chemistry research students. 
 
-**JC:** Is the course organiser for the module taught at the University of Edinburgh and created the material for `Unit_01` and `Unit_09`, contributed to `Unit_06`, gave feedback on everyones material, and helped edit the manuscript.   
-**MTD** Contributed material to `Unit_05` and `Unit_06`, and helped edit the manuscript.    
+**JC:** Is the course organiser for the module taught at the University of Edinburgh and created the material for `Unit_01` and `Unit_010` and gave feedback on everyones material, and helped edit the manuscript.   
+**MTD** Contributed material to `Unit_03` and `Unit_05`, and helped edit the manuscript.    
 **VE:** Created material for `Unit_05` and `Unit_08`, contributed to `Unit_06`, and helped edit the manuscript.   
 **JG:** Contributed material to `Unit_09`, and helped edit the manuscript.    
 **CH:** Created material for `Unit_03` and `Unit_04`, and helped edit the manuscript.   
-**ASJSM:** Created material for `Unit_02`, `Unit_06`, `Unit_07`, and `Unit_10`, provided feedback and small contributions to most other units, and wrote the manuscript.    
-**HP:** Contributed material to `Unit_05` and `Unit_08`, and helped edit the manuscript.    
-**RS:** Created the material for molecular geometries forming part of `Unit_06`, and gave feedback on the manuscript. 
+**ASJSM:** Created material for `Unit_02`, `Unit_06`, `Unit_07`, and `Unit_09`, provided feedback and small contributions to most other units, and wrote the manuscript.    
+**HP:** Contributed material to `Unit_05` and  `Unit_08`, and helped edit the manuscript.    
+**RS:** Created the material for molecular geometries forming part of `Unit_06` and gave feedback on the manuscript. 
 
 
 # Acknowledgements 
