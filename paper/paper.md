@@ -32,9 +32,9 @@ authors:
 affiliations:
  - name: EaStCHEM School of Chemistry, University of Edinburgh, Edinburgh, United Kingdom 
    index: 1
- - name: Warclaw
+ - name: Department of Physical and Quantum Chemistry, Faculty of Chemistry, Wrocław University of Science and Technology, Wrocław, Poland
    index: 2
- - name: Durham
+ - name: Department of Physics, Durham University, South Road, Durham, DH1 3LE, United Kingdom 
    index: 3 
 
 date: 23 November 2022
