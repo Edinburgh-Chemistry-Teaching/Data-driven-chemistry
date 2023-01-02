@@ -29,4 +29,12 @@ This will be the readme file for a series of workshop material for an introducto
 | 9    | Applications II                                                        |[![Session9](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_09/Unit_09_applications_II_A.ipynb) |
 | 10   | Applications III                                                       |[![Session10](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_10/Unit_10_NMR_application_student.ipynb) |
 
+## Dependencies
+
+This project uses the Python programming language, and requires Python >= 3.6.
+
+Units are written and available as Jupyter Notebooks.
+
+Units will require different packages from the scientific Python ecosystem. The easiest way to install dependencies is using the Anaconda distribution, otherwise the requirements.txt file also summarises the needed packages. 
+
 
