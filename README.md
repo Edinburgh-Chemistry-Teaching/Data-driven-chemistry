@@ -1,7 +1,6 @@
-# DDC
+# Data Driven Chemistry
 
-This will be the readme file for a series of workshop material for an introductory Python course for UG chemistry students. 
-
+This repository features material for an introductory Python course for undergraduate chemistry students. 
 
 ## Authors in alphabetical order:
 - James Cumby
@@ -31,10 +30,8 @@ This will be the readme file for a series of workshop material for an introducto
 
 ## Dependencies
 
-This project uses the Python programming language, and requires Python >= 3.6.
+This project uses the Python programming language, and requires Python >= 3.9.
 
 Units are written and available as Jupyter Notebooks.
 
 Units will require different packages from the scientific Python ecosystem. The easiest way to install dependencies is using the Anaconda distribution, otherwise the requirements.txt file also summarises the needed packages. 
-
-
