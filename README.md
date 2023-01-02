@@ -18,7 +18,7 @@ This will be the readme file for a series of workshop material for an introducto
 
 | Unit | Content Summary                 | Materials |
 |------|---------------------------------|-----------|
-| 1    | An Introduction to algorithmic thinking and using Jupyter              |[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/HEAD?labpath=https%3A%2F%2Fgithub.com%2FEdinburgh-Chemistry-Teaching%2FData-driven-chemistry%2Fblob%2Fmain%2FUnit_01%2FUnit_01_problem_solving_I.ipynb)|
+| 1    | An Introduction to algorithmic thinking and using Jupyter              |[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/HEAD?labpath=Unit_01%2FUnit_01_problem_solving_I.ipynb)|
 | 2    | Variables (int, float, string), Lists, Dictionaries and Tuples in Python|[![Unit_02](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_02/Unit_02_variables_I.ipynb) |
 | 3    | Loops and conditional                                                  |[![Unit_03](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_03/Unit_03_loops_I.ipynb) |
 | 4    | Functions, Pandas, and basic IO                                        |[![Unit_04](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_04/Unit_04_functions_I.ipynb) |
