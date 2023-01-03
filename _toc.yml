@@ -1,5 +1,5 @@
 format: jb-book
-root: overview
+root: overview.md 
 parts:
 - caption: About Data-Driven Chemistry 
   chapters:
