@@ -9,25 +9,25 @@ authors:
     orcid: 0000-0002-9499-3319
     affiliation: "1"
   - name: Matteo T. Degiacomi
-    orcid: 0000-0002-xxxx-xxxx
+    orcid: 0000-0003-4672-471X 
     affiliation: "3"
   - name: Valentina Erastova
     orcid: 0000-0002-6747-3297
     affiliation: "1"  
-  - name: Jasmin Güven
-    orcid: 0000-0002-xxxx-xxxx
+  - name: J. Jasmin Güven
+    orcid: 0000-0003-1555-0075
     affiliation: "1"
   - name: Claire Hobday
-    orcid: 0000-0002-xxxx-xxxx
+    orcid: 0000-0003-4925-4557
     affiliation: "1"
   - name: Antonia S. J. S. Mey
     orcid: 0000-0001-5911-0472
     affiliation: "1"
   - name: Hannah Pollak
-    orcid: 0000-0002-xxxx-xxxx
+    orcid: 0000-0003-1011-8478
     affiliation: "1"
   - name: Rafal Szabla
-    orcid: 0000-0002-xxxx-xxxx
+    orcid: 0000-0002-1668-8044
     affiliation: "2"
 affiliations:
  - name: EaStCHEM School of Chemistry, University of Edinburgh, Edinburgh, United Kingdom 
