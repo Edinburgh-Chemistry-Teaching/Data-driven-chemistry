@@ -3,13 +3,13 @@
 
 title: 'Data-Driven Chemistry'
 author: Edinburgh Chemistry Teaching 
-logo: logo.png
-copyright: 2023
+logo: logo.jpeg
+copyright: 2022-2023
 page_titles: false
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
-  execute_notebooks: force
+  execute_notebooks: off
 
 # Define the name of the latex output file for PDF builds
 latex:
@@ -34,4 +34,23 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  google_analytics_id: ""
 #  home_page_in_navbar: false
+
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+    - tasklist
+  myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
+  myst_dmath_double_inline: true
