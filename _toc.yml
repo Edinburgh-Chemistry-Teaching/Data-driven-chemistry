@@ -1,0 +1,40 @@
+format: jb-book
+root: overview
+parts:
+- caption: About Data-Driven Chemistry 
+  chapters:
+  - file: book_intro
+
+- caption: Introduction to Python
+  chapters:
+  - file: Unit_01/Unit_01_problem_solving_I
+  - file: Unit_01/Unit_01_problem_solving_II
+  - file: Unit_02/Unit_02_variables_I
+  - file: Unit_02/Unit_02_variables_II
+  - file: Unit_03/Unit_03_loops_I
+  - file: Unit_03/Unit_03_loops_II
+  - file: Unit_04/Unit_04_functions_I
+  - file: Unit_04/Unit_04_functions_II
+
+- caption: Introduction to Plotting and Statistics
+  chapters:
+  - file: Unit_05/Unit_05_I_numerical_data
+  - file: Unit_05/Unit_05_II_plotting
+  - file: Unit_06/Unit_06_statistics_I
+
+- caption: Molecular Geometries
+  chapters:
+  - file: Unit_06/Unit_06_molecular_geometries_II
+
+- caption: Fitting Data
+  chapters:
+  - file: Unit_07/Unit_07_fitting_I
+  - file: Unit_07/Unit_07_fitting_II
+
+- caption: Applications of Python in Chemistry
+  chapters:
+  - file: Unit_08/Unit_08_Applications_I
+  - file: Unit_09/Unit_09_applications_II_part_I
+  - file: Unit_09/Unit_09_applications_II_part_II
+  - file: Unit_10/Unit_10_NMR_application_student
+  - file: Unit_10/Unit_10_NMR_application_solution

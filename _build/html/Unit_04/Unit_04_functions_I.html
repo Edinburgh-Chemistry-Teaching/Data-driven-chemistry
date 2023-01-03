@@ -1,0 +1,1458 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit 04: Functions I &#8212; Data-Driven Chemistry</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit 04: Functions II" href="Unit_04_functions_II.html" />
+    <link rel="prev" title="Unit 03: Loops, pandas and simple plotting II" href="../Unit_03/Unit_03_loops_II.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data-Driven Chemistry</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Welcome to Data-Driven Chemistry
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About Data-Driven Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../book_intro.html">
+   Data Driven Chemistry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_I.html">
+   Unit 01: Problem Solving I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_II.html">
+   Unit 01: Problem Solving II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_I.html">
+   Unit 02: First steps in Python I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_II.html">
+   Unit 2: First steps in Python II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_I.html">
+   Unit 03: Loops, pandas and simple plotting I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_II.html">
+   Unit 03: Loops, pandas and simple plotting II
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unit 04: Functions I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Unit_04_functions_II.html">
+   Unit 04: Functions II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Plotting and Statistics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_I_numerical_data.html">
+   Unit 05: Introduction to NumPy and Plotting, part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_II_plotting.html">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_statistics_I.html">
+   Unit 06 More Statistics: Comparing Distributions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Molecular Geometries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_molecular_geometries_II.html">
+   Unit 06 An Introduction to Molecular Geometries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fitting Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_I.html">
+   Unit 07 Fitting Part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_II.html">
+   Unit 07 Fitting Part II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Applications of Python in Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_08/Unit_08_Applications_I.html">
+   Unit 08 Applications to Chemistry I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_I.html">
+   Unit 09: Applications II UV-Vis Spectroscopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_II.html">
+   Unit 09: Applications II  Protein SAXS and simulation data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_student.html">
+   Unit 10 - Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_solution.html">
+   Unit 10 - Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/main?urlpath=tree/Unit_04/Unit_04_functions_I.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/issues/new?title=Issue%20on%20page%20%2FUnit_04/Unit_04_functions_I.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Unit_04/Unit_04_functions_I.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 04: Functions I
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives">
+     Learning objectives:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links-to-documentation">
+     Links to documentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recap-of-previous-sessions">
+     Recap of Previous Sessions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#learning-outcomes-of-unit-2">
+       Learning outcomes of Unit 2:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#learning-outcomes-of-unit-3">
+       Learning outcomes of Unit 3:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-function">
+   1. What is a function?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-function">
+     A simple function
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-functions-work">
+     How functions work
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-must-be-defined-before-they-are-called">
+     Functions must be defined before they are called
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docstrings-can-help-understand-what-a-function-does">
+     2. Docstrings can help understand what a function does
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-other-helpful-tips-before-starting-the-exercises">
+     Some other helpful tips before starting the exercises
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#in-built-functions">
+       In-built functions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#formatting-outputs">
+       Formatting outputs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks">
+     Tasks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#passing-values-arguments-to-functions">
+   3. Passing values (arguments) to functions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variables-can-be-arguments">
+     Variables can be arguments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists-and-dictionaries-can-be-arguments">
+     Lists and dictionaries can be arguments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-can-take-more-than-one-argument">
+     Functions can take more than one argument
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solution
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-notebook">
+     Next Notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unit 04: Functions I</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 04: Functions I
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives">
+     Learning objectives:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links-to-documentation">
+     Links to documentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recap-of-previous-sessions">
+     Recap of Previous Sessions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#learning-outcomes-of-unit-2">
+       Learning outcomes of Unit 2:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#learning-outcomes-of-unit-3">
+       Learning outcomes of Unit 3:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-function">
+   1. What is a function?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-function">
+     A simple function
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-functions-work">
+     How functions work
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-must-be-defined-before-they-are-called">
+     Functions must be defined before they are called
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task">
+     Task:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docstrings-can-help-understand-what-a-function-does">
+     2. Docstrings can help understand what a function does
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-other-helpful-tips-before-starting-the-exercises">
+     Some other helpful tips before starting the exercises
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#in-built-functions">
+       In-built functions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#formatting-outputs">
+       Formatting outputs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks">
+     Tasks
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#passing-values-arguments-to-functions">
+   3. Passing values (arguments) to functions
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#variables-can-be-arguments">
+     Variables can be arguments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lists-and-dictionaries-can-be-arguments">
+     Lists and dictionaries can be arguments
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions-can-take-more-than-one-argument">
+     Functions can take more than one argument
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#solution">
+       Solution
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solution
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       Solution
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#next-notebook">
+     Next Notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-04-functions-i">
+<h1>Unit 04: Functions I<a class="headerlink" href="#unit-04-functions-i" title="Permalink to this headline">#</a></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" title='This work is licensed under a Creative Commons Attribution 4.0 International License.' align="right"/></a></p>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Dr Claire Hobday and</p></li>
+<li><p>Dr Antonia Mey<br />
+Email: <a class="reference external" href="mailto:claire&#46;hobday&#37;&#52;&#48;ed&#46;ac&#46;uk">claire<span>&#46;</span>hobday<span>&#64;</span>ed<span>&#46;</span>ac<span>&#46;</span>uk</a></p></li>
+</ul>
+<section id="learning-objectives">
+<h2>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<p>This session is split into two notebooks both discuss how to use and write your own functions.</p>
+<ul class="simple">
+<li><p><em><strong>Functions I</strong></em> (This notebook)</p>
+<ul>
+<li><p>understand inbuilt functions</p></li>
+<li><p>understand the format of a function</p></li>
+<li><p>input into functions</p></li>
+<li><p>using loops and conditionals in functions</p></li>
+<li><p>calling a function</p></li>
+</ul>
+</li>
+<li><p><em><strong>Functions II</strong></em> (Next notebook)</p>
+<ul>
+<li><p>getting information out of a function</p></li>
+<li><p>how to write reusable code</p></li>
+<li><p>write functions to interrogate data</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="#recap">Recap</a></p></li>
+<li><p><a class="reference external" href="#functions">1. What is a function?</a></p></li>
+<li><p><a class="reference external" href="#docstrings">2. Docstrings can help understand what a function does</a></p></li>
+<li><p><a class="reference external" href="#debugging">3. You can pass arguments to a function</a></p></li>
+<li><p><a class="reference internal" href="Unit_04_functions_II.html"><span class="doc std std-doc">Next notebook: Functions II</span></a></p></li>
+</ul>
+</section>
+<section id="links-to-documentation">
+<h2>Links to documentation<a class="headerlink" href="#links-to-documentation" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/">numpy</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/index.html">matplotlib</a></p></li>
+</ul>
+<p><strong><span style="color:black">Jupyter Cheat Sheet</span></strong></p>
+<ul class="simple">
+<li><p>To run the currently highlighted cell and move focus to the next cell, hold <kbd>⇧ Shift</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To run the currently highlighted cell and keep focus in the same cell, hold <kbd>⇧ Ctrl</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To get help for a specific function, place the cursor within the function’s brackets, hold <kbd>⇧ Shift</kbd>, and press <kbd>⇥ Tab</kbd>;</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="recap-of-previous-sessions">
+<h2>Recap of Previous Sessions<a class="headerlink" href="#recap-of-previous-sessions" title="Permalink to this headline">#</a></h2>
+<p><a id="recap"></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DDC_concepts</span> <span class="o">=</span> <span class="n">Mentimeter</span><span class="p">(</span><span class="n">vote</span><span class="o">=</span><span class="s2">&quot;https://www.menti.com/alqwyxif2ydm&quot;</span><span class="p">)</span>
+<span class="n">DDC_concepts</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="images/mentimeter_4_1.png" alt=“DDC_concepts” width=“400”/>
+<section id="learning-outcomes-of-unit-2">
+<h3>Learning outcomes of Unit 2:<a class="headerlink" href="#learning-outcomes-of-unit-2" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Interact with a Jupyter notebook</p></li>
+<li><p>Declare variables</p></li>
+<li><p>Print Variables</p></li>
+<li><p>Getting help</p></li>
+<li><p>Read data from a file</p></li>
+</ul>
+<p>You will be using the following concepts:</p>
+<ul class="simple">
+<li><p>Variables</p></li>
+<li><p>In-built functions such as <code class="docutils literal notranslate"><span class="pre">print()</span></code></p></li>
+</ul>
+</section>
+<section id="learning-outcomes-of-unit-3">
+<h3>Learning outcomes of Unit 3:<a class="headerlink" href="#learning-outcomes-of-unit-3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>import modules and libraries</p></li>
+<li><p>using <a class="reference external" href="https://docs.python.org/3/library/math.html">math</a> module to do some simple scientific computing tasks</p></li>
+<li><p>developing more <a class="reference external" href="https://pandas.pydata.org/">pandas</a> skills to deal with large volumes of data</p></li>
+<li><p>using logical operations to filter data</p></li>
+<li><p>understand and use the different types of loops to do repetitive tasks including:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">else</span></code>/<code class="docutils literal notranslate"><span class="pre">elif</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="what-is-a-function">
+<h1>1. What is a function?<a class="headerlink" href="#what-is-a-function" title="Permalink to this headline">#</a></h1>
+<p><a id="functions"></a></p>
+<p>Functions are blocks of reusable code used to perform a specific task usually more than once in a program. We have already been using some of Python’s inbuilt functions such as <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">len()</span></code> and <code class="docutils literal notranslate"><span class="pre">range()</span></code>.</p>
+<p>When we run the command</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Python uses code that has already been written by someone else to output “Hello” to our screen. The command</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>tells Python to run already written code that counts the number of characters in the string “Hello”.</p>
+<p>These functions are inbuilt into Python, meaning they are always available for us to run from our code. However, we can also define our own functions so that we can reuse pieces of our code throughout our programs.</p>
+<p>Reusing code not only makes our programs shorter and more organised, it makes our code easier to maintain as we only have to modify the single function rather than find and edit the code wherever we have performed the specific task.</p>
+<p>The concept of functions can be hard to grasp for beginners. So let’s start with a simple function to print the string “Hello” and then we’ll slowly introduce more complex functionality.</p>
+<section id="a-simple-function">
+<h2>A simple function<a class="headerlink" href="#a-simple-function" title="Permalink to this headline">#</a></h2>
+<p>A simple function to print “Hello” is shown in the following code.</p>
+<div class="alert alert-info"><b>
+Run this code and nothing will (appear to) happen.
+</div></b><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Define the function called &quot;say_hello()&quot;. The function, when called, prints &quot;Hello&quot;.</span>
+<span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+    
+    <span class="c1"># Call the inbuilt function &quot;print()&quot; to output the string &quot;Hello&quot;.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Why wasn’t “Hello” printed when you ran this code?</p>
+<p>This is because all we are doing is <strong>defining</strong> a function called <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code>. That is what <span style="color:green; font-weight:bold"> def </span> stands for. When we define a function it is saved in computer memory ready to be used (like a variable).</p>
+<p>In order to get the function to do something we need to <strong>call</strong> it by using its name with the parentheses.</p>
+<div class="alert alert-info"><b>
+This is shown in the following code. Run it and you will see that it outputs "Hello".
+</div></b><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+
+    
+<span class="c1"># Call the function &quot;say_hello()&quot;.</span>
+<span class="n">say_hello</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="how-functions-work">
+<h2>How functions work<a class="headerlink" href="#how-functions-work" title="Permalink to this headline">#</a></h2>
+<p>Let’s explain the syntax of a function definition. The line</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+</pre></div>
+</div>
+<p>tells Python that what we are about to do is define a function called <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code>. The parentheses are necessary as will become clear later. The colon is also necessary.</p>
+<p>The next line is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which calls the inbuilt function <code class="docutils literal notranslate"><span class="pre">print()</span></code> that simply prints “Hello” to the screen. The important thing here is that the line is indented. Which means that it is inside the function. Any code lines that are indented below <span style="color:green; font-weight:bold; font-family:monospace"> def</span> are inside that particular function.</p>
+<p>If you un-indent the <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello&quot;)</span></code> statement you will get an <code class="docutils literal notranslate"><span class="pre">IndentationError</span></code> just like for conditional statements and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops (try it).</p>
+<p>The end of the function occurs at the first <strong>non-indented</strong> line after <span style="color:green; font-weight:bold; font-family:monospace"> def</span>.</p>
+<p>When we <em>call</em> a function, Python jumps into the function and executes the commands inside it. Python then returns to the end of the call. The figure below shows the order of execution of lines of code for the <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code> function.</p>
+<p><img alt="" src="../_images/function.png" /></p>
+<p>Notice that the program begins execution at the first non-indented line just after the function definition. When we call <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code> the code jumps into the function at the line <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">say_hello():</span></code>. It executes the <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello&quot;)</span></code> function (which entails jumping into the inbuilt code of the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function which we cannot see but is there in computer memory). It then returns from the function to the next line in the main code (which in this case is the end of the program)</p>
+</section>
+<section id="functions-must-be-defined-before-they-are-called">
+<h2>Functions must be defined before they are called<a class="headerlink" href="#functions-must-be-defined-before-they-are-called" title="Permalink to this headline">#</a></h2>
+<p>In the following code the function <code class="docutils literal notranslate"><span class="pre">hi()</span></code> is called before it is defined. If you run it you will see it gives a <code class="docutils literal notranslate"><span class="pre">NameError</span></code> because Python has not saved the function’s definition in memory when it was called.</p>
+</section>
+<section id="task">
+<h2>Task:<a class="headerlink" href="#task" title="Permalink to this headline">#</a></h2>
+<div class="alert alert-success"><b>
+Task 1.1: Modify the following code to make it work.
+</b><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#FIXME</span>
+
+<span class="n">hi</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#FIXME</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">hi</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;hi&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 1.1 </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="k">def</span> <span class="nf">hi</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hi&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="docstrings-can-help-understand-what-a-function-does">
+<h2>2. Docstrings can help understand what a function does<a class="headerlink" href="#docstrings-can-help-understand-what-a-function-does" title="Permalink to this headline">#</a></h2>
+<p><a id="docstrings"></a></p>
+<p>There is a special way of adding a comment at the start of a function to say what the function does. These are called <strong>docstrings</strong>. They are enclosed in triple quotes as shown in the following code.</p>
+<p>You should always add a doc-string to any of your functions, however simple they may be.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the word &#39;Hello&#39;&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Doc-strings are used by Python to provide documentation to users. You can get documentation on any of Python’s functions by typing</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">function_name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>So if we type</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">say_hello</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Python prints out the doc-string in our function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">say_hello</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info"><b>
+<p>Try typing <code class="docutils literal notranslate"><span class="pre">help(function_name)</span></code> for other functions like <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">type</span></code>, <code class="docutils literal notranslate"><span class="pre">round</span></code>, <code class="docutils literal notranslate"><span class="pre">len</span></code>, <code class="docutils literal notranslate"><span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">sorted</span></code>, <code class="docutils literal notranslate"><span class="pre">range</span></code> and <code class="docutils literal notranslate"><span class="pre">help</span></code>.</p>
+<p>As you will find, the documentation of inbuilt functions assumes quite a high degree of knowledge about Python. So it’s better to use online websites to help you code.
+</b></p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">help</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="some-other-helpful-tips-before-starting-the-exercises">
+<h2>Some other helpful tips before starting the exercises<a class="headerlink" href="#some-other-helpful-tips-before-starting-the-exercises" title="Permalink to this headline">#</a></h2>
+<section id="in-built-functions">
+<h3>In-built functions<a class="headerlink" href="#in-built-functions" title="Permalink to this headline">#</a></h3>
+<p>Let’s test out a cool in-built function called <code class="docutils literal notranslate"><span class="pre">input()</span></code>. This is useful if you want to interact with your code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="nb">input</span> <span class="p">(</span><span class="s2">&quot;Enter number :&quot;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="formatting-outputs">
+<h3>Formatting outputs<a class="headerlink" href="#formatting-outputs" title="Permalink to this headline">#</a></h3>
+<p>Something called f-strings  provide a concise and convenient way to embed python expressions inside string literals for formatting.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;Chemistry&quot;</span>
+<span class="n">str2</span> <span class="o">=</span> <span class="s2">&quot;Science&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Everyone knows </span><span class="si">{</span><span class="n">str1</span><span class="si">}</span><span class="s2"> is the best </span><span class="si">{</span><span class="n">str2</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>  <span class="c1"># module</span>
+  
+<span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span> <span class="c1"># class.subclass.function()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">today</span><span class="si">:</span><span class="s2"> %d %B, %Y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> 
+<span class="c1"># %B = full name month</span>
+<span class="c1"># %d = day of the montth</span>
+<span class="c1"># %Y = year full i.e. 2020 not 20.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Claire&quot;</span><span class="p">,</span> <span class="s2">&quot;section&quot;</span><span class="p">:</span><span class="s2">&quot;inorganic&quot;</span><span class="p">}</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> works in </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;section&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tasks">
+<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">#</a></h2>
+<div class="alert alert-success">
+<b>Task 2.1: Write a function called `string_length()` that prints the length of the word "Hello".
+</b>
+<p>Don’t forget the doc-string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">string_length</span><span class="p">():</span>
+    <span class="c1">#FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now calling the function</span>
+<span class="n">string_length</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green;font-weight:bold"}> Click here to see solution to Task 2.1 </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">string_length</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; This function prints the length of string &#39;Hello&#39;&quot;&quot;&quot;</span>
+    
+    <span class="c1"># Get the length of the string Hello</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+    <span class="c1"># Pring the length to screen</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The length of the string &#39;Hello&#39; is: </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+ </details><div class="alert alert-success">
+<b>Task 2.2: Write a function called `hello_me()` that asks for input of your name then prints "Hello" followed by your name.
+</b>
+<p>Hint: Use the built in function <code class="docutils literal notranslate"><span class="pre">input()</span></code> to read input from a cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_me</span><span class="p">():</span>
+    <span class="c1">#FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now calling the function</span>
+<span class="n">hello_me</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 2.2 </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello_me</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print &#39;Hello name&#39;&quot;&quot;&quot;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter your name: &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="alert alert-success">
+<b>Task 2.3: Write a function called `multiply_two_numbers()` that asks for input of two numbers and then prints their product.</b>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_two_numbers</span><span class="p">():</span>
+    <span class="c1">#FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now calling the function</span>
+<span class="n">multiply_two_numbers</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 2.3 </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_two_numbers</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enter two numbers and print their product&quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="passing-values-arguments-to-functions">
+<h1>3. Passing values (arguments) to functions<a class="headerlink" href="#passing-values-arguments-to-functions" title="Permalink to this headline">#</a></h1>
+<p><a id="arguments"></a></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code> function in the earlier was a bit pointless. We called it to call the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to print “hello”. We could have simply written <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello&quot;)</span></code> without bothering to define and call our own function <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code>.</p>
+<p>Functions become useful when they perform the same task on different values passed to them. For example, say we want to write a function to print “Hello” followed by someone’s name, but the name can be different each time we call the function. We can do this by <strong>passing a value</strong> to the function. The technical name for the value passed to the function is an <strong>argument</strong>.</p>
+<p>This is precisely what we do when we call <code class="docutils literal notranslate"><span class="pre">print()</span></code> or <code class="docutils literal notranslate"><span class="pre">len()</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">print(&quot;Hello&quot;)</span></code> passes the string <strong>argument</strong> “Hello” to the function <code class="docutils literal notranslate"><span class="pre">print()</span></code> to output to your screen.</p>
+<p>Let’s change the <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code> function to take someone’s name as an argument.</p>
+<div class="alert alert-info"><b>
+Run the following code to see how this is done.</b>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print &#39;Hello&#39; followed by name&quot;&quot;&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    
+<span class="c1"># Call the function &quot;say_hello()&quot; twice with different names.</span>
+<span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Harry&quot;</span><span class="p">)</span>
+<span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Hermione&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We’ve changed the definition of the function so that we can pass an argument to it like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">name</span></code> is called a <strong>parameter</strong> which is a variable in a function definition.</p>
+<p>When we call <code class="docutils literal notranslate"><span class="pre">say_hello(&quot;Harry&quot;)</span></code> with the argument <code class="docutils literal notranslate"><span class="pre">&quot;Harry&quot;</span></code>, the string <code class="docutils literal notranslate"><span class="pre">&quot;Harry&quot;</span></code> is assigned to the parameter <code class="docutils literal notranslate"><span class="pre">name</span></code> when the code enters the function. This means when we do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>the function outputs <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">Harry</span></code>.</p>
+<p>When we call <code class="docutils literal notranslate"><span class="pre">say_hello(&quot;Hermione&quot;)</span></code> with the argument <code class="docutils literal notranslate"><span class="pre">&quot;Hermione&quot;</span></code>, the string <code class="docutils literal notranslate"><span class="pre">&quot;Hermione&quot;</span></code> is assigned to the parameter <code class="docutils literal notranslate"><span class="pre">name</span></code> so the function outputs <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">Hermione</span></code>.</p>
+<p>Note the convention of having <code class="docutils literal notranslate"><span class="pre">f&quot;</span></code> in our print statement. This is called an f-string. Using this triggers our code to know that the variable in curly brackets <code class="docutils literal notranslate"><span class="pre">{name}</span></code> will change to take the place of what we set that variable to, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;Harry&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;Hermione&quot;</span></code> in our print statement.</p>
+<section id="variables-can-be-arguments">
+<h2>Variables can be arguments<a class="headerlink" href="#variables-can-be-arguments" title="Permalink to this headline">#</a></h2>
+<p>In the above example we passed a string to <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code>. But we can also pass a variable to a function.</p>
+<p>But first, let’s make a new function, that’s a little more <em>sciency</em> than printing names.</p>
+<p>The function below will convert a temperature in fahrenheit to celsius, which takes one argument <code class="docutils literal notranslate"><span class="pre">temp</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fahr_to_celsius</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;convert fahrenheit temp to celsius&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-info"><b>
+Run the following two code cells to see how this works.</b>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">freezing</span> <span class="o">=</span> <span class="mi">32</span>
+
+<span class="n">fahr_to_celsius</span><span class="p">(</span><span class="n">freezing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">boiling</span> <span class="o">=</span> <span class="mi">212</span>
+
+<span class="n">fahr_to_celsius</span><span class="p">(</span><span class="n">boiling</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how we have to execute these in two separate cells to return the answer, otherwise the final use of the function will be the only one which is returned. Also note that the argument passed to the function (e.g., <code class="docutils literal notranslate"><span class="pre">freezing</span></code> or <code class="docutils literal notranslate"><span class="pre">boiling</span></code>) does not need to have the same name as the function’s defined parameter (e.g., <code class="docutils literal notranslate"><span class="pre">temp</span></code>).</p>
+<p>A more elegant way might be to looping through a list of temperatures and calling <code class="docutils literal notranslate"><span class="pre">fahr_to_celsius()</span></code> for each one.
+An example is shown in the following code, note that we need to print the output to screen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop through a list of temperatures </span>
+<span class="c1"># &quot;temperatures&quot; is the iterating variable.</span>
+<span class="k">for</span> <span class="n">temperatures</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">212</span><span class="p">,</span> <span class="mi">177399</span><span class="p">]:</span>
+
+    <span class="c1"># Call &quot;fahr_to_celsius()&quot; for each &quot;temperature&quot;</span>
+    <span class="c1"># and &quot;print&quot; the response.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fahr_to_celsius</span><span class="p">(</span><span class="n">temperatures</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lists-and-dictionaries-can-be-arguments">
+<h2>Lists and dictionaries can be arguments<a class="headerlink" href="#lists-and-dictionaries-can-be-arguments" title="Permalink to this headline">#</a></h2>
+<p>As well as passing strings and numbers to a function, lists and dictionaries can also be passed.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">length_of_my_strings()</span></code> below has a list as a parameter. It prints the length of each string in the list by looping through it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">length_of_my_strings</span><span class="p">(</span><span class="n">list_of_strings</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;print the length of a list of strings&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">list_of_strings</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; The lengths of the string is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">length_of_my_strings</span><span class="p">([</span><span class="s2">&quot;inorganic&quot;</span><span class="p">,</span> <span class="s2">&quot;organic&quot;</span><span class="p">,</span> <span class="s2">&quot;physical&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="functions-can-take-more-than-one-argument">
+<h2>Functions can take more than one argument<a class="headerlink" href="#functions-can-take-more-than-one-argument" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code> function has one parameter. But functions can have any number of parameters.</p>
+<p>Let’s rewrite <code class="docutils literal notranslate"><span class="pre">say_hello()</span></code> to take two arguments: a first name and a surname.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">say_hello</span><span class="p">(</span><span class="n">forename</span><span class="p">,</span> <span class="n">surname</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print &#39;Hello&#39; followed by forename and surname&quot;&quot;&quot;</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">forename</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">surname</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+        
+<span class="c1"># Call the function &quot;say_hello()&quot; with two strings.</span>
+<span class="n">say_hello</span><span class="p">(</span><span class="s2">&quot;Harry&quot;</span><span class="p">,</span> <span class="s2">&quot;Potter&quot;</span><span class="p">)</span>
+
+<span class="c1"># Call the function &quot;say_hello()&quot; with two string variables.</span>
+<span class="n">first_name</span> <span class="o">=</span> <span class="s2">&quot;Dobby&quot;</span>
+<span class="n">family_name</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">say_hello</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">family_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the first call, <code class="docutils literal notranslate"><span class="pre">forename</span></code> is assigned the value <code class="docutils literal notranslate"><span class="pre">&quot;Harry&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">surname</span></code> the value <code class="docutils literal notranslate"><span class="pre">&quot;Potter&quot;</span></code>.</p>
+<p>In the second call, <code class="docutils literal notranslate"><span class="pre">forename</span></code> is assigned the value <code class="docutils literal notranslate"><span class="pre">&quot;Dobby&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">surname</span></code> is assigned an empty string.</p>
+<div class="alert alert-success">
+<b>Task 2.1: Write a function called <code>reverse_string()</code> which prints the reverse of a string passed to it. </b>
+<p>The call to the function is already included in the following code cell. You just need to write the function. (Look back to <a class="reference internal" href="../Unit_02/Unit_02_variables_I.html"><span class="doc std std-doc">Unit 2</span></a> on how to manipulate strings!)</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse_string</span><span class="p">:</span>
+    <span class="c1">#FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reverse_string</span><span class="p">(</span><span class="s2">&quot;eiruC eiraM - .ssel raef yam ew taht os ,erom dnatsrednu ot emit eht si woN .dootsrednu eb ot ylno si ti ,deraef eb ot si efil ni gnihtoN&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
+<details><summary {style="color:green;font-weight:bold"}> Click here to see solution to Task 2.1. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse_string</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print reverse of string&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="alert alert-success">
+<b>Task 2.2: Write a function called <code>average()</code> that takes a list as an argument and prints out the average values in the list. </b>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1">#FIX ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Titre_values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">22.2</span><span class="p">,</span> <span class="mf">23.3</span><span class="p">,</span> <span class="mf">22.3</span><span class="p">,</span> <span class="mf">22.4</span><span class="p">,</span> <span class="mf">22.4</span><span class="p">,</span> <span class="mf">23.0</span><span class="p">,</span> <span class="mf">22.0</span><span class="p">,</span> <span class="mf">22.1</span><span class="p">,</span> <span class="mf">21.9</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average</span><span class="p">(</span><span class="n">Titre_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Solution<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<details><summary {style="color:green;font-weight:bold"}> Click here to see solution to Task 2.2. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Average of a list of numbers&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="alert alert-success">
+<b>Task 2.3: Write a function called <code>multiply_two_numbers()</code> that prints the product of two number passed to it. </b>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_two_numbers</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+    <span class="c1">#FIX ME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter another number: &quot;</span><span class="p">))</span>
+
+<span class="n">multiply_two_numbers</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Solution<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<details><summary {style="color:green;font-weight:bold"}> Click here to see solution to Task 2.3. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">multiply_two_numbers</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Product of two numbers&quot;&quot;&quot;</span>
+    <span class="n">multiplication</span> <span class="o">=</span> <span class="n">n1</span><span class="o">*</span><span class="n">n2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">n1</span><span class="si">}</span><span class="s2"> multiplied by </span><span class="si">{</span><span class="n">n2</span><span class="si">}</span><span class="s2"> is: </span><span class="si">{</span><span class="n">multiplication</span><span class="si">}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n1</span><span class="o">=</span><span class="n">n1</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="n">n2</span><span class="p">,</span> <span class="n">multiplication</span><span class="o">=</span><span class="n">multiplication</span><span class="p">))</span>
+</pre></div>
+</div>
+ </details></section>
+</section>
+<section id="next-notebook">
+<h2>Next Notebook<a class="headerlink" href="#next-notebook" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="Unit_04_functions_II.html"><span class="doc std std-doc">Functions II</span></a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unit_04"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Unit_03/Unit_03_loops_II.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Unit 03: Loops, pandas and simple plotting II</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Unit_04_functions_II.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit 04: Functions II</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Edinburgh Chemistry Teaching<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

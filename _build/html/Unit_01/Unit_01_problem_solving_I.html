@@ -1,0 +1,1213 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit 01: Problem Solving I &#8212; Data-Driven Chemistry</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit 01: Problem Solving II" href="Unit_01_problem_solving_II.html" />
+    <link rel="prev" title="Data Driven Chemistry" href="../book_intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data-Driven Chemistry</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Welcome to Data-Driven Chemistry
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About Data-Driven Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../book_intro.html">
+   Data Driven Chemistry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unit 01: Problem Solving I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Unit_01_problem_solving_II.html">
+   Unit 01: Problem Solving II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_I.html">
+   Unit 02: First steps in Python I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_II.html">
+   Unit 2: First steps in Python II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_I.html">
+   Unit 03: Loops, pandas and simple plotting I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_II.html">
+   Unit 03: Loops, pandas and simple plotting II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_I.html">
+   Unit 04: Functions I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_II.html">
+   Unit 04: Functions II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Plotting and Statistics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_I_numerical_data.html">
+   Unit 05: Introduction to NumPy and Plotting, part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_II_plotting.html">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_statistics_I.html">
+   Unit 06 More Statistics: Comparing Distributions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Molecular Geometries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_molecular_geometries_II.html">
+   Unit 06 An Introduction to Molecular Geometries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fitting Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_I.html">
+   Unit 07 Fitting Part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_II.html">
+   Unit 07 Fitting Part II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Applications of Python in Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_08/Unit_08_Applications_I.html">
+   Unit 08 Applications to Chemistry I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_I.html">
+   Unit 09: Applications II UV-Vis Spectroscopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_II.html">
+   Unit 09: Applications II  Protein SAXS and simulation data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_student.html">
+   Unit 10 - Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_solution.html">
+   Unit 10 - Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/main?urlpath=tree/Unit_01/Unit_01_problem_solving_I.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/issues/new?title=Issue%20on%20page%20%2FUnit_01/Unit_01_problem_solving_I.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Unit_01/Unit_01_problem_solving_I.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives">
+     Learning objectives:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#link-to-jupyter-documentation">
+     Link to Jupyter documentation:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started-with-jupyter-notebooks-a-id-1-getting-started-with-jupyter-notebooks-a">
+   1 Getting Started with Jupyter Notebooks
+   <a id="1-getting-started-with-jupyter-notebooks">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#following-the-lecture-a-id-following-the-lecture-a">
+     1.1 Following the “lecture”
+     <a id="following-the-lecture">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-and-solutions">
+     1.2 Tasks and Solutions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebook-layout">
+   2. Notebook Layout
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-mode-and-edit-mode-a-id-command-mode-and-edit-mode-a">
+     Command mode and edit mode
+     <a id="command-mode-and-edit-mode">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#markdown-cells-a-id-markdown-cells-a">
+     Markdown cells
+     <a id="markdown-cells">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-turn">
+     Your turn!
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-cells-a-id-code-cells-a">
+     Code cells
+     <a id="code-cells">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-code-cells-a-id-116-running-code-cells-a">
+     Running code cells
+     <a id="116-running-code-cells">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Your turn:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-jupyter-kernel-a-id-12-the-jupyter-kernel-a">
+   3 The Jupyter Kernel
+   <a id="12-the-jupyter-kernel">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#restarting-the-kernel">
+     Restarting the kernel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#help-with-jupyer-notebooks-a-id-118-help-with-jupyer-notebooks-a">
+     Help with Jupyer Notebooks
+     <a id="118-help-with-jupyer-notebooks">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks-a-id-task-a">
+   Tasks
+   <a id="task">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-notebook">
+   Next Notebook
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unit 01: Problem Solving I</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives">
+     Learning objectives:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#link-to-jupyter-documentation">
+     Link to Jupyter documentation:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started-with-jupyter-notebooks-a-id-1-getting-started-with-jupyter-notebooks-a">
+   1 Getting Started with Jupyter Notebooks
+   <a id="1-getting-started-with-jupyter-notebooks">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#following-the-lecture-a-id-following-the-lecture-a">
+     1.1 Following the “lecture”
+     <a id="following-the-lecture">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-and-solutions">
+     1.2 Tasks and Solutions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notebook-layout">
+   2. Notebook Layout
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-mode-and-edit-mode-a-id-command-mode-and-edit-mode-a">
+     Command mode and edit mode
+     <a id="command-mode-and-edit-mode">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#markdown-cells-a-id-markdown-cells-a">
+     Markdown cells
+     <a id="markdown-cells">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#your-turn">
+     Your turn!
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#code-cells-a-id-code-cells-a">
+     Code cells
+     <a id="code-cells">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-code-cells-a-id-116-running-code-cells-a">
+     Running code cells
+     <a id="116-running-code-cells">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Your turn:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-jupyter-kernel-a-id-12-the-jupyter-kernel-a">
+   3 The Jupyter Kernel
+   <a id="12-the-jupyter-kernel">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#restarting-the-kernel">
+     Restarting the kernel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#help-with-jupyer-notebooks-a-id-118-help-with-jupyer-notebooks-a">
+     Help with Jupyer Notebooks
+     <a id="118-help-with-jupyer-notebooks">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks-a-id-task-a">
+   Tasks
+   <a id="task">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-notebook">
+   Next Notebook
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-01-problem-solving-i">
+<h1>Unit 01: Problem Solving I<a class="headerlink" href="#unit-01-problem-solving-i" title="Permalink to this headline">#</a></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" title='This work is licensed under a Creative Commons Attribution 4.0 International License.' align="right"/></a></p>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Dr James Cumby</p></li>
+<li><p>Dr Antonia Mey</p></li>
+</ul>
+<p>Emails: <a class="reference external" href="mailto:james&#46;cumby&#37;&#52;&#48;ed&#46;ac&#46;uk">james<span>&#46;</span>cumby<span>&#64;</span>ed<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<p>Programming is almost entirely about <strong>problem solving</strong>, <em>i.e.</em> how do you take a complex problem and break it down in to manageable steps that a computer can perform. Whilst this is a useful skill for programming and data analysis, it is much more generally applicable, both within your degree and beyond. Importantly, problem solving is a skill that has to be learned, and this unit (and this course in general) will try to develop this skill.</p>
+<section id="learning-objectives">
+<h3>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h3>
+<p>By the end of this unit, you should be able to:</p>
+<ul class="simple">
+<li><p>Interact with a Jupyter notebook</p></li>
+<li><p>Break a complex problem into smaller steps;</p></li>
+<li><p>Consider how those steps might be implemented as code (developed more later in the course);</p></li>
+<li><p>Use pseudocode to develop simple algorithms</p></li>
+</ul>
+<!-- begin no_present -->
+<p>Some of the content is adapted from <a class="reference external" href="http://swcarpentry.github.io/python-novice-gapminder/index.html">Software carpentry lessons</a>.</p>
+<!-- end no_present --></section>
+<section id="table-of-contents">
+<h3>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="#1-getting-started-with-jupyter-notebooks">Getting Started with Jupyter Notebooks</a><br />
+1.1 <a class="reference external" href="#11-following-the-lecture">Following the “Lecture”</a><br />
+1.2 <a class="reference external" href="#tasks_how_to">Tasks how to</a></p></li>
+<li><p><a class="reference external" href="#12-notebook-layout">Notebook Layout</a></p></li>
+<li><p><a class="reference external" href="#12-the-jupyter-kernel">The Jupyter Kernel</a></p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="#tasks">Tasks</a></p></li>
+<li><p><span class="xref myst">Next notebook: Problem solving II</span></p></li>
+</ul>
+</section>
+<section id="link-to-jupyter-documentation">
+<h3>Link to Jupyter documentation:<a class="headerlink" href="#link-to-jupyter-documentation" title="Permalink to this headline">#</a></h3>
+<p>You can find useful information about using Jupyter at <a class="reference external" href="https://docs.jupyter.org/en/latest/">docs.jupyter.org</a>.</p>
+</section>
+<section id="further-reading">
+<h3>Further reading:<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Kenneth Reitz and Tanya Schlusser, The Hitchhiker’s Guide to Python, 2nd Ed., Sep 2016, ISBN: 978-1491933176</p></li>
+<li><p>Christian Hill, Learning Scientific Programming with Python, 2nd Ed, Dec 2020, ISBN: 978-1108745918</p></li>
+<li><p>Al Sweigart, Automate The Boring Stuff With Python, 2nd Ed., Oct 2019, ISBN: 978-1593279929</p></li>
+<li><p>Eric Matthes, Python Crash Course, 2nd Ed., May 2019, ISBN: 978-1593279288</p></li>
+<li><p>Alex Martelli, Anna Ravenscroft, Steve Holden, Python in a Nutshell, 3rd Ed., 2017, ISBN: 978-1449392925</p></li>
+</ul>
+<p><strong>Useful Jupyter Commands:</strong>
+<strong><span style="color:black">Jupyter Cheat Sheet</span></strong></p>
+<ul class="simple">
+<li><p>To run the currently highlighted cell and move focus to the next cell, hold <kbd>⇧ Shift</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To run the currently highlighted cell and keep focus in the same cell, hold <kbd>⇧ Ctrl</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To get help for a specific function, place the cursor within the function’s brackets, hold <kbd>⇧ Shift</kbd>, and press <kbd>⇥ Tab</kbd>;</p></li>
+</ul>
+</section>
+</section>
+<section id="getting-started-with-jupyter-notebooks-a-id-1-getting-started-with-jupyter-notebooks-a">
+<h2>1 Getting Started with Jupyter Notebooks<a id="1-getting-started-with-jupyter-notebooks"></a><a class="headerlink" href="#getting-started-with-jupyter-notebooks-a-id-1-getting-started-with-jupyter-notebooks-a" title="Permalink to this headline">#</a></h2>
+<!-- begin tutor -->
+<section id="following-the-lecture-a-id-following-the-lecture-a">
+<h3>1.1 Following the “lecture” <a id="following-the-lecture"></a><a class="headerlink" href="#following-the-lecture-a-id-following-the-lecture-a" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Slides cover the main points in the session</p></li>
+<li><p>Notebooks serve as complete ‘handouts’</p></li>
+<li><p><strong>Don’t</strong> try to read the notebook as we go!</p></li>
+<li><p>My suggestion is:</p>
+<ul>
+<li><p>Use <kbd>⇧ Shift</kbd> and <kbd>⏎ Enter</kbd> to keep your notebook in the same place as the talk</p></li>
+<li><p>If you want to make extra notes, edit existing cells (and save a copy of the notebook after!)</p></li>
+</ul>
+</li>
+</ul>
+<!-- end tutor --><p>Over the next ten units you will learn how to use computer programming to help with chemistry. We will focus on Python: an easy-to-learn, but very powerful, programming language. As well as powering many of the apps on your phone, Python is widely used in many different disciplines.</p>
+<p>Python code can be run in many ways, but we will use Jupyter Notebooks like the one you’re reading currently. Jupyter Notebooks allow you to combine live code and explanatory text in the same document, and can work like a digital lab book for computer code.</p>
+</section>
+<section id="tasks-and-solutions">
+<h3>1.2 Tasks and Solutions<a class="headerlink" href="#tasks-and-solutions" title="Permalink to this headline">#</a></h3>
+<p><a id='tasks_how_to'></a>
+There are <strong>Tasks</strong> in each unit for you to try by yourself. These are shown in green, like this:</p>
+<div class="alert alert-success"><b>Task xx: This is a task.</b>
+<p>This is a description of the task. <strong>Try to do the task yourself first!</strong></p>
+</div>
+<p>If you get stuck, the solutions are provided in a drow-down window below the task description:</p>
+<details><summary {style="color:green;font-weight:bold"}> Click here to see the solution to Task xx. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution code</span>
+<span class="c1"># Try the task yourself first</span>
+<span class="c1"># You can ask demonstrators for help</span>
+</pre></div>
+</div>
+<p>Try to avoid copy-pasting solutions.</p>
+<p>There are also some <strong>Advanced tasks</strong> which you should only attempt if you have time. Similarly, there are also extra exercises shown in yellow:</p>
+<div class="alert alert-warning"><b> Advanced Task XX: More information on Task</b>
+<p>This is a description of an extra exercise that you can try out if you have time.</p>
+</div><p><strong>Example tasks</strong> are in the similar format to the above, but are worked through in a live session.</p>
+</section>
+</section>
+<section id="notebook-layout">
+<h2>2. Notebook Layout<a class="headerlink" href="#notebook-layout" title="Permalink to this headline">#</a></h2>
+<p><a id="#12-notebook-layout"></a></p>
+<!-- begin no_present -->
+<p>A Jupyter notebook consists of a series of <strong>cells</strong> which can contain either formatted text (a <strong>Markdown cell</strong>) or executable code (a <strong>code cell</strong>). The type of a cell can be changed using the toolbar at the top of the page.
+For example, if you click on this cell it will be highlighted by a box, and the toolbar will display ‘Markdown’:
+<img alt="Image showing 'Markdown' in drop-down box" src="../_images/markdown_dropdown.png" /></p>
+<p>The cell below is a <strong>code</strong> cell. In addition to showing <strong>Code</strong> in the drop-down box (try clicking on it!), code cells also display the text <code class="docutils literal notranslate"><span class="pre">In</span> <span class="pre">[]:</span></code> to the left-hand side. If the code cell has been executed, a number will appear between the square brackets.</p>
+<!-- end no_present --><!-- begin tutor -->
+<p>Jupyter Notebooks contain <strong>cells</strong>:</p>
+<!-- end tutor --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is a code cell</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin tutor -->
+<p>Cells contain either code or formatted text (<strong>Markdown</strong>) and can be switched from the toolbar:
+<img alt="Image showing 'Markdown' in drop-down box" src="../_images/markdown_dropdown.png" /></p>
+<!-- end tutor --><section id="command-mode-and-edit-mode-a-id-command-mode-and-edit-mode-a">
+<h3>Command mode and edit mode <a id="command-mode-and-edit-mode"></a><a class="headerlink" href="#command-mode-and-edit-mode-a-id-command-mode-and-edit-mode-a" title="Permalink to this headline">#</a></h3>
+<p>In Jupyter, each cell can be switched between two modes:</p>
+<br>
+<dl>
+    <dt>Edit Mode</dt>
+    <dd>Allows you to modify the text or code</dd>
+    <dt>Command mode</dt>
+    <dd>Allows you to execute the code in a cell</dd>
+</dl><!-- begin tutor -->
+<ul class="simple">
+<li><p>Press <kbd>⏎ Enter</kbd> to switch to edit mode</p></li>
+<li><p><kbd>Esc</kbd> will switch back to command mode</p></li>
+</ul>
+<!-- end tutor --><p>By default the notebook begins in command mode.</p>
+<div class="alert alert-info">
+<b>When you are in command mode</b>, you can press <kbd>&#x23ce; Enter</kbd>to switch to edit mode. The left border of the cell you currently have selected will turn green, and a cursor will appear.
+</div>
+<div class="alert alert-info">
+<b>When you are in edit mode</b>, you can press <kbd>Esc</kbd> to switch to command mode. The left border of the cell you currently have selected will turn blue, and the cursor will disappear.
+</div>
+</section>
+<section id="markdown-cells-a-id-markdown-cells-a">
+<h3>Markdown cells <a id="markdown-cells"></a><a class="headerlink" href="#markdown-cells-a-id-markdown-cells-a" title="Permalink to this headline">#</a></h3>
+<p>Markdown cells can display formatted text and pictures, and are an excellent way to describe what your code does and discuss the results (imagine a lab report with interactive calculations). I strongly encourage you to use Markdown cells in your work!</p>
+<p>In <strong>command mode</strong> a markdown cell might look like this:</p>
+<p><img alt="Markdown cell in command mode" src="../_images/command-mode-markdown-rendered.png" /></p>
+<p>Then, when you press <kbd>⏎ Enter</kbd>, it will change to <strong>edit mode</strong>:</p>
+<p><img alt="Markdown cell in edit mode" src="../_images/edit-mode-markdown.png" /></p>
+<p>Now, when we press <kbd>Esc</kbd>, it will change back to <strong>command mode</strong>:</p>
+<p><img alt="Markdown cell in command mode after editing" src="../_images/command-mode-markdown-unrendered.png" /></p>
+<p>Notice that the markdown cell no longer looks like it did originally; we need to <strong>run</strong> the cell in order to display the formatted markdown. Do this by pressing <kbd>Ctrl</kbd> and <kbd>⏎ Enter</kbd>, and then it will go back to looking like it did originally:</p>
+<p><img alt="Markdown cell after running the cell" src="../_images/command-mode-markdown-rendered.png" /></p>
+</section>
+<section id="your-turn">
+<h3>Your turn!<a class="headerlink" href="#your-turn" title="Permalink to this headline">#</a></h3>
+<p>Test out this cell, switching between <strong>command mode</strong>, <strong>edit mode</strong> and <strong>running</strong> the cell.</p>
+</section>
+<section id="code-cells-a-id-code-cells-a">
+<h3>Code cells <a id="code-cells"></a><a class="headerlink" href="#code-cells-a-id-code-cells-a" title="Permalink to this headline">#</a></h3>
+<p>Code cells contain code that should run, and possibly produce an output (such as graphs, tables, numbers, etc).</p>
+<p>Similar to Markdown cells, code cells have both <strong>command</strong> mode:</p>
+<p><img alt="Code cell in command mode" src="../_images/command-mode-outline.png" /></p>
+<p>and <strong>edit</strong> mode (switch to <strong>edit</strong> mode using <kbd>⏎ Enter</kbd>):</p>
+<p><img alt="Code cell in edit mode" src="../_images/edit-mode-outline.png" /></p>
+<p>Pressing escape will go back to <strong>command mode</strong> again:</p>
+<p><img alt="Code cell in command mode again" src="../_images/command-mode-outline.png" /></p>
+<p>The main difference between markdown and code cells is that if we press <kbd>Ctrl</kbd> and <kbd>⏎ Enter</kbd>, this will <strong>run</strong> the code in the code cell:</p>
+<p><img alt="Running code cell" src="../_images/code-cell-run.png" /></p>
+</section>
+<section id="running-code-cells-a-id-116-running-code-cells-a">
+<h3>Running code cells <a id="116-running-code-cells"></a><a class="headerlink" href="#running-code-cells-a-id-116-running-code-cells-a" title="Permalink to this headline">#</a></h3>
+<p>Code cells can contain any valid Python code in them. When you run the cell, the code is executed and any output is displayed.</p>
+<div class="alert alert-info">
+    You can execute cells with <kbd>Ctrl</kbd> and <kbd>&#x23ce; Enter</kbd> which will keep the current cell selected, or <kbd>&#x21E7; Shift</kbd> and <kbd>&#x23ce; Enter</kbd> which will move to the next cell.
+</div></section>
+<section id="id1">
+<h3>Your turn:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>Try running the following cell and see what it prints out (don’t worry about understanding the code for now):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Printing cumulative sum from 1-10:&quot;</span><span class="p">)</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Sum of 1 to </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="s1">&#39;Done printing numbers.&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Printing cumulative sum from 1-10:
+Sum of 1 to 1 is 1
+Sum of 1 to 2 is 3
+Sum of 1 to 3 is 6
+Sum of 1 to 4 is 10
+Sum of 1 to 5 is 15
+Sum of 1 to 6 is 21
+Sum of 1 to 7 is 28
+Sum of 1 to 8 is 36
+Sum of 1 to 9 is 45
+Sum of 1 to 10 is 55
+Done printing numbers.
+</pre></div>
+</div>
+</div>
+</div>
+<p>You’ll notice that the output beneath the cell corresponds to the <code class="docutils literal notranslate"><span class="pre">print</span></code> statements in the code. Here is another example which only prints out the final total.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">i</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-jupyter-kernel-a-id-12-the-jupyter-kernel-a">
+<h2>3 The Jupyter Kernel <a id="12-the-jupyter-kernel"></a><a class="headerlink" href="#the-jupyter-kernel-a-id-12-the-jupyter-kernel-a" title="Permalink to this headline">#</a></h2>
+<!-- begin tutor -->
+<p>The <strong>kernel</strong> is in charge of executing Python code.</p>
+<!-- end tutor --><p>When you first start a notebook, you are also starting what is called a <strong>kernel</strong>. This is a special program that runs in the background and executes Python code. Whenever you run a code cell, you are telling the kernel to execute the code that is in the cell, and to print the output (if any).</p>
+<section id="restarting-the-kernel">
+<h3>Restarting the kernel<a class="headerlink" href="#restarting-the-kernel" title="Permalink to this headline">#</a></h3>
+<p>If you are sure your code is correct but it keeps giving you errors then restarting the kernel often helps.</p>
+<p>The restart kernel button is the circular arrow in the toolbar (pointed to by the red arrow in this image).</p>
+<p><img alt="" src="../_images/restart-kernel-button.png" /></p>
+</section>
+<section id="help-with-jupyer-notebooks-a-id-118-help-with-jupyer-notebooks-a">
+<h3>Help with Jupyer Notebooks <a id="118-help-with-jupyer-notebooks"></a><a class="headerlink" href="#help-with-jupyer-notebooks-a-id-118-help-with-jupyer-notebooks-a" title="Permalink to this headline">#</a></h3>
+<div class="alert alert-info">
+There are many keyboard shortcuts for the notebook. To see a full list of these, go to <b>Help $\rightarrow$ Keyboard Shortcuts</b>.
+</div>
+<div class="alert alert-info">To learn a little more about what things are what in the Jupyter Notebook, check out the user interface tour, which you can access by going to <b>Help$\rightarrow$User Interface Tour</b>.</div></section>
+</section>
+<section id="tasks-a-id-task-a">
+<h2>Tasks <a id="task"></a><a class="headerlink" href="#tasks-a-id-task-a" title="Permalink to this headline">#</a></h2>
+<p>Please work through these tasks in groups of two or three. Don’t worry if you don’t finish the in the alloted time!</p>
+<div class="alert alert-success"> 
+<b> Task 1.1: Controlling Cells </b>
+<p>In the Jupyter notebook page are you currently in Command or Edit mode?
+Switch between the modes.</p>
+<ul class="simple">
+<li><p>Use the shortcuts to generate a new cell.</p></li>
+<li><p>Use the shortcuts to delete a cell.</p></li>
+<li><p>Use the shortcuts to undo the last cell operation you performed.</p></li>
+</ul>
+</div><details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 1.1 </summary>
+<ul class="simple">
+<li><p>switch between command and edit modes using <kbd>⏎ Enter</kbd> and <kbd>Esc</kbd></p></li>
+<li><p>Add a cell in command mode either above (<kbd>A</kbd>) or below (<kbd>B</kbd>) the current one</p></li>
+<li><p>Use <kbd>D</kbd>, <kbd>D</kbd> from command mode to delete a cell</p></li>
+<li><p><kbd>Z</kbd> will undo the deletion</p></li>
+</ul>
+</details><div class="alert alert-success"> 
+<b> Task 1.2: Markdown lists </b>
+<p>Create a nested list in a Markdown cell in a notebook that looks similar to this (the bullet design will depend on your browser settings):</p>
+<p><img alt="nest_list" src="../_images/nested_list.png" /></p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see the solution to Task 1.2.</summary>
+<p><strong>Markdown Input:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">Get</span> <span class="n">funding</span>
+<span class="mf">2.</span> <span class="n">Do</span> <span class="n">work</span><span class="o">.</span>
+    <span class="o">-</span> <span class="n">Design</span> <span class="n">Experiment</span>
+    <span class="o">-</span> <span class="n">Collect</span> <span class="n">data</span>
+    <span class="o">-</span> <span class="n">Analyze</span>
+<span class="mf">3.</span> <span class="n">Write</span> <span class="n">up</span><span class="o">.</span>
+<span class="mf">4.</span> <span class="n">Publish</span>
+</pre></div>
+</div>
+<p><strong>Rendered Output:</strong></p>
+<ol class="simple">
+<li><p>Get funding</p></li>
+<li><p>Do work.</p>
+<ul class="simple">
+<li><p>Design Experiment</p></li>
+<li><p>Collect data</p></li>
+<li><p>Analyze</p></li>
+</ul>
+</li>
+<li><p>Write up.</p></li>
+<li><p>Publish</p></li>
+</ol>
+</details><div class="alert alert-success"> 
+<b> Task 1.3: Maths in code cells </b>
+<p>What happens if you write some Maths in a code cell and execute it?</p>
+<p>What happens if you then switch it to a Markdown cell? For example, put the following in a code cell:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="mi">6</span><span class="o">*</span><span class="mi">7</span><span class="o">+</span><span class="mi">12</span>
+</pre></div>
+</div>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see the solution to Task 1.3</summary>
+<br>
+<dl>
+    <dt> Code cell </dt>
+    <dd> Math operations are performed and the numerical answer returned </dd>
+    <dt> Markdown cell </dt>
+    <dd> Operations are simply rendered as text (see task 1.4 for rendering equations) </dd>
+</details><div class="alert alert-success"> 
+<b> Task 1.4: Equations </b>
+<p>Standard Markdown (such as we’re using for these notes) won’t render equations, but the Notebook will.</p>
+<p>Create a new Markdown cell and enter the following:
+<code class="docutils literal notranslate"><span class="pre">$$\sum_{i=1}^{N}</span> <span class="pre">2^{-i}</span> <span class="pre">\approx</span> <span class="pre">1$$</span></code></p>
+<p>(It’s probably easier to copy and paste.) What does it display?</p>
+<p>What do you think the underscore (_), circumflex (^) and dollar signs ($) do?</p>
+ </div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see the solution to Task 1.4.</summary>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{N} 2^{-i} \approx 1\]</div>
+<ul class="simple">
+<li><p>Dollar signs ($) surrounding text cause it to be rendered in ‘math mode’</p>
+<ul>
+<li><p>Investigate the difference between single and double dollars</p></li>
+</ul>
+</li>
+<li><p>Underscore (_) causes the next character (or group surrounded by curly brackets, {..}) to be subscripted</p></li>
+<li><p>Circumflex (^) works to superscript</p></li>
+</ul>
+</details><div class="alert alert-success"> 
+<b> Task 1.5: Closing and restarting </b>
+<ul class="simple">
+<li><p>Close your Jupyter notebook and restart it.</p></li>
+<li><p>Restart the Kernel</p></li>
+<li><p>Try opening a blank notebook</p></li>
+</ul>
+</div><div class="alert alert-warning"> 
+<b> Extra Task 1.6: Extra Taks </b>
+<p>Try to create a table using a markdown cell, containing for instance the formula masses of the first 6 elements.</p>
+</div><details><summary {style='color:green;font-weight:bold'}> Click here to see the solution to Exercise 1.6</summary>
+<br>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Element name</p></th>
+<th class="text-align:right head"><p>Element mass (g mol<sup>-1</sup>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>H</p></td>
+<td class="text-align:right"><p>1.008</p></td>
+</tr>
+<tr class="row-odd"><td><p>He</p></td>
+<td class="text-align:right"><p>4.003</p></td>
+</tr>
+<tr class="row-even"><td><p>Li</p></td>
+<td class="text-align:right"><p>6.941</p></td>
+</tr>
+<tr class="row-odd"><td><p>Be</p></td>
+<td class="text-align:right"><p>9.012</p></td>
+</tr>
+<tr class="row-even"><td><p>B</p></td>
+<td class="text-align:right"><p>10.811</p></td>
+</tr>
+<tr class="row-odd"><td><p>C</p></td>
+<td class="text-align:right"><p>12.011</p></td>
+</tr>
+</tbody>
+</table>
+</details>
+</section>
+<section id="next-notebook">
+<h2>Next Notebook<a class="headerlink" href="#next-notebook" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="Unit_01_problem_solving_II.html"><span class="doc std std-doc">Unit 01 Problem solving II</span></a></p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unit_01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../book_intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data Driven Chemistry</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Unit_01_problem_solving_II.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit 01: Problem Solving II</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Edinburgh Chemistry Teaching<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

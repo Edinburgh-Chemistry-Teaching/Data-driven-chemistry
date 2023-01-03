@@ -1,0 +1,1772 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit 06 An Introduction to Molecular Geometries &#8212; Data-Driven Chemistry</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit 07 Fitting Part I" href="../Unit_07/Unit_07_fitting_I.html" />
+    <link rel="prev" title="Unit 06 More Statistics: Comparing Distributions" href="Unit_06_statistics_I.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data-Driven Chemistry</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Welcome to Data-Driven Chemistry
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About Data-Driven Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../book_intro.html">
+   Data Driven Chemistry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_I.html">
+   Unit 01: Problem Solving I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_II.html">
+   Unit 01: Problem Solving II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_I.html">
+   Unit 02: First steps in Python I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_II.html">
+   Unit 2: First steps in Python II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_I.html">
+   Unit 03: Loops, pandas and simple plotting I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_II.html">
+   Unit 03: Loops, pandas and simple plotting II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_I.html">
+   Unit 04: Functions I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_II.html">
+   Unit 04: Functions II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Plotting and Statistics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_I_numerical_data.html">
+   Unit 05: Introduction to NumPy and Plotting, part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_II_plotting.html">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Unit_06_statistics_I.html">
+   Unit 06 More Statistics: Comparing Distributions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Molecular Geometries
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unit 06 An Introduction to Molecular Geometries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fitting Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_I.html">
+   Unit 07 Fitting Part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_II.html">
+   Unit 07 Fitting Part II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Applications of Python in Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_08/Unit_08_Applications_I.html">
+   Unit 08 Applications to Chemistry I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_I.html">
+   Unit 09: Applications II UV-Vis Spectroscopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_II.html">
+   Unit 09: Applications II  Protein SAXS and simulation data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_student.html">
+   Unit 10 - Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_solution.html">
+   Unit 10 - Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/main?urlpath=tree/Unit_06/Unit_06_molecular_geometries_II.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/issues/new?title=Issue%20on%20page%20%2FUnit_06/Unit_06_molecular_geometries_II.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Unit_06/Unit_06_molecular_geometries_II.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 06 An Introduction to Molecular Geometries
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives">
+     Learning objectives:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#further-reading-for-this-topic">
+       Further reading for this topic
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#link-to-documentation">
+       Link to documentation:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-of-molecular-geometries">
+   Analysis of Molecular Geometries
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#molecular-file-formats">
+     3.1 Molecular file formats
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#xyz-files-store-x-y-z-coordinates-of-a-molecule-and-represent-one-of-the-simplest-possible-molecular-file-formats">
+       xyz files store x,y,z coordinates of a molecule and represent one of the simplest possible molecular file formats
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#understanding-the-content-of-an-xyz-file">
+       Understanding the content of an xyz file
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#difference-between-pdb-and-xyz-file-formats">
+       Difference between pdb and xyz file formats
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nglview-is-a-tool-for-viewing-the-spatial-coordinates-of-a-molecule">
+       NGLView is a tool for viewing the spatial coordinates of a molecule
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#revisiting-dictionaries">
+       Revisiting Dictionaries
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parsing-xyz-files-with-python">
+       Parsing xyz files with Python
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-4">
+     Tasks 4
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#measuring-structural-parameters">
+       3.2. Measuring Structural Parameters
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#calculating-bond-lengths-angles-or-dihedrals-is-a-typical-task-for-a-chemist">
+         Calculating bond lengths, angles, or dihedrals is a typical task for a Chemist
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#bonds">
+         Bonds
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#or-using-a-built-in-function-in-numpy">
+         Or using a built in function in Numpy
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-5">
+     Tasks 5
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#angles">
+       Angles
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#measuring-an-angle-in-formamide">
+       Measuring an angle in formamide
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-6">
+     Tasks 6
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#there-are-many-python-packages-libraries-that-can-help-you-with-tasks-such-as-these">
+       There are many Python packages/libraries that can help you with tasks such as these
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#molecular-trajectories-extra-topic">
+     5. Molecular trajectories [Extra topic]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#working-with-molecular-trajectory-files">
+       Working with molecular trajectory files
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#visualising-a-trajectory">
+       Visualising a trajectory
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extra-tasks">
+       Extra Tasks
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unit 06 An Introduction to Molecular Geometries</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 06 An Introduction to Molecular Geometries
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives">
+     Learning objectives:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#further-reading-for-this-topic">
+       Further reading for this topic
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#link-to-documentation">
+       Link to documentation:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-of-molecular-geometries">
+   Analysis of Molecular Geometries
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#molecular-file-formats">
+     3.1 Molecular file formats
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#xyz-files-store-x-y-z-coordinates-of-a-molecule-and-represent-one-of-the-simplest-possible-molecular-file-formats">
+       xyz files store x,y,z coordinates of a molecule and represent one of the simplest possible molecular file formats
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#understanding-the-content-of-an-xyz-file">
+       Understanding the content of an xyz file
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#difference-between-pdb-and-xyz-file-formats">
+       Difference between pdb and xyz file formats
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nglview-is-a-tool-for-viewing-the-spatial-coordinates-of-a-molecule">
+       NGLView is a tool for viewing the spatial coordinates of a molecule
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#revisiting-dictionaries">
+       Revisiting Dictionaries
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parsing-xyz-files-with-python">
+       Parsing xyz files with Python
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-4">
+     Tasks 4
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#measuring-structural-parameters">
+       3.2. Measuring Structural Parameters
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#calculating-bond-lengths-angles-or-dihedrals-is-a-typical-task-for-a-chemist">
+         Calculating bond lengths, angles, or dihedrals is a typical task for a Chemist
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#bonds">
+         Bonds
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#or-using-a-built-in-function-in-numpy">
+         Or using a built in function in Numpy
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-5">
+     Tasks 5
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#angles">
+       Angles
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#measuring-an-angle-in-formamide">
+       Measuring an angle in formamide
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-6">
+     Tasks 6
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#there-are-many-python-packages-libraries-that-can-help-you-with-tasks-such-as-these">
+       There are many Python packages/libraries that can help you with tasks such as these
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#molecular-trajectories-extra-topic">
+     5. Molecular trajectories [Extra topic]
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#working-with-molecular-trajectory-files">
+       Working with molecular trajectory files
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#visualising-a-trajectory">
+       Visualising a trajectory
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extra-tasks">
+       Extra Tasks
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-06-an-introduction-to-molecular-geometries">
+<h1>Unit 06 An Introduction to Molecular Geometries<a class="headerlink" href="#unit-06-an-introduction-to-molecular-geometries" title="Permalink to this headline">#</a></h1>
+<p><a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://licensebuttons.net/l/by/4.0/88x31.png" title='This work is licensed under a Creative Commons Attribution 4.0 International License.' align="right"/></a></p>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Dr Antonia Mey</p></li>
+<li><p>Dr Rafal Szabla</p></li>
+</ul>
+<p>Email: <a class="reference external" href="mailto:antonia&#46;mey&#37;&#52;&#48;ed&#46;ac&#46;uk">antonia<span>&#46;</span>mey<span>&#64;</span>ed<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="learning-objectives">
+<h2>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Read and manipulate molecular file formats: <code class="docutils literal notranslate"><span class="pre">xyz</span></code> and <code class="docutils literal notranslate"><span class="pre">pdb</span></code> files</p></li>
+<li><p>Visualise molecules in a Jupyter notebook</p></li>
+</ul>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#geometries">Analysis of Molecular Geometries</a><br />
+1.1 <a class="reference external" href="#file_formats">Molecular File Formats</a><br />
+1.2 <a class="reference external" href="#parameters">Measuring Structural Parameters</a><br />
+1.3 <a class="reference external" href="#tasks">Tasks</a></p></li>
+<li><p><a class="reference external" href="#trajectories">Molecular Trajectories [Extra Topic]</a></p></li>
+</ol>
+<section id="further-reading-for-this-topic">
+<h3>Further reading for this topic<a class="headerlink" href="#further-reading-for-this-topic" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Overview of different File formats in Chemistry: <a class="reference external" href="https://en.wikipedia.org/wiki/Chemical_file_format">https://en.wikipedia.org/wiki/Chemical_file_format</a></p></li>
+</ul>
+</section>
+<section id="link-to-documentation">
+<h3>Link to documentation:<a class="headerlink" href="#link-to-documentation" title="Permalink to this headline">#</a></h3>
+<p>Tools we used in this session:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.w3schools.com/python/ref_math_acos.asp">math.acos</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html">np.linalg.norm</a></p></li>
+</ul>
+<p>Tools that will allow you to read complex molecular file formats easily:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://biopython.org">Biopython</a></p></li>
+<li><p><a class="reference external" href="https://www.mdanalysis.org">MDAnalysis</a></p></li>
+<li><p><a class="reference external" href="https://www.mdtraj.org/1.9.8.dev0/index.html">MDTraj</a></p></li>
+<li><p><a class="reference external" href="https://degiacomi-lab.github.io/biobox/">BioBox</a></p></li>
+<li><p><a class="reference external" href="https://wiki.fysik.dtu.dk/ase/">ASE</a></p></li>
+</ul>
+<p><strong><span style="color:black">Jupyter Cheat Sheet</span></strong></p>
+<ul class="simple">
+<li><p>To run the currently highlighted cell and move focus to the next cell, hold <kbd>⇧ Shift</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To run the currently highlighted cell and keep focus in the same cell, hold <kbd>⇧ Ctrl</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To get help for a specific function, place the cursor within the function’s brackets, hold <kbd>⇧ Shift</kbd>, and press <kbd>⇥ Tab</kbd>;</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="analysis-of-molecular-geometries">
+<h1>Analysis of Molecular Geometries<a class="headerlink" href="#analysis-of-molecular-geometries" title="Permalink to this headline">#</a></h1>
+<p><a id='geometries'></a></p>
+<section id="molecular-file-formats">
+<h2>3.1 Molecular file formats<a class="headerlink" href="#molecular-file-formats" title="Permalink to this headline">#</a></h2>
+<p><a id='file_format'></a>
+Structural information about molecular systems can be obtained from various sources such as spectroscopy, crystallography, molecular dynamics or quantum chemical simulations. These data can be stored in various formats depending on their origin and intended applications. Apart from simple information about types of atoms and their positions in space, structural data may include information about bonding, protein or nucleic acid residues, atom types, properties (atomic numbers, charges), energies etc. In this section, you will learn how to visualize and manipulate structural data based on vector algebra. Most importantly, you will learn how to analyse complex files with molecular structures to understand and interpret various chemical phenomena.</p>
+<p>Below you can find brief descriptions of the most popular file formats used to store information on molecular structure:</p>
+<ul class="simple">
+<li><p>xyz files - contain atom names and their Cartesian coordinates in separate columns, in Angstroms. The first line defines the number of atoms, while the second line is a comment (e.g. energy, molecule name etc.)</p></li>
+<li><p>pdb files - a more complex format with atomic Cartesian coordinates, most commonly used for biological systems. Contain information about atom types and residues.</p></li>
+<li><p>Z-matrices - contain information about bonding parameters, valence angles and dihedral angles. Can be used for constructing simple molecules in ordinary text editors.</p></li>
+<li><p>CIF files - crystallographic information files. Contain crystal structure and information about the periodic unit cell of the given material. This file format is the only format capable of describing periodic materials.</p></li>
+</ul>
+<p>While there are many other file formats for representing molecular structures, we will primarily focus on the first three types. In particular, we will learn how to extract valuable information.</p>
+<p>We will start with the simplest format, i.e. xyz files. Let’s start by considering a simple xyz file containing the structure of formamide. To view the contents of the formamide-min.xyz file in your directory, open the file, assign all its contents to a variable called molecule, and print it.</p>
+<section id="xyz-files-store-x-y-z-coordinates-of-a-molecule-and-represent-one-of-the-simplest-possible-molecular-file-formats">
+<h3>xyz files store x,y,z coordinates of a molecule and represent one of the simplest possible molecular file formats<a class="headerlink" href="#xyz-files-store-x-y-z-coordinates-of-a-molecule-and-represent-one-of-the-simplest-possible-molecular-file-formats" title="Permalink to this headline">#</a></h3>
+<p>We can read the content of formamide-min.xyz  using the <code class="docutils literal notranslate"><span class="pre">open()</span></code> command. This creates a <em>file handle</em> (called <code class="docutils literal notranslate"><span class="pre">f</span></code>, in this case), enabling us to interact with the file. Using the file handle, we can read all the content of the file calling the <code class="docutils literal notranslate"><span class="pre">read()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/formamide-min.xyz&#39;</span><span class="p">)</span> <span class="c1"># open the file</span>
+<span class="n">molecule</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># read its content</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1">#close the file</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="understanding-the-content-of-an-xyz-file">
+<h3>Understanding the content of an xyz file<a class="headerlink" href="#understanding-the-content-of-an-xyz-file" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The first line gives information on how many atoms there are in the molecule</p></li>
+<li><p>The second line provides a name for the molecule</p></li>
+<li><p>The next six lines consists of 4 columns:</p>
+<ul>
+<li><p>The first column is the name of the element,</p></li>
+<li><p>The second, third, and forth give x,y, and z spatial coordinates, respectively.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">molecule</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+formamide
+  C    0.09595764634995      0.05127344307728     -0.10000522615731
+  O    0.28133172483522     -0.15000356830941      1.08077793895232
+  H    0.92120376351115      0.34424445569810     -0.80768779789049
+  N   -1.10609182447786     -0.04581080881528     -0.74095354364749
+  H   -1.93979629136455     -0.29516637575576     -0.21181473151668
+  H   -1.19688137738638      0.15868785917012     -1.73175799027395
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now repeat the same operations as above, this time loading a file in the pdb format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/formamide.pdb&#39;</span><span class="p">)</span> <span class="c1"># open the file</span>
+<span class="n">molecule_pdb</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="c1"># read its content</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c1">#close the file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">molecule_pdb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MODEL        1
+COMPND    formamide 
+AUTHOR    GENERATED BY OPEN BABEL 2.4.1
+HETATM    1  C   UNL     1       0.096   0.051  -0.100  1.00  0.00           C  
+HETATM    2  O   UNL     1       0.281  -0.150   1.081  1.00  0.00           O  
+HETATM    3  H   UNL     1       0.921   0.344  -0.808  1.00  0.00           H  
+HETATM    4  N   UNL     1      -1.106  -0.046  -0.741  1.00  0.00           N  
+HETATM    5  H   UNL     1      -1.940  -0.295  -0.212  1.00  0.00           H  
+HETATM    6  H   UNL     1      -1.197   0.159  -1.732  1.00  0.00           H  
+CONECT    1    3    4    2                                            
+CONECT    2    1                                                      
+CONECT    3    1                                                      
+CONECT    4    6    5    1                                            
+CONECT    5    4                                                      
+CONECT    6    4                                                      
+MASTER        0    0    0    0    0    0    0    0    6    0    6    0
+ENDMDL
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="difference-between-pdb-and-xyz-file-formats">
+<h3>Difference between pdb and xyz file formats<a class="headerlink" href="#difference-between-pdb-and-xyz-file-formats" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>The pdb file contains similar content to the xyz file, namely the coordiantes of the molecule</p></li>
+<li><p>It also contains additional bonding information and has a very specific, more complex format</p></li>
+<li><p>For visuatlisation purpose we will use the pdb format, for everything else xyz, due to its simplicity</p></li>
+</ul>
+</section>
+<section id="nglview-is-a-tool-for-viewing-the-spatial-coordinates-of-a-molecule">
+<h3>NGLView is a tool for viewing the spatial coordinates of a molecule<a class="headerlink" href="#nglview-is-a-tool-for-viewing-the-spatial-coordinates-of-a-molecule" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>NGLView supports multiple file formats, but not natively xyz</p></li>
+<li><p>You can use it to visualise trajectories of molecules (think molecular movie)</p></li>
+<li><p>It is a handy tool to sanity check, e.g. bond lengths visually</p></li>
+<li><p>You can use the <code class="docutils literal notranslate"><span class="pre">show_file()</span></code> method to visualise the file</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nglview</span> <span class="c1"># Let&#39;s start by importing nglview</span>
+<span class="n">nglview</span><span class="o">.</span><span class="n">show_file</span><span class="p">(</span><span class="s1">&#39;data/formamide.pdb&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "329cda2a46b047a299ff9556abcc99ce"}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "d27301eec39c4298b54a56700d314bc5"}
+</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">py3Dmol</span>
+<span class="c1"># This line will grab the pdb file from the data bank</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">py3Dmol</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="s1">&#39;data/formamide.pdb&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;stick&quot;</span><span class="p">)</span>
+<span class="n">view</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div id="3dmolviewer_1672753572092839"  style="position: relative; width: 640px; height: 480px">
+        <p id="3dmolwarning_1672753572092839" style="background-color:#ffcccc;color:black">You appear to be running in JupyterLab (or JavaScript failed to load for some other reason).  You need to install the 3dmol extension: <br>
+        <tt>jupyter labextension install jupyterlab_3dmol</tt></p>
+        </div>
+<script>
+
+var loadScriptAsync = function(uri){
+  return new Promise((resolve, reject) => {
+    var tag = document.createElement('script');
+    tag.src = uri;
+    tag.async = true;
+    tag.onload = () => {
+      resolve();
+    };
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
+};
+
+if(typeof $3Dmolpromise === 'undefined') {
+$3Dmolpromise = null;
+  $3Dmolpromise = loadScriptAsync('https://cdn.jsdelivr.net/npm/3dmol@latest/build/3Dmol-min.min.js');
+}
+
+var viewer_1672753572092839 = null;
+var warn = document.getElementById("3dmolwarning_1672753572092839");
+if(warn) {
+    warn.parentNode.removeChild(warn);
+}
+$3Dmolpromise.then(function() {
+viewer_1672753572092839 = $3Dmol.createViewer($("#3dmolviewer_1672753572092839"),{backgroundColor:"white"});
+$3Dmol.download("data/formamide.pdb", viewer_1672753572092839, {}, function() {
+viewer_1672753572092839.setStyle("stick");
+viewer_1672753572092839.zoomTo();
+viewer_1672753572092839.render();
+})
+});
+</script></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;py3Dmol.view at 0x11319b790&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">py3Dmol</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">show</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function py3Dmol.using_ipython.&lt;locals&gt;.inner(*args, **kwargs)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="revisiting-dictionaries">
+<h3>Revisiting Dictionaries<a class="headerlink" href="#revisiting-dictionaries" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>A dictionary is a table similar to lists and tuples, which uses keys instead of indices.</p></li>
+<li><p>A key can be almost any Python object, e.g. string, number, tuple etc.</p></li>
+<li><p>Use self-explanatory keys to keep Python code easy to understand.</p></li>
+</ul>
+<p>Here follows an <em>example of usage of a dictionary</em> using information on the building blocks proteins: amino acids.
+There are 20 different naturally occurring amino acids. Let’s assume we have written a function that stores the number of different amino acids occurring in a single protein. The result can be conveniently stored in a dictionary:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amino_acids_in_protein</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;ALA&quot;</span> <span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;GLY&quot;</span> <span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;PRO&quot;</span> <span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;CYS&quot;</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The amino acid names are used as keys and the occurrence of each amino acid is used as the value.</p>
+<p>⚠️ <strong>Remember</strong>: Dictionaries use curly brackets instead of square brackets (for lists) when initiated, but you can add a new item to a dictionary or query a value based on a key in the following way:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new pair</span>
+<span class="n">amino_acids_in_protein</span><span class="p">[</span><span class="s2">&quot;TYR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">amino_acids_in_protein</span><span class="p">)</span>
+
+<span class="c1"># Query the number of a given amino acid</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;There are </span><span class="si">{</span><span class="n">amino_acids_in_protein</span><span class="p">[</span><span class="s2">&quot;ALA&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1"> &quot;ALA&quot; amino acids in the protein.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ALA&#39;: 21, &#39;GLY&#39;: 14, &#39;PRO&#39;: 3, &#39;CYS&#39;: 2, &#39;TYR&#39;: 4}
+There are 21 &quot;ALA&quot; amino acids in the protein.
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.keys()</span></code> method returns all the keys in a dictionary. This is useful when you want to iterate over the dictionary in a loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">amino_acids_in_protein</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1"> = </span><span class="si">{</span><span class="n">amino_acids_in_protein</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ALA = 21
+GLY = 14
+PRO = 3
+CYS = 2
+TYR = 4
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="parsing-xyz-files-with-python">
+<h3>Parsing xyz files with Python<a class="headerlink" href="#parsing-xyz-files-with-python" title="Permalink to this headline">#</a></h3>
+<p>The information provided by xyz files is limited to the positions of different atoms in 3-dimensional space. However, with some additional analysis we can learn more about the molecule itself, e.g.:</p>
+<ul class="simple">
+<li><p>measuring bond lengths,</p></li>
+<li><p>measuring angles,</p></li>
+<li><p>calculating the numbers of atoms of a given elements,</p></li>
+<li><p>calculating the molecular mass.</p></li>
+</ul>
+<p>For this, we need to parse the file into separate lines. The file handle <code class="docutils literal notranslate"><span class="pre">f</span></code> enables us to do this via the the <code class="docutils literal notranslate"><span class="pre">readlines()</span></code> method. This allows us to create a list of all lines in the file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/formamide-min.xyz&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="c1">### remember to close the file</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;6\n&#39;, &#39;formamide\n&#39;, &#39;  C    0.09595764634995      0.05127344307728     -0.10000522615731\n&#39;, &#39;  O    0.28133172483522     -0.15000356830941      1.08077793895232\n&#39;, &#39;  H    0.92120376351115      0.34424445569810     -0.80768779789049\n&#39;, &#39;  N   -1.10609182447786     -0.04581080881528     -0.74095354364749\n&#39;, &#39;  H   -1.93979629136455     -0.29516637575576     -0.21181473151668\n&#39;, &#39;  H   -1.19688137738638      0.15868785917012     -1.73175799027395\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">readlines()</span></code> method creates a list of lines from a text file. Notice how:</p>
+<ul class="simple">
+<li><p>each of them ending with the <code class="docutils literal notranslate"><span class="pre">\n</span></code></p></li>
+<li><p>Each line is stored as a string</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">\n</span></code> symbol is used to mark the of the line in text files on linux-based platforms.
+For the majority of analyses, we will only need the lines containing atomic specification. Using list ranges, print only the lines containing atomic specifications:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;  C    0.09595764634995      0.05127344307728     -0.10000522615731\n&#39;, &#39;  O    0.28133172483522     -0.15000356830941      1.08077793895232\n&#39;, &#39;  H    0.92120376351115      0.34424445569810     -0.80768779789049\n&#39;, &#39;  N   -1.10609182447786     -0.04581080881528     -0.74095354364749\n&#39;, &#39;  H   -1.93979629136455     -0.29516637575576     -0.21181473151668\n&#39;, &#39;  H   -1.19688137738638      0.15868785917012     -1.73175799027395\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to extract the information on atom types and their positions, we need to further parse each line using the <code class="docutils literal notranslate"><span class="pre">split()</span></code> function (apart from the first two lines). This function generates a list of elements present in each line. Without any attribute, this method assumes that the elements are separated by spaces.</p>
+<p>This is how you can separate a space-separated string of text (here, the fourth line of our formamide text file) into a list of elements:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_elements</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_of_elements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;O&#39;, &#39;0.28133172483522&#39;, &#39;-0.15000356830941&#39;, &#39;1.08077793895232&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The opposite operation, i.e. joining a list into a single string with space-separated elements, can be carried out as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">some_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">list_of_elements</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">some_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>O 0.28133172483522 -0.15000356830941 1.08077793895232
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tasks-4">
+<h2>Tasks 4<a class="headerlink" href="#tasks-4" title="Permalink to this headline">#</a></h2>
+<p><a id='tasks6'></a></p>
+<div class="alert alert-success">
+<b>Task 4.1: Count the number of atoms in formamide:</b>
+</div>
+Parse the file <code>data/formamide-min.xyz</code> file and count the number of atoms per atom type: how many Hydrogens, Carbons and Nitrogens are there? You will need to loop over the lines of the file, split the individual lines and then use the <code>count()</code> method for this. <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task 1: Test out the solution in this cell:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/formamide-min.xyz&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+<span class="n">atoms</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+    <span class="n">atomname</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atomname</span><span class="p">)</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;List of all atoms in formamide: </span><span class="si">{</span><span class="n">atoms</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of H atoms in this molecule = </span><span class="si">{</span><span class="n">atoms</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of N atoms in this molecule = </span><span class="si">{</span><span class="n">atoms</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;N&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Number of C atoms in this molecule = </span><span class="si">{</span><span class="n">atoms</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;C&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</details><div class="alert alert-success">
+<b>Task 4.2: Calculating the molecular mass of formamide:</b>
+</div>
+<ol class="simple">
+<li><p>Create a dictionary <code>atom_mass</code> containing C, N, O and H atoms as keys and their atomic masses (in atomic units) as values.</p></li>
+<li><p>create a function taking two parameters: a dictionary containing atomic masses (such as the one created in the previous point), and the name of an xyz file. The function will iterate over the lines in the xyz file, and return the molecular mass of the molecule. Here you can exploit code written in the previous task!</p></li>
+<li><p>Use the function to calculate the molecular mass of formamide, and on the file <code class="docutils literal notranslate"><span class="pre">data/colesterol.xyz</span></code>. The latter should have a mass of 386.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task 2: Test out the solution in this cell:</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># definition of the mass of each element</span>
+<span class="n">atom_mass</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;O&#39;</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">get_mass_of_molecule_from_file</span><span class="p">(</span><span class="n">atom_mass</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;reads an xyz file and computes the atomic mass of the molecule in the file</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    atom_mass : dictionary</span>
+<span class="sd">        dictionary containing atomic masses</span>
+<span class="sd">    </span>
+<span class="sd">    file_name : string</span>
+<span class="sd">        path to the xyz file to be read; only xyz is supported</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    mass_of_molecule : Integer</span>
+<span class="sd">        returns the molecular mass of the molecules in file_name</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    
+    <span class="c1"># you could include a check if the file you are trying to read exists here</span>
+    <span class="c1"># reading file</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="n">atoms</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+        <span class="n">atom_name</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">atom_name</span><span class="p">)</span>
+    
+    <span class="n">no_C</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    <span class="n">no_N</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+    <span class="n">no_H</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+    <span class="n">no_O</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;O&#39;</span><span class="p">)</span>
+    
+    <span class="n">mass_of_molecule</span><span class="o">=</span><span class="n">no_C</span><span class="o">*</span><span class="n">atom_mass</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">no_N</span><span class="o">*</span><span class="n">atom_mass</span><span class="p">[</span><span class="s1">&#39;N&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">no_H</span><span class="o">*</span><span class="n">atom_mass</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">no_O</span><span class="o">*</span><span class="n">atom_mass</span><span class="p">[</span><span class="s1">&#39;O&#39;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">mass_of_molecule</span>
+
+<span class="c1">#call the function on formamide</span>
+<span class="n">mass_formamide</span> <span class="o">=</span> <span class="n">get_mass_of_molecule_from_file</span><span class="p">(</span><span class="n">atom_mass</span><span class="p">,</span> <span class="s2">&quot;data/formamide-min.xyz&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mass_formamide</span><span class="p">)</span>
+
+<span class="c1">#call the function on cholesterol</span>
+<span class="n">mass_colesterol</span> <span class="o">=</span> <span class="n">get_mass_of_molecule_from_file</span><span class="p">(</span><span class="n">atom_mass</span><span class="p">,</span> <span class="s2">&quot;data/colesterol.xyz&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mass_colesterol</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><section id="measuring-structural-parameters">
+<h3>3.2. Measuring Structural Parameters<a class="headerlink" href="#measuring-structural-parameters" title="Permalink to this headline">#</a></h3>
+<p><a id='measuring'></a></p>
+<section id="calculating-bond-lengths-angles-or-dihedrals-is-a-typical-task-for-a-chemist">
+<h4>Calculating bond lengths, angles, or dihedrals is a typical task for a Chemist<a class="headerlink" href="#calculating-bond-lengths-angles-or-dihedrals-is-a-typical-task-for-a-chemist" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>bonds, angles, and dihedrals are internal coordinates of a molecule (i.e. their value is independent on the specific position and orientation of the molecule). These can be used to represent molecular geometries in a z-matrix format.</p></li>
+<li><p>bond lengths, angles, and dihedrals can be extracted from xyz files using vector algebra.</p></li>
+<li><p>a bond can be seen as a vector between two points in space, A and B, where A and B are the coordinates of two atoms.</p></li>
+</ul>
+</section>
+<section id="bonds">
+<h4>Bonds<a class="headerlink" href="#bonds" title="Permalink to this headline">#</a></h4>
+<p>To compute the length of a bond, we need to know the length of the vector connecting two atoms A and B using this formula:</p>
+<p><span class="math notranslate nohighlight">\(\vert\vert v\vert \vert\)</span>=<span class="math notranslate nohighlight">\(\sqrt{(x_B-x_A)^2+(y_B-y_A)^2+(z_B-z_A)^2}\)</span></p>
+<p>Let’s look at an example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">]</span>
+<span class="n">B</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What is the distance between A and B?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">v</span><span class="o">=</span><span class="n">sqrt</span><span class="p">((</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The distance between A and B is </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The distance between A and B is 1.08
+</pre></div>
+</div>
+</div>
+</div>
+<p>Remember for real bonds you will also have a unit for the distance, typically Å!</p>
+</section>
+<section id="or-using-a-built-in-function-in-numpy">
+<h4>Or using a built in function in Numpy<a class="headerlink" href="#or-using-a-built-in-function-in-numpy" title="Permalink to this headline">#</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code> is a quick way of working out the length of a vector.</p>
+</section>
+</section>
+</section>
+<section id="tasks-5">
+<h2>Tasks 5<a class="headerlink" href="#tasks-5" title="Permalink to this headline">#</a></h2>
+<p><a id='tasks5'></a></p>
+<div class="alert alert-success">
+<b>Task 5.1: Show how you can use the build in norm function in NumPy to compute the distance between A and B :</b>
+<p>Check that <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code> gives you the same answer.
+Hint: you may need to convert the lists to NumPy arrays.</p>
+</div><details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v</span><span class="o">=</span><span class="n">sqrt</span><span class="p">((</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The distance between A and B is </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">B</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The distance between A and B is </span><span class="si">{</span><span class="n">dist</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><div class="alert alert-success">
+<b>Task 5.2: Write a function that computes bond lengths:</b>
+</div>
+<ol class="simple">
+<li><p>Create a function called <code class="docutils literal notranslate"><span class="pre">bond_length</span></code>. The function accepts as arguments a list of lines from an xyz file and two atomic indices, and returns the distance between the two atoms (in Å).</p></li>
+<li><p>Find the indices of the C and O atoms in the file <code class="docutils literal notranslate"><span class="pre">data/formamide-min.xyz</span></code> (already parsed in the <code class="docutils literal notranslate"><span class="pre">coordinates</span></code> list in the cell below).</p></li>
+<li><p>Calculate the C=O bond length for the provided geometry of formamide (You should expect something around 1.2 Å).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test out the solution in this cell:</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/formamide-min.xyz&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">lines</span><span class="o">=</span><span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">coordinates</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+
+<span class="c1">### your code here! ###</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="k">def</span> <span class="nf">bond_length</span><span class="p">(</span><span class="n">atom1_index</span><span class="p">,</span><span class="n">atom2_index</span><span class="p">,</span><span class="n">coordslist</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;compute the bond length from two coordinates</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    atom1_index : integer</span>
+<span class="sd">        index of the first atom in the file</span>
+<span class="sd">    atom2 : integer</span>
+<span class="sd">        index of the second atom in the file</span>
+<span class="sd">    </span>
+<span class="sd">    coordslist : list</span>
+<span class="sd">        list that contains strings of coordinates as parsed with an xyz file</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    bond_length : float</span>
+<span class="sd">        bond length in Angstrom</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1">#extract the atomic coordinates of two desired atoms</span>
+    <span class="n">atom1</span> <span class="o">=</span> <span class="n">coordslist</span><span class="p">[</span><span class="n">atom1_index</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">atom2</span> <span class="o">=</span> <span class="n">coordslist</span><span class="p">[</span><span class="n">atom2_index</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+    <span class="n">atom1_vec</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">atom1</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">atom1</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">atom1</span><span class="p">[</span><span class="mi">3</span><span class="p">])]</span>
+    <span class="n">atom2_vec</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">atom2</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">atom2</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span><span class="nb">float</span><span class="p">(</span><span class="n">atom2</span><span class="p">[</span><span class="mi">3</span><span class="p">])]</span>
+    
+    <span class="c1"># define the vector |AB| connecting the two atoms</span>
+    <span class="n">diff_vec</span> <span class="o">=</span> <span class="p">[</span><span class="n">atom2_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">atom1_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">atom2_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">atom1_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">atom2_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="n">atom1_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+    
+    <span class="c1"># calculate the length of the |AB| vector</span>
+    <span class="n">bond_length</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">diff_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">diff_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">diff_vec</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">bond_length</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The bond length of the C=O bond is : </span><span class="si">{</span><span class="n">bond_length</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">coordinates</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> Å.&#39;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</details><section id="angles">
+<h3>Angles<a class="headerlink" href="#angles" title="Permalink to this headline">#</a></h3>
+<p>Here is an example of different valence angles:</p>
+<p><img alt="indexing" src="../_images/bond_angles.png" /></p>
+<p>You can see, how an angle always includes 3 atoms. In the first example this is two hydrogen and an oxygen atoms. The angle can be computed from the bond between the first hydrogen and oxygen and the second hydrogen and the oxygen.</p>
+<p>Here is an example of an angle in a water molecule, where vector <em>H1</em>, <em>O</em>, and <em>H2</em>  give the positions of the atoms in space.</p>
+<p><img alt="indexing" src="../_images/bond_angles_2.png" /></p>
+<p>The bond length between H1 and O is given by the vector connecting these two atoms <strong>a</strong> in the image and can be computed using the above formula.</p>
+<p>To determine the angle between two vectors you can use the scalar product:
+$<span class="math notranslate nohighlight">\(\mathbf{a}\cdot \mathbf{b} = \vert\vert\mathbf{a}\vert\vert \,\vert\vert\mathbf{b}\vert\vert\cos \phi,\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\mathbf{a}<span class="math notranslate nohighlight">\( and \)</span>\mathbf{b}<span class="math notranslate nohighlight">\( are vectors, and  \)</span>\phi<span class="math notranslate nohighlight">\( is the valence angle we are after. We need to solve the dot product according to the valence angle \)</span>\phi<span class="math notranslate nohighlight">\( by rearranging the above equation:
+\)</span><span class="math notranslate nohighlight">\(\phi = \arccos\big(\frac{\mathbf{a}\cdot\mathbf{b}}{\vert\vert\mathbf{a}\vert\vert \,\vert\vert\mathbf{b} \vert\vert}\big)\)</span>$</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">math</span></code> library to get the arccos of an angle, e.g.: <code class="docutils literal notranslate"><span class="pre">math.acos()</span></code></p>
+</section>
+<section id="measuring-an-angle-in-formamide">
+<h3>Measuring an angle in formamide<a class="headerlink" href="#measuring-an-angle-in-formamide" title="Permalink to this headline">#</a></h3>
+<p>Let’s try and measure the angle between some bonds in formamide. To measure the valence angle between the C-O and C-N bonds in formamide, you can reuse the coordinates we have loaded in the previous task.</p>
+<p>We already have a way of working out <span class="math notranslate nohighlight">\(\vert\vert\mathbf{a}\vert\vert \, \vert\vert\mathbf{b}\vert\vert\)</span> with the function <code class="docutils literal notranslate"><span class="pre">bond_length</span></code> created in the previous task. What we still need to define, is a function that works out the vector for the C=O (e.g. <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> in our example above) and C-N (e.g <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> in our example) bonds and then we can define an angle. Let’s call this function <code class="docutils literal notranslate"><span class="pre">get_vector_along_bond</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_vector_along_bond</span><span class="p">(</span><span class="n">atom1_index</span><span class="p">,</span> <span class="n">atom2_index</span><span class="p">,</span> <span class="n">coords</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;retun the vector along a bond</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    atom1_index : integer</span>
+<span class="sd">        index of the first atom in the file</span>
+<span class="sd">    atom2 : integer</span>
+<span class="sd">        index of the second atom in the file</span>
+
+<span class="sd">    coordslist : list</span>
+<span class="sd">        list that contains strings of coordinates as parsed with an xyz file</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    bond_vector : list</span>
+<span class="sd">        bond vector contains the vector that describes the vector between </span>
+<span class="sd">        atom1_index and atom2_index</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">x_coor</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">atom1_index</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">atom2_index</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">y_coor</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">atom1_index</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">atom2_index</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>                                      
+    <span class="n">z_coor</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">atom1_index</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">coords</span><span class="p">[</span><span class="n">atom2_index</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">3</span><span class="p">])</span>
+                                       
+    <span class="n">bond_vector</span><span class="o">=</span><span class="p">[</span><span class="n">x_coor</span><span class="p">,</span><span class="n">y_coor</span><span class="p">,</span><span class="n">z_coor</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">bond_vector</span>
+    
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tasks-6">
+<h2>Tasks 6<a class="headerlink" href="#tasks-6" title="Permalink to this headline">#</a></h2>
+<p><a id='tasks6'></a></p>
+<div class="alert alert-success">
+<b>Task 6: Write a function that computes the angle between three atoms:</b>
+</div>
+<p>Create a function <code class="docutils literal notranslate"><span class="pre">get_angle</span></code> which takes in two bond lengths and two bond vectors to compute the angle between three atoms. Make use of the functions we have written so far. Do this for an example of the angle between O-C-N in formamide.</p>
+<p>⚠️ The arccos is calculated with the function <code class="docutils literal notranslate"><span class="pre">acos</span></code> in <code class="docutils literal notranslate"><span class="pre">math</span></code> package, which returns an angle in radians.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task: Test out the solution in this cell:</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">acos</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_angle</span><span class="p">(</span><span class="n">bond1_vector</span><span class="p">,</span> <span class="n">bond2_vector</span><span class="p">,</span> <span class="n">bond1_length</span><span class="p">,</span> <span class="n">bond2_length</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Returns the angle between three atoms forming two bonds</span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    -----------</span>
+<span class="sd">    bond1_vector : list</span>
+<span class="sd">        vector along bond1</span>
+<span class="sd">    bond2_vector : list</span>
+<span class="sd">        vector along bond2</span>
+<span class="sd">    bond1_length : float</span>
+<span class="sd">        length of bond1 in A</span>
+<span class="sd">    bond2_length : float</span>
+<span class="sd">        length of bond2 in A</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    --------</span>
+<span class="sd">    angle : float</span>
+<span class="sd">        angle in radians</span>
+<span class="sd">    </span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">acos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">bond1_vector</span><span class="p">,</span> <span class="n">bond2_vector</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">bond1_length</span><span class="o">*</span><span class="n">bond2_length</span><span class="p">))</span>   
+    <span class="k">return</span> <span class="n">theta</span>
+
+<span class="n">CO_vector</span> <span class="o">=</span> <span class="n">get_vector_along_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">coordinates</span><span class="p">)</span>
+<span class="n">CN_vector</span> <span class="o">=</span> <span class="n">get_vector_along_bond</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">coordinates</span><span class="p">)</span>
+<span class="n">CO_bond</span> <span class="o">=</span> <span class="n">bond_length</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">coordinates</span><span class="p">)</span>
+<span class="n">CN_bond</span> <span class="o">=</span> <span class="n">bond_length</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">coordinates</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">get_angle</span><span class="p">(</span><span class="n">CO_vector</span><span class="p">,</span> <span class="n">CN_vector</span><span class="p">,</span> <span class="n">CO_bond</span><span class="p">,</span> <span class="n">CN_bond</span><span class="p">)</span>
+    
+<span class="c1"># theta is currently in radians. Let&#39;s convert it into degrees</span>
+<span class="n">theta_deg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The valence O-C-N angle amounts to </span><span class="si">{</span><span class="n">theta</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> radians or </span><span class="si">{</span><span class="n">theta_deg</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> degrees.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</details><section id="there-are-many-python-packages-libraries-that-can-help-you-with-tasks-such-as-these">
+<h3>There are many Python packages/libraries that can help you with tasks such as these<a class="headerlink" href="#there-are-many-python-packages-libraries-that-can-help-you-with-tasks-such-as-these" title="Permalink to this headline">#</a></h3>
+<div class="alert alert-info">
+<b>⚠️ Note, generally you would not be expected to compute angles or bonds manually there are many Python packages available that will help you with these tasks here are some examples:</b>
+<ul class="simple">
+<li><p><a class="reference external" href="https://biopython.org">Biopython</a></p></li>
+<li><p><a class="reference external" href="https://www.mdanalysis.org">MDAnalysis</a></p></li>
+<li><p><a class="reference external" href="https://www.mdtraj.org/1.9.8.dev0/index.html">MDTraj</a></p></li>
+<li><p><a class="reference external" href="https://degiacomi-lab.github.io/biobox/">BioBox</a></p></li>
+<li><p><a class="reference external" href="https://wiki.fysik.dtu.dk/ase/">ASE</a></p></li>
+<li><p>… and many more</p></li>
+</ul>
+</div></section>
+</section>
+<section id="molecular-trajectories-extra-topic">
+<h2>5. Molecular trajectories [Extra topic]<a class="headerlink" href="#molecular-trajectories-extra-topic" title="Permalink to this headline">#</a></h2>
+<p><a id='trajectories'></a></p>
+<section id="working-with-molecular-trajectory-files">
+<h3>Working with molecular trajectory files<a class="headerlink" href="#working-with-molecular-trajectory-files" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>xyz files may contain more geometries written one after another.</p></li>
+<li><p>This allows to store trajectories, e.g., information about the evolution of atomic coordinates of a given molecular system in time frame.</p></li>
+<li><p>Trajectories can be generated through molecular dynamics simulations and subsequent structures correspond to different, consecutive time steps.</p></li>
+<li><p>This format can be also used to store reaction paths, either optimized or obtained with simple interpolation between substrates and products.</p></li>
+</ul>
+</section>
+<section id="visualising-a-trajectory">
+<h3>Visualising a trajectory<a class="headerlink" href="#visualising-a-trajectory" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>NGLView can be used to visualise a trajectory</p></li>
+<li><p>This will require a pdb file with multiple frames in the same and xyz file can use multiple frames</p></li>
+</ul>
+<p>Here is how you can visualise a trajectory of formamide stored in the file: <code class="docutils literal notranslate"><span class="pre">data/formamide-traj.pdb</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pytraj
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pytraj
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached pytraj-2.0.5.tar.gz (20.3 MB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> error
+  <span class=" -Color -Color-Bold -Color-Bold-Red">error</span>: <span class=" -Color -Color-Bold">subprocess-exited-with-error</span>
+  
+  <span class=" -Color -Color-Red">×</span> <span class=" -Color -Color-Green">python setup.py egg_info</span> did not run successfully.
+  <span class=" -Color -Color-Red">│</span> exit code: <span class=" -Color -Color-Bold -Color-Bold-Cyan">1</span>
+  <span class=" -Color -Color-Red">╰─&gt;</span> <span class=" -Color -Color-Red">[7 lines of output]</span>
+  <span class=" -Color -Color-Red">   </span> sys.argv [&#39;/private/var/folders/pn/jspyhkmj2rnfsxlpd3b5zdhw0000gn/T/pip-install-x5cosq7t/pytraj_36e13b8b28474db296b2475bcc51c845/setup.py&#39;, &#39;egg_info&#39;, &#39;--egg-base&#39;, &#39;/private/var/folders/pn/jspyhkmj2rnfsxlpd3b5zdhw0000gn/T/pip-pip-egg-info-fwyehamq&#39;]
+  <span class=" -Color -Color-Red">   </span> Original compiler envs
+  <span class=" -Color -Color-Red">   </span> CXX =
+  <span class=" -Color -Color-Red">   </span> CC =
+  <span class=" -Color -Color-Red">   </span> COMPILER =
+  <span class=" -Color -Color-Red">   </span> use_pip = True, cpptraj_home =
+  <span class=" -Color -Color-Red">   </span> Detected use of pip; you must set CPPTRAJHOME if there is no cpptraj in the current folder
+  <span class=" -Color -Color-Red">   </span> <span class=" -Color -Color-Red">[end of output]</span>
+  
+  <span class=" -Color -Color-Bold -Color-Bold-Magenta">note</span>: This error originates from a subprocess, and is likely not a problem with pip.
+<span class=" -Color -Color-Bold -Color-Bold-Red">error</span>: <span class=" -Color -Color-Bold">metadata-generation-failed</span>
+
+<span class=" -Color -Color-Red">×</span> Encountered error while generating package metadata.
+<span class=" -Color -Color-Red">╰─&gt;</span> See above for output.
+
+<span class=" -Color -Color-Bold -Color-Bold-Magenta">note</span>: This is an issue with the package mentioned above, not pip.
+<span class=" -Color -Color-Bold -Color-Bold-Cyan">hint</span>: See above for details.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pytraj</span> <span class="k">as</span> <span class="nn">pt</span>
+<span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="n">traj</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;data/formamide-traj.pdb&#39;</span><span class="p">)</span>
+<span class="n">view</span> <span class="o">=</span> <span class="n">nv</span><span class="o">.</span><span class="n">show_pytraj</span><span class="p">(</span><span class="n">traj</span><span class="p">)</span>
+<span class="n">view</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pytraj</span> <span class="k">as</span> <span class="nn">pt</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">nglview</span> <span class="k">as</span> <span class="nn">nv</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">traj</span> <span class="o">=</span> <span class="n">pt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;data/formamide-traj.pdb&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pytraj&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Every structure in the provided trajectory file corresponds to time step of 1 fs, and the entire trajectory is 100 fs long. In this particular file, every second line of each structure block contains the energy of the molecule (calculated with a semi-empirical density functional theory approach). Therefore, we can plot the time evolution of the energy of formamide.</p>
+</section>
+<section id="extra-tasks">
+<h3>Extra Tasks<a class="headerlink" href="#extra-tasks" title="Permalink to this headline">#</a></h3>
+<div class="alert alert-warning">
+<b>Advanced Task 1: Parsing a trajectory file to extract energies:</b>
+<p>Read the trajectory file <code class="docutils literal notranslate"><span class="pre">data/formamide-traj.xyz</span></code> and extract the energy of the molecule at each time step using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop. Lines containing energy information start with the <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">energy:'</span></code> phrase, and can be located with a Python function. Append each energy measurement in the <code class="docutils literal notranslate"><span class="pre">energies</span></code> list, so that they appear in the same order as in the <code class="docutils literal notranslate"><span class="pre">formamide-traj.xyz</span></code> file. Store in the list <code class="docutils literal notranslate"><span class="pre">timesteps</span></code> the timestep associated to each energy measurement. Considering that the first geometry in the trajectory corresponds to the energy of the molecule after 1 fs of dynamics, and subsequent geometries were collected after 1 fs steps, you should get a list with 100 numbers from 1 to 100. The variable <code class="docutils literal notranslate"><span class="pre">t</span></code> contains information on the timestep being analysed. It is initialised as <code class="docutils literal notranslate"><span class="pre">t=1</span></code>, and needs to be incremented every time the script finds a line containing energy information.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task 1: Test out the solution in this cell:</span>
+<span class="c1"># Hint:</span>
+<span class="n">traj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="o">...</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">energies</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">timesteps</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">traj</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">line</span><span class="o">...</span><span class="p">:</span>
+        <span class="n">energy</span> <span class="o">=</span> <span class="o">...</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/formamide-traj.xyz&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">traj</span><span class="o">=</span><span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">t</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">energies</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">timesteps</span><span class="o">=</span><span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">traj</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39; energy:&#39;</span><span class="p">):</span>
+        <span class="n">energy</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">energies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">energy</span><span class="p">))</span>
+        <span class="n">timesteps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="n">t</span><span class="o">+=</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">energies</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">timesteps</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</details><div class="alert alert-warning">
+<b>Advanced Task 2: A better way to find energies and plotting them:</b>
+<p>Energy information appears at regular intervals through the trajectory file. Above, we identified lines containing energy informations as those starting with <code class="docutils literal notranslate"><span class="pre">'</span> <span class="pre">energy:'</span></code>. However, some data of interest appearing at regular intervals, may not be preceded by such a useful tag. Propose an alternative way of finding all of the lines containing the energy.</p>
+<p><em>Hint</em>: After parsing the file into a list of lines, use the formula giving the indices of all lines containing the energy. The energies can be extracted by iterating over the list of lines in the following way:</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task 2: Test out the solution in this cell:</span>
+<span class="c1"># Hint:</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+    <span class="n">lineindex</span> <span class="o">=</span> <span class="n">n</span><span class="o">*</span><span class="mi">8</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">energy</span> <span class="o">=</span> <span class="n">traj</span><span class="p">[</span><span class="o">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span><span class="o">=</span><span class="mi">100</span>
+<span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data/formamide-traj.xyz&#39;</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">traj</span><span class="o">=</span><span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">t</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">energies</span><span class="o">=</span><span class="p">[]</span>
+<span class="n">timesteps</span><span class="o">=</span><span class="p">[]</span>
+
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+    <span class="n">lineindex</span><span class="o">=</span><span class="n">n</span><span class="o">*</span><span class="mi">8</span><span class="o">+</span><span class="mi">1</span>
+    <span class="n">energy</span><span class="o">=</span><span class="n">traj</span><span class="p">[</span><span class="n">lineindex</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">energies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">energy</span><span class="p">))</span>
+    <span class="n">timesteps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="n">t</span><span class="o">+=</span><span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">energies</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">timesteps</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</details><p>Now we can use the two lists to plot the energy of the molecule in time frame. For this purpose you need to import the <code class="docutils literal notranslate"><span class="pre">matplotlip.pylab</span></code> module and use the <code class="docutils literal notranslate"><span class="pre">plot(x,</span> <span class="pre">y)</span></code> function. Use the timesteps as x and energies as y.</p>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timesteps</span><span class="p">,</span> <span class="n">energies</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;timestep in [fs]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Energy in kJ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+</pre></div>
+</div>
+</details></section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unit_06"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Unit_06_statistics_I.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Unit 06 More Statistics: Comparing Distributions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Unit_07/Unit_07_fitting_I.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit 07 Fitting Part I</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Edinburgh Chemistry Teaching<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
