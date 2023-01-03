@@ -1,4 +1,4 @@
 #git clone https://github.com/arose/nglview
 #nglview install && nglview enable
-#jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
-#jupyter labextension install nglview-js-widgets@2.7.7
+jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
+jupyter labextension install nglview-js-widgets@2.7.7
