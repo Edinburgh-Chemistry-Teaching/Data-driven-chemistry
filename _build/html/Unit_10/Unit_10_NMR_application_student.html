@@ -1,0 +1,1202 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit 10: Analysing NMR Data from Start to Finish &#8212; Data-Driven Chemistry</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit 10: Solutions to Analysing NMR Data from Start to Finish" href="Unit_10_NMR_application_solution.html" />
+    <link rel="prev" title="Unit 09: Applications II Protein SAXS and simulation data" href="../Unit_09/Unit_09_applications_II_part_II.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data-Driven Chemistry</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Welcome to Data-Driven Chemistry
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About Data-Driven Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../book_intro.html">
+   Data Driven Chemistry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_I.html">
+   Unit 01: Problem Solving I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_II.html">
+   Unit 01: Problem Solving II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_I.html">
+   Unit 02: First steps in Python I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_II.html">
+   Unit 2: First steps in Python II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_I.html">
+   Unit 03: Loops, Pandas and Simple Plotting I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_II.html">
+   Unit 03: Loops, Pandas and Simple Plotting II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_I.html">
+   Unit 04: Functions I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_II.html">
+   Unit 04: Functions II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Plotting and Statistics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_I_numerical_data.html">
+   Unit 05: Introduction to NumPy and Plotting, part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_II_plotting.html">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_statistics_I.html">
+   Unit 06 More Statistics: Comparing Distributions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Molecular Geometries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_molecular_geometries_II.html">
+   Unit 06 An Introduction to Molecular Geometries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fitting Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_I.html">
+   Unit 07 Fitting Part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_II.html">
+   Unit 07 Fitting Part II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Applications of Python in Chemistry
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_08/Unit_08_Applications_I.html">
+   Unit 08 Applications to Chemistry I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_I.html">
+   Unit 09: Applications II UV-Vis Spectroscopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_II.html">
+   Unit 09: Applications II  Protein SAXS and simulation data
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unit 10: Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Unit_10_NMR_application_solution.html">
+   Unit 10: Solutions to Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/main?urlpath=tree/Unit_10/Unit_10_NMR_application_student.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/issues/new?title=Issue%20on%20page%20%2FUnit_10/Unit_10_NMR_application_student.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Unit_10/Unit_10_NMR_application_student.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 10: Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+   <ul class="nav section-nav flex-column">
+    <li class="nav-item toc-entry">
+     <a class="reference internal nav-link" href="#overview">
+      Overview
+     </a>
+     <ul class="nav section-nav flex-column">
+      <li class="nav-item toc-entry">
+       <a class="reference internal nav-link" href="#learning-objectives">
+        Learning Objectives
+       </a>
+      </li>
+      <li class="nav-item toc-entry">
+       <a class="reference internal nav-link" href="#table-of-contents">
+        Table of Contents
+       </a>
+      </li>
+      <li class="nav-item toc-entry">
+       <a class="reference internal nav-link" href="#link-to-documentation">
+        Link to documentation:
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li class="nav-item toc-entry">
+     <a class="reference internal nav-link" href="#the-problem">
+      1. The Problem
+     </a>
+     <ul class="nav section-nav flex-column">
+      <li class="nav-item toc-entry">
+       <a class="reference internal nav-link" href="#surveying-the-class">
+        Surveying the class
+       </a>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks">
+   Tasks
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-data">
+     2. Reading Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#task-2">
+       Task 2
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#import-summary-file">
+       2.1 - Import summary file
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#read-in-nmr-data-file">
+       2.2 - Read in NMR data file
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#read-in-all-nmr-files">
+       2.3 - Read in all NMR files
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nmr-data-exploration">
+     3. NMR data exploration
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task-3">
+     Task 3
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extract-key-features-from-each-spectrum">
+       3.1/3.2 - Extract key features from each spectrum
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-histograms-across-all-nmr-data">
+       3.3 - Plot histograms across all NMR data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#apply-corrections-to-standardise-the-data">
+       3.4 - Apply corrections to standardise the data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nmr-peak-hunting">
+     NMR peak hunting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task-4">
+     Task 4
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#function-to-extract-peaks">
+       4.1 - Function to extract peaks
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optimising-the-prominence-parameter">
+       4.2 - Optimising the prominence parameter
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optimise-the-parameters-and-extract-peak-count">
+       4.3 - Optimise the parameters and extract peak count
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysing-the-results">
+     5. Analysing the results
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#task-5">
+       Task 5
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks-to-complete-after-this-session">
+   Tasks to complete after this session
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solutions-notebook">
+     Solutions Notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unit 10: Analysing NMR Data from Start to Finish <a class='tocSkip'></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 10: Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+   <ul class="nav section-nav flex-column">
+    <li class="nav-item toc-entry">
+     <a class="reference internal nav-link" href="#overview">
+      Overview
+     </a>
+     <ul class="nav section-nav flex-column">
+      <li class="nav-item toc-entry">
+       <a class="reference internal nav-link" href="#learning-objectives">
+        Learning Objectives
+       </a>
+      </li>
+      <li class="nav-item toc-entry">
+       <a class="reference internal nav-link" href="#table-of-contents">
+        Table of Contents
+       </a>
+      </li>
+      <li class="nav-item toc-entry">
+       <a class="reference internal nav-link" href="#link-to-documentation">
+        Link to documentation:
+       </a>
+      </li>
+     </ul>
+    </li>
+    <li class="nav-item toc-entry">
+     <a class="reference internal nav-link" href="#the-problem">
+      1. The Problem
+     </a>
+     <ul class="nav section-nav flex-column">
+      <li class="nav-item toc-entry">
+       <a class="reference internal nav-link" href="#surveying-the-class">
+        Surveying the class
+       </a>
+      </li>
+     </ul>
+    </li>
+   </ul>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks">
+   Tasks
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-data">
+     2. Reading Data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#task-2">
+       Task 2
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#import-summary-file">
+       2.1 - Import summary file
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#read-in-nmr-data-file">
+       2.2 - Read in NMR data file
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#read-in-all-nmr-files">
+       2.3 - Read in all NMR files
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nmr-data-exploration">
+     3. NMR data exploration
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task-3">
+     Task 3
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#extract-key-features-from-each-spectrum">
+       3.1/3.2 - Extract key features from each spectrum
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plot-histograms-across-all-nmr-data">
+       3.3 - Plot histograms across all NMR data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#apply-corrections-to-standardise-the-data">
+       3.4 - Apply corrections to standardise the data
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nmr-peak-hunting">
+     NMR peak hunting
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#task-4">
+     Task 4
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#function-to-extract-peaks">
+       4.1 - Function to extract peaks
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optimising-the-prominence-parameter">
+       4.2 - Optimising the prominence parameter
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optimise-the-parameters-and-extract-peak-count">
+       4.3 - Optimise the parameters and extract peak count
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysing-the-results">
+     5. Analysing the results
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#task-5">
+       Task 5
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks-to-complete-after-this-session">
+   Tasks to complete after this session
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solutions-notebook">
+     Solutions Notebook
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-10-analysing-nmr-data-from-start-to-finish-a-class-tocskip">
+<h1>Unit 10: Analysing NMR Data from Start to Finish <a class='tocSkip'><a class="headerlink" href="#unit-10-analysing-nmr-data-from-start-to-finish-a-class-tocskip" title="Permalink to this headline">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\require{mhchem}\]</div>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" class="align-right" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></p>
+<p>Author: Dr James Cumby<br />
+Email: <a class="reference external" href="mailto:james&#46;cumby&#37;&#52;&#48;ed&#46;ac&#46;uk">james<span>&#46;</span>cumby<span>&#64;</span>ed<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">#</a></h2>
+<p>In this Unit, we will focus on handling real experimental results using Python, from the initial stage of importing data right through to fitting models and plotting the results.
+While you could achieve this manually using Origin or Excel, hopefully you’ll see that writing code makes the analysis easier, particularly when you have lots of data!</p>
+<div class="alert alert-info">
+<b>
+Note:</b> this session does not intend to teach new concepts, but may inadvertently introduce different ways of achieving the same results. Please ask me/a demonstrator if you unsure.
+</div><section id="learning-objectives">
+<h3>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h3>
+<p>This unit covers the learning outcomes of the entire course:</p>
+<ul class="simple">
+<li><p>Perform numerical operations such as vector algebra and calculate simple statistics on data sets.</p></li>
+<li><p>Write readable, well-documented and modular code.</p></li>
+<li><p>Break a problem into logical steps, and use loops and decision operations to solve tasks.</p></li>
+<li><p>Import and clean experimental data, and choose the appropriate variable types to hold information.</p></li>
+<li><p>Fit models to numerical data, and plot the results in a number of different formats.</p></li>
+</ul>
+</section>
+<section id="table-of-contents">
+<h3>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="#problem">The Problem</a></p></li>
+<li><p><a class="reference external" href="#read">Reading Data</a></p></li>
+<li><p><a class="reference external" href="#explore">NMR data exploration</a></p></li>
+<li><p><a class="reference external" href="#peak">Peak hunting</a></p></li>
+<li><p><a class="reference external" href="#analysis">Analysing Results</a></p></li>
+</ol>
+</section>
+<section id="link-to-documentation">
+<h3>Link to documentation:<a class="headerlink" href="#link-to-documentation" title="Permalink to this headline">#</a></h3>
+<p>You may wish to include links to package documentation here, if you wish to refer to them later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add any packages you need to import here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-problem">
+<h2>1. The Problem<a class="headerlink" href="#the-problem" title="Permalink to this headline">#</a></h2>
+<p><a id='problem'></a></p>
+<blockquote>
+<div><p>Do you get more peaks in the <sup>1</sup>H NMR spectrum if you have an odd number of heteroatoms compared with an even number?</p>
+</div></blockquote>
+<p>The information available is a CSV file containing the number of heteroatoms and an identifier for the molecules, and a folder of NMR data with the matching identifiers. You do not know the chemical formulae.</p>
+<section id="surveying-the-class">
+<h3>Surveying the class<a class="headerlink" href="#surveying-the-class" title="Permalink to this headline">#</a></h3>
+<a class="reference internal image-reference" href="../_images/mentimeter_1.png"><img alt="isolated" src="../_images/mentimeter_1.png" style="width: 400px;" /></a>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tasks">
+<h1>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">#</a></h1>
+<p>You will work in pairs or small groups to try and answer this question, with help and guidance from academic demonstrators. Don’t worry if you can’t immediately solve the problem - try out a few ideas, and ask for help when you’re ready!</p>
+<p>If you get stuck don’t panic - you will be given hints throughout the workshop, and a model answer will be made available after the session.</p>
+<div class="alert alert-success">
+<b>Task 1.1 Thinking about the problem</b>
+<p>In small groups, discuss the following:</p>
+<ul class="simple">
+<li><p>the chemistry behind the problem;</p></li>
+<li><p>what steps are required to solve the problem.</p></li>
+</ul>
+<p>As you discuss your ideas, add steps to the mentimeter:</p>
+</div><a class="reference internal image-reference" href="../_images/mentimeter_2.png"><img alt="isolated" src="../_images/mentimeter_2.png" style="width: 400px;" /></a>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task. </summary>
+<p>Some ideas:</p>
+<ul class="simple">
+<li><p>Collect NMR data</p></li>
+<li><p>Collect information on hetero atoms</p></li>
+<li><p>most abundant isotopes of heteroatoms</p></li>
+</ul>
+</details><!-- begin silent_answer -->
+<section id="reading-data">
+<h2>2. Reading Data<a class="headerlink" href="#reading-data" title="Permalink to this headline">#</a></h2>
+<p><a id='read'></a></p>
+<div class="alert alert-info">
+<b>Data:    
+</b>
+You will find all the data you need to answer the question in the directory <code>data</code>. The summary file tells you about the hetero atom counts, the weights file about the molecular weights. In <code>data/NMR_data</code> you find many files with different spectra. 
+</div>
+<section id="task-2">
+<h3>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">#</a></h3>
+<div class="alert alert-success">
+<b>Getting started with the data</b>
+<ol class="simple">
+<li><p>Import the <code>NMR_summary.csv</code> file</p></li>
+<li><p>Work out how to read a single NMR spectrum from a file</p></li>
+<li><p>Write a function <code>read_NMR_data</code>that can read in all NMR files</p></li>
+</ol>
+</div>
+<!-- end silent_answer --><!-- begin silent_answer -->
+</section>
+<section id="import-summary-file">
+<h3>2.1 - Import summary file<a class="headerlink" href="#import-summary-file" title="Permalink to this headline">#</a></h3>
+<p>First, we need to import the summary data file; here we’ll use Pandas.</p>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+<section id="read-in-nmr-data-file">
+<h3>2.2 - Read in NMR data file<a class="headerlink" href="#read-in-nmr-data-file" title="Permalink to this headline">#</a></h3>
+<p>First, we need to work out how to read one file</p>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+<section id="read-in-all-nmr-files">
+<h3>2.3 - Read in all NMR files<a class="headerlink" href="#read-in-all-nmr-files" title="Permalink to this headline">#</a></h3>
+<p>Now we can read one file, we should write a function that can read them all.</p>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+</section>
+<section id="nmr-data-exploration">
+<h2>3. NMR data exploration<a class="headerlink" href="#nmr-data-exploration" title="Permalink to this headline">#</a></h2>
+<p><a id='explore'></a>
+To answer the problem</p>
+<blockquote>
+<div><p>Do you get more peaks in the <sup>1</sup>H NMR spectrum if you have an odd number of heteroatoms compared with an even number?</p>
+</div></blockquote>
+<p>we will need to determine the number of peaks in a spectrum.</p>
+<div class="alert alert-info">
+<b>Questions to ask of the data</b>
+<p>To peak search automatically, we need the NMR data to have similar numerical values. Things to check are:</p>
+<ul class="simple">
+<li><p>What range of chemical shift do they cover?</p></li>
+<li><p>What is the maximum intensity?</p></li>
+<li><p>How noisy is the baseline?</p></li>
+</ul>
+</div>
+<!-- end silent_answer --><!-- begin silent_answer -->
+</section>
+<section id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">#</a></h2>
+<div class="alert alert-success">
+<b>Exploring the data:</b>
+<ol class="simple">
+<li><p>Write a function that can quantify the following information:</p>
+<ul class="simple">
+<li><p>Range of chemical shifts</p></li>
+<li><p>Maximum intensity</p></li>
+<li><p>Level of noise in the spectrum background</p></li>
+</ul>
+</li>
+<li><p>Extract and store these values for all NMR data</p></li>
+<li><p>Plot histograms of each of each parameter, and decide whether any corrections to the data are required</p></li>
+<li><p>Make any corrections required</p></li>
+</ol>
+</div>
+<!-- end silent_answer --><!-- begin silent_answer -->
+<section id="extract-key-features-from-each-spectrum">
+<h3>3.1/3.2 - Extract key features from each spectrum<a class="headerlink" href="#extract-key-features-from-each-spectrum" title="Permalink to this headline">#</a></h3>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+<section id="plot-histograms-across-all-nmr-data">
+<h3>3.3 - Plot histograms across all NMR data<a class="headerlink" href="#plot-histograms-across-all-nmr-data" title="Permalink to this headline">#</a></h3>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+<section id="apply-corrections-to-standardise-the-data">
+<h3>3.4 - Apply corrections to standardise the data<a class="headerlink" href="#apply-corrections-to-standardise-the-data" title="Permalink to this headline">#</a></h3>
+<p>For peak searching to work effectively, we need to standardise our data. The simplest change would be to normalise the intensity values so that, e.g. the maximum is 100.</p>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+</section>
+<section id="nmr-peak-hunting">
+<h2>NMR peak hunting<a class="headerlink" href="#nmr-peak-hunting" title="Permalink to this headline">#</a></h2>
+<p><a id='peak'></a>
+A number of different peak finding algorithms exist, but here we will focus on <code class="docutils literal notranslate"><span class="pre">scipy.signal.find_peaks</span></code> that you saw in unit 7. Use this to determine the number of peaks in each NMR spectrum, and store these values for plotting. We can optimise the peak finding using the <code class="docutils literal notranslate"><span class="pre">prominence</span></code> parameter (in this case; other problems might need different parameters).</p>
+<!-- end silent_answer --><!-- begin silent_answer -->
+</section>
+<section id="task-4">
+<h2>Task 4<a class="headerlink" href="#task-4" title="Permalink to this headline">#</a></h2>
+<div class="alert alert-success">
+<b> Finding Peaks:</b>
+<ol>
+<li><p>Write a function capable of extracting peaks from any of the NMR spectra</p></li>
+<li><p>Test how the peak-fitting parameters affect the number of peaks determined</p>
+<blockquote>
+<div><p>Hint: “prominence” is particularly useful for these peak shapes</p>
+</div></blockquote>
+</li>
+<li><p>Optimise these parameter(s) to determine the number of peaks in each spectrum
+</b></p></li>
+</ol>
+<!-- end silent_answer --><!-- begin silent_answer -->
+<section id="function-to-extract-peaks">
+<h3>4.1 - Function to extract peaks<a class="headerlink" href="#function-to-extract-peaks" title="Permalink to this headline">#</a></h3>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+<section id="optimising-the-prominence-parameter">
+<h3>4.2 - Optimising the prominence parameter<a class="headerlink" href="#optimising-the-prominence-parameter" title="Permalink to this headline">#</a></h3>
+<p>To find peaks automatically we need to choose a prominence value. Let’s systematically test a few different ones and see what the effect is on number of peaks. There are many ways to tackle this, but here we’ll use the power of pandas to plot multiple curves quickly (and neatly)!</p>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see some discussion on the prominence parameter. </summary>
+<p>A prominence above ~1 seems to give a fairly constant number of peaks, but anything below this gives a number of peaks strongly dependent on this parameter.</p>
+<p>We will choose prominence = 1 to avoid biasing the number of peaks in one spectrum over another. It is possible that we are missing some “real” peaks, but we are unlikely to do better in one spectrum than another.</p>
+</details><!-- begin silent_answer -->
+</section>
+<section id="optimise-the-parameters-and-extract-peak-count">
+<h3>4.3 - Optimise the parameters and extract peak count<a class="headerlink" href="#optimise-the-parameters-and-extract-peak-count" title="Permalink to this headline">#</a></h3>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+</section>
+<section id="analysing-the-results">
+<h2>5. Analysing the results<a class="headerlink" href="#analysing-the-results" title="Permalink to this headline">#</a></h2>
+<p><a id='analysis'></a>
+Now we have computed the number of peaks, we can this for each spectrum in order to answer the original question.</p>
+<!-- end silent_answer --><!-- begin silent_answer -->
+<section id="task-5">
+<h3>Task 5<a class="headerlink" href="#task-5" title="Permalink to this headline">#</a></h3>
+<div class="alert alert-success">
+<b> Plotting:</b>
+<p>Plot graphs to determine whether the number of heteroatoms influences the number of NMR peaks.</p>
+</div>
+<!-- end silent_answer --><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin silent_answer -->
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="conclusions">
+<h1>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">#</a></h1>
+<div class="alert alert-info">
+<b>
+Key points:</b>
+<ul class="simple">
+<li><p>Starting from a hypothesis and some available data, you have been able to work through the problem logically to reach a conclusion.</p></li>
+<li><p>It is important to inspect and “clean” your data before automating your analysis, as some assumptions may be incorrect.</p></li>
+<li><p>There is more than one way to perform these sorts of analysis, but it is important to be aware of the benefits/limitations of different approaches.</p></li>
+</ul>
+<!-- end silent_answer --></section>
+<section class="tex2jax_ignore mathjax_ignore" id="tasks-to-complete-after-this-session">
+<h1>Tasks to complete after this session<a class="headerlink" href="#tasks-to-complete-after-this-session" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Read through the notebook with solutions, and check that you have understood the steps</p></li>
+<li><p>Find and read the documentation for any Python commands you are less familiar with</p></li>
+<li><p>Think about other ways to solve the problem, and try to implement/compare them</p></li>
+<li><p>Extend your analysis to explore other peak searching approaches (or parameters)</p></li>
+<li><p>Use statistical methods you have learned to quantify any correlations we have observed</p></li>
+</ul>
+<section id="solutions-notebook">
+<h2>Solutions Notebook<a class="headerlink" href="#solutions-notebook" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="Unit_10_NMR_application_solution.html"><span class="doc std std-doc">Unit 10 Applications III Solutions</span></a></p>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unit_10"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../Unit_09/Unit_09_applications_II_part_II.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Unit 09: Applications II  Protein SAXS and simulation data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Unit_10_NMR_application_solution.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit 10: Solutions to Analysing NMR Data from Start to Finish <a class='tocSkip'></p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Edinburgh Chemistry Teaching<br/>
+  
+      &copy; Copyright 2022-2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

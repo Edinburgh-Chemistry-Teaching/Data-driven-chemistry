@@ -1,0 +1,1184 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit 01: Problem Solving II &#8212; Data-Driven Chemistry</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit 02: First steps in Python I" href="../Unit_02/Unit_02_variables_I.html" />
+    <link rel="prev" title="Unit 01: Problem Solving I" href="Unit_01_problem_solving_I.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data-Driven Chemistry</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Welcome to Data-Driven Chemistry
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About Data-Driven Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../book_intro.html">
+   Data Driven Chemistry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Unit_01_problem_solving_I.html">
+   Unit 01: Problem Solving I
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unit 01: Problem Solving II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_I.html">
+   Unit 02: First steps in Python I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_II.html">
+   Unit 2: First steps in Python II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_I.html">
+   Unit 03: Loops, Pandas and Simple Plotting I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_II.html">
+   Unit 03: Loops, Pandas and Simple Plotting II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_I.html">
+   Unit 04: Functions I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_II.html">
+   Unit 04: Functions II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Plotting and Statistics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_I_numerical_data.html">
+   Unit 05: Introduction to NumPy and Plotting, part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_II_plotting.html">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_statistics_I.html">
+   Unit 06 More Statistics: Comparing Distributions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Molecular Geometries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_molecular_geometries_II.html">
+   Unit 06 An Introduction to Molecular Geometries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fitting Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_I.html">
+   Unit 07 Fitting Part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_II.html">
+   Unit 07 Fitting Part II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Applications of Python in Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_08/Unit_08_Applications_I.html">
+   Unit 08 Applications to Chemistry I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_I.html">
+   Unit 09: Applications II UV-Vis Spectroscopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_II.html">
+   Unit 09: Applications II  Protein SAXS and simulation data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_student.html">
+   Unit 10: Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_solution.html">
+   Unit 10: Solutions to Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/main?urlpath=tree/Unit_01/Unit_01_problem_solving_II.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/issues/new?title=Issue%20on%20page%20%2FUnit_01/Unit_01_problem_solving_II.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Unit_01/Unit_01_problem_solving_II.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-objectives">
+   Learning objectives:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#link-to-jupyter-documentation">
+   Link to Jupyter documentation:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-solving-and-algorithms-a-id-1-problem-solving-and-algorithms-a">
+   1. Problem solving and algorithms
+   <a id="1-problem-solving-and-algorithms">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-libraries-a-id-import-libraries-a">
+     Import libraries
+     <a id="import-libraries">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understanding-the-problem-and-its-solution-a-id-11-understanding-the-problem-and-its-solution-a">
+   1.1 Understanding the problem and its solution
+   <a id="11-understanding-the-problem-and-its-solution">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-aim-s-a-id-2-step-1-aims">
+   2. Step 1: Aim(s)
+   <a id="2-step-1-aims">
+   </a>
+   <ul class="nav section-nav flex-column">
+    <li class="nav-item toc-entry">
+     <a class="reference internal nav-link" href="#mentimeters">
+      Mentimeters
+     </a>
+    </li>
+   </ul>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-2-information-a-id-3-step-2-informatioon-a">
+   3. Step 2: Information
+   <a id="3-step-2-informatioon">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-1-a-id-tasks-1-a">
+     Tasks 1
+     <a id="tasks-1">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-3-constructing-an-algorithm-a-id-4-step-3-constructing-an-algorithm-a">
+   4. Step 3: Constructing an algorithm
+   <a id="4-step-3-constructing-an-algorithm">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aside-program-construction">
+     Aside - program construction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pseudocode-a-id-5-pseudocode-a">
+   5. Pseudocode
+   <a id="5-pseudocode">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-an-algorithm-a-id-6-choosing-an-algorithm-a">
+   6. Choosing an algorithm
+   <a id="6-choosing-an-algorithm">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-potential-problems-to-consider-when-developing-an-algorithm">
+     Some potential problems to consider when developing an algorithm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-2-a-id-tasks-2-a">
+     Tasks 2
+     <a id="tasks-2">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-a-id-recap-a">
+   Recap
+   <a id="recap">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feedback-a-id-14-feedback-a">
+     Feedback
+     <a id="14-feedback">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-unit-1">
+   END UNIT 1
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unit 01: Problem Solving II</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-objectives">
+   Learning objectives:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#table-of-contents">
+   Table of Contents
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#link-to-jupyter-documentation">
+   Link to Jupyter documentation:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#problem-solving-and-algorithms-a-id-1-problem-solving-and-algorithms-a">
+   1. Problem solving and algorithms
+   <a id="1-problem-solving-and-algorithms">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-libraries-a-id-import-libraries-a">
+     Import libraries
+     <a id="import-libraries">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#understanding-the-problem-and-its-solution-a-id-11-understanding-the-problem-and-its-solution-a">
+   1.1 Understanding the problem and its solution
+   <a id="11-understanding-the-problem-and-its-solution">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-1-aim-s-a-id-2-step-1-aims">
+   2. Step 1: Aim(s)
+   <a id="2-step-1-aims">
+   </a>
+   <ul class="nav section-nav flex-column">
+    <li class="nav-item toc-entry">
+     <a class="reference internal nav-link" href="#mentimeters">
+      Mentimeters
+     </a>
+    </li>
+   </ul>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-2-information-a-id-3-step-2-informatioon-a">
+   3. Step 2: Information
+   <a id="3-step-2-informatioon">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-1-a-id-tasks-1-a">
+     Tasks 1
+     <a id="tasks-1">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#step-3-constructing-an-algorithm-a-id-4-step-3-constructing-an-algorithm-a">
+   4. Step 3: Constructing an algorithm
+   <a id="4-step-3-constructing-an-algorithm">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aside-program-construction">
+     Aside - program construction
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pseudocode-a-id-5-pseudocode-a">
+   5. Pseudocode
+   <a id="5-pseudocode">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-an-algorithm-a-id-6-choosing-an-algorithm-a">
+   6. Choosing an algorithm
+   <a id="6-choosing-an-algorithm">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-potential-problems-to-consider-when-developing-an-algorithm">
+     Some potential problems to consider when developing an algorithm
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tasks-2-a-id-tasks-2-a">
+     Tasks 2
+     <a id="tasks-2">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recap-a-id-recap-a">
+   Recap
+   <a id="recap">
+   </a>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feedback-a-id-14-feedback-a">
+     Feedback
+     <a id="14-feedback">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#end-unit-1">
+   END UNIT 1
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="math notranslate nohighlight">
+\[\require{mhchem}\]</div>
+<section class="tex2jax_ignore mathjax_ignore" id="unit-01-problem-solving-ii">
+<h1>Unit 01: Problem Solving II<a class="headerlink" href="#unit-01-problem-solving-ii" title="Permalink to this headline">#</a></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" class="align-right" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></p>
+<p>Author: Dr James Cumby</p>
+<p>Email: <a class="reference external" href="mailto:james&#46;cumby&#37;&#52;&#48;ed&#46;ac&#46;uk">james<span>&#46;</span>cumby<span>&#64;</span>ed<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="learning-objectives">
+<h2>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<p>By the end of this unit, you should be able to:</p>
+<ul class="simple">
+<li><p>interact with a Jupyter notebook</p></li>
+<li><p>break a complex problem into smaller steps;</p></li>
+<li><p>consider how those steps might be implemented as code (developed more later in the course);</p></li>
+<li><p>use pseudocode to develop simple algorithms</p></li>
+</ul>
+<!-- begin no_present -->
+<p>Some of the content is adapted from <a class="reference external" href="http://swcarpentry.github.io/python-novice-gapminder/index.html">Software carpentry lessons</a>.</p>
+<!-- end no_present --></section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#1-problem-solving-and-algorithms">Problem solving and algorithms</a><br />
+1.1 <a class="reference external" href="#11-understanding-the-problem-and-its-solution">Understanding a problem and its solution</a></p></li>
+<li><p><a class="reference external" href="#2-step-1-aims">Step 1: Aim(s)</a><br />
+2.1 <a class="reference external" href="#tasks-1">Tasks 1</a></p></li>
+<li><p><a class="reference external" href="#3-step-2-information">Step 2: Information</a></p></li>
+<li><p><a class="reference external" href="#4-step-3-work-out-a-series-of-steps-to-get-from-start-to-finish">Step 3: Constructing an algorithm</a></p></li>
+<li><p><a class="reference external" href="#5-pseudocode">Pseudocode</a></p></li>
+<li><p><a class="reference external" href="#127-choosing-an-algorithm">Choosing an algorithm</a></p></li>
+<li><p><a class="reference external" href="#tasks-2">Tasks 2</a></p></li>
+<li><p><a class="reference external" href="#recap">Recap</a></p></li>
+<li><p><a class="reference external" href="#feedback">Feedback</a></p></li>
+</ol>
+<p><strong><span style="color:black">Jupyter Cheat Sheet</span></strong></p>
+<ul class="simple">
+<li><p>To run the currently highlighted cell and move focus to the next cell, hold <kbd>⇧ Shift</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To run the currently highlighted cell and keep focus in the same cell, hold <kbd>⇧ Ctrl</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To get help for a specific function, place the cursor within the function’s brackets, hold <kbd>⇧ Shift</kbd>, and press <kbd>⇥ Tab</kbd>;</p></li>
+</ul>
+</section>
+<section id="link-to-jupyter-documentation">
+<h2>Link to Jupyter documentation:<a class="headerlink" href="#link-to-jupyter-documentation" title="Permalink to this headline">#</a></h2>
+<p>You can find useful information about using Jupyter at <a class="reference external" href="https://docs.jupyter.org/en/latest/">docs.jupyter.org</a>.</p>
+</section>
+<section id="problem-solving-and-algorithms-a-id-1-problem-solving-and-algorithms-a">
+<h2>1. Problem solving and algorithms <a id="1-problem-solving-and-algorithms"></a><a class="headerlink" href="#problem-solving-and-algorithms-a-id-1-problem-solving-and-algorithms-a" title="Permalink to this headline">#</a></h2>
+<p>There are a number of steps involved in solving a problem:</p>
+<ol class="simple">
+<li><p>Understand what the problem is and what it is asking for</p>
+<ul class="simple">
+<li><p>Do you have enough information to solve it immediately?</p></li>
+</ul>
+</li>
+<li><p>Understand what the correct solution needs to be capable of (or equally not capable of)</p></li>
+<li><p>Work out a series of steps to get from start to finish</p>
+<ul class="simple">
+<li><p>‘Solve the problem’!</p></li>
+</ul>
+</li>
+<li><p>Check that the solution works as expected</p></li>
+</ol>
+<p>This unit will look at steps 1-3 and give you practice in breaking down complex problems.</p>
+<section id="import-libraries-a-id-import-libraries-a">
+<h3>Import libraries <a id="import-libraries"></a><a class="headerlink" href="#import-libraries-a-id-import-libraries-a" title="Permalink to this headline">#</a></h3>
+<p>We need a few additional Python features (‘Libraries’, see <span class="xref myst">Unit 03</span>) in this session - make sure to run the following cell!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s1">&#39;../&#39;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">helper_functions.mentimeter</span> <span class="kn">import</span> <span class="n">Mentimeter</span>
+<span class="kn">from</span> <span class="nn">helper_functions.formatting</span> <span class="kn">import</span> <span class="n">format_pseudocode</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="understanding-the-problem-and-its-solution-a-id-11-understanding-the-problem-and-its-solution-a">
+<h2>1.1 Understanding the problem and its solution <a id="11-understanding-the-problem-and-its-solution"></a><a class="headerlink" href="#understanding-the-problem-and-its-solution-a-id-11-understanding-the-problem-and-its-solution-a" title="Permalink to this headline">#</a></h2>
+<p>Some problems have very clear goals, and once you have got used to them are relatively straighforward to solve, i.e.</p>
+<blockquote>
+<div><p>Find the value of x for which</p>
+<div class="math notranslate nohighlight">
+\[x - y = 6\]</div>
+<p>and
+$<span class="math notranslate nohighlight">\(2x + y = 18.\)</span>$</p>
+</div></blockquote>
+<p>Even if a large number of steps are involved, the process is well-defined.</p>
+<p>In contrast, some questions are much less defined, and these are quite challenging to overcome. Sometimes this is due to an uncertain objective, while sometimes there is a shortage of information.</p>
+<blockquote>
+<div><p>How would you synthesise 2,3-Dimethyl-2-cyclopenten-1-one from readily-available starting materials?</p>
+</div></blockquote>
+<blockquote>
+<div><p><img alt="2,3-Dimethyl-2-cyclopenten-1-one structure" src="../_images/dimethyl_2_cyclopenten_1_one.png" /></p>
+</div></blockquote>
+<p>(You’ll see this in year 3)</p>
+</section>
+<section id="step-1-aim-s-a-id-2-step-1-aims">
+<h2>2. Step 1: Aim(s)<a id="2-step-1-aims"><a class="headerlink" href="#step-1-aim-s-a-id-2-step-1-aims" title="Permalink to this headline">#</a></h2>
+<p>The first step of any problem is understanding what you are required to do, and working out whether you have all of the information required to solve it. Consider the following question and then vote in the poll below.</p>
+<blockquote>
+<div><p>Cheese is acidic, due to the presence of lactic acid. When cheese melts it can separate into milk solids and fat; this can be avoided by keeping the pH of the cheese mixture around 5.2. How much citric acid and/or sodium citrate must be added to cheese to prevent it from separating during melting?</p>
+</div></blockquote>
+<section id="mentimeters">
+<h3>Mentimeters<a class="headerlink" href="#mentimeters" title="Permalink to this headline">#</a></h3>
+<p>This is an example of the type of questions students get asked to answer via Mentimeter:</p>
+<p>Please see <a class="reference internal" href="mentimeter_example.html"><span class="doc std std-doc">mentimeter_example.ipynb</span></a> for an example on how to embed Mentimeters into markdown cells.
+<a class="reference internal" href="../_images/mentimeter.png"><img alt="mentimeter" src="../_images/mentimeter.png" style="width: 400px;" /></a></p>
+</section>
+</section>
+<section id="step-2-information-a-id-3-step-2-informatioon-a">
+<h2>3. Step 2: Information <a id="3-step-2-informatioon"></a><a class="headerlink" href="#step-2-information-a-id-3-step-2-informatioon-a" title="Permalink to this headline">#</a></h2>
+<p>Once you have determined the objective of a problem, you then need to work out if you have the information and knowledge required to solve it. For instance, the following question has a clear goal, but what additional information is required?</p>
+<blockquote>
+<div><p>If human hair is composed mainly of the protein α-keratin, estimate the rate of incorporation of amino acid units per follicle per second.</p>
+</div></blockquote>
+<section id="tasks-1-a-id-tasks-1-a">
+<h3>Tasks 1<a id="tasks-1"></a><a class="headerlink" href="#tasks-1-a-id-tasks-1-a" title="Permalink to this headline">#</a></h3>
+<p>In pairs or groups of three, discuss the objective for the following questions, and any information you may require.</p>
+<div class="alert alert-success"> 
+<b> Task 1.1: If you could imagine an electron to have the same mass as the planet Mercury, which planet would have approximately the same mass as the proton?</b>
+</div><!-- begin answer -->
+<details><summary {style='color:green;font-weight:bold'}> Click here to see the solution to Task 1.1</summary>
+<p>Need to know the electron : proton mass ratio, and also planet mass ratios <br></p>
+<p>Answer: Saturn (approximately)</p>
+<!-- end answer --><div class="alert alert-success"> 
+<b> Task 1.2: Based purely on standard electrode potentials, which simple binary reaction would give the largest overall potential difference vs the standard hydrogen electrode?</b>
+</div><!-- begin answer -->
+<details><summary {style='color:green;font-weight:bold'}> Click here to see the solution to Task 1.2</summary>
+<p>We need a list of electrode potentials, and to combine the most positive and negative values involving one species (to have a binary reaction overall). Other sources exist, but from <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_electrode_potential_(data_page)">wikipedia</a> the most negative half reaction is</p>
+<div class="math notranslate nohighlight">
+\[
+   \ce{Sr^+ + e^- -&gt; Sr(s)}\qquad E_{\mathrm{vs\ SHE}} = -4.101\ \mathrm{V}
+   \]</div>
+<p>while the most positive (anionic) half reaction is
+$<span class="math notranslate nohighlight">\(
+   \ce{F2(g) + 2e^- -&gt; 2F^-}\qquad E_{\mathrm{vs\ SHE}} = +2.87\ \mathrm{V}
+   \)</span><span class="math notranslate nohighlight">\(
+   Overall:
+   \)</span><span class="math notranslate nohighlight">\(
+   \ce{Sr + F2 -&gt; SrF2}\qquad E_{\mathrm{vs\ SHE}} = +6.971\ \mathrm{V}
+   \)</span>$</p>
+<!-- end answer --><div class="alert alert-success"> 
+<b> Task 1.3: If you placed a crystal of Tourmaline on top of a crystal of Herapathite and looked through them, what might you observe?</b>
+</div><!-- begin answer -->
+<details><summary {style='color:green;font-weight:bold'}> Click here to see the solution to Task 1.3</summary>
+<p>Tourmaline (a borosilicate mineral) and herapathite (iodoquinine sulfate) are both optically active; the latter is used in optical polarizers. Depending on the relative orientation of the crystals, the colour and/or transparency is likely to change.</p>
+<!-- end answer --></section>
+</section>
+<section id="step-3-constructing-an-algorithm-a-id-4-step-3-constructing-an-algorithm-a">
+<h2>4. Step 3: Constructing an algorithm<a id="4-step-3-constructing-an-algorithm"></a><a class="headerlink" href="#step-3-constructing-an-algorithm-a-id-4-step-3-constructing-an-algorithm-a" title="Permalink to this headline">#</a></h2>
+<p>Once you have determined the problem and have all the information required, you then need to construct an algorithm (sequence of steps) to get to the answer.</p>
+<section id="aside-program-construction">
+<h3>Aside - program construction<a class="headerlink" href="#aside-program-construction" title="Permalink to this headline">#</a></h3>
+<p>In general, computer programs consist of very few essential ‘building blocks’ (you will learn about these throughout the course):</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Operations</p></th>
+<th class="head"><p>Loops</p></th>
+<th class="head"><p>Decisions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>These are things like adding/multiplying numbers, reading or writing files, displaying a graph, etc.</p></td>
+<td><p>These allow you to repeat things more than once, for instance iterating over files</p></td>
+<td><p>Decisions (of IF statements) divert the flow of a program by doing some sort of test</p></td>
+</tr>
+<tr class="row-odd"><td><p><img alt="Green rectangle representing an operation" src="../_images/operation_schematic.png" /></p></td>
+<td><p><img alt="Schematic of a loop" src="../_images/loop_schematic.png" /></p></td>
+<td><p><img alt="Schematic of a decision operation" src="../_images/decision_schematic.png" /></p></td>
+</tr>
+</tbody>
+</table>
+<p>These can be combined together to create quite complex algorithms:
+<a class="reference internal" href="../_images/complex_schematic.png"><img alt="Combination of loops, decisions and operations as a schematic" src="../_images/complex_schematic.png" style="width: 400px;" /></a></img></p>
+<blockquote>
+<div><p>Hint: If you find this sort of graphical programming helpful to understand algorithm logic, check out <a class="reference external" href="https://developers.google.com/blockly">Blockly</a>!</p>
+</div></blockquote>
+</section>
+</section>
+<section id="pseudocode-a-id-5-pseudocode-a">
+<h2>5. Pseudocode <a id="5-pseudocode"></a><a class="headerlink" href="#pseudocode-a-id-5-pseudocode-a" title="Permalink to this headline">#</a></h2>
+<p>Loops and decision statements are normally shown as indented:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="n">do</span> <span class="n">something</span>
+</pre></div>
+</div>
+<p>Indents can be nested:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">do</span> <span class="n">something</span>
+</pre></div>
+</div>
+<p>This indentation is essential in Python (see Unit 03)!</p>
+<p>The previous examples were a form of ‘pseudocode’; a way of writing down an algorithm without worrying about the specific commands required to run correctly. Pseudocode is often more readable than ‘real’ computer code, and can in theory be translated into any programming language.</p>
+<!-- begin tutor -->
+<p>Pseudocode summarises the steps of an algorithm without using a specific syntax.</p>
+<!-- end tutor --><p>For instance, the following ‘pseudocode’ describes an algorithm to print any files containing the text ‘Benzene’</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">files</span><span class="p">:</span>
+    <span class="nb">open</span> <span class="n">file</span> <span class="ow">and</span> <span class="n">read</span> <span class="n">contents</span>
+    <span class="k">if</span> <span class="s1">&#39;Benzene&#39;</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">file</span> <span class="n">contents</span><span class="p">:</span>
+        <span class="nb">print</span> <span class="n">file</span> <span class="n">name</span>
+    <span class="n">close</span> <span class="n">file</span>    
+</pre></div>
+</div>
+<p>The same algorithm written for Python might look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">list_of_file_names</span><span class="p">:</span>
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="k">if</span> <span class="s1">&#39;Benzene&#39;</span> <span class="ow">in</span> <span class="n">contents</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">file_handle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="choosing-an-algorithm-a-id-6-choosing-an-algorithm-a">
+<h2>6. Choosing an algorithm <a id="6-choosing-an-algorithm"></a><a class="headerlink" href="#choosing-an-algorithm-a-id-6-choosing-an-algorithm-a" title="Permalink to this headline">#</a></h2>
+<p>Often, there are multiple valid solutions to a problem. You should try to appreciate other approaches, but find one that you understand.</p>
+<p>As a simple example, in your head work out the answer to</p>
+<div class="math notranslate nohighlight">
+\[
+54 + 17
+\]</div>
+<p>How did you do it?</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(50 + 10 = 60\)</span>, then <span class="math notranslate nohighlight">\(60 + 4 + 7 = 71\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(54 + 10 = 64\)</span>, then <span class="math notranslate nohighlight">\(64 + 7 = 71\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(50 + 17 = 67\)</span>, then <span class="math notranslate nohighlight">\(67 + 4 = 71\)</span></p></li>
+<li><p>Something else…?</p></li>
+</ul>
+<div class="alert alert-success">
+<b> Worked example: Finding alcohols</b>
+<p>If you were given 1000 random Infrared spectra from small molecules, how could you determine which ones were alcohols?</p>
+</div><details><summary {style='color:green;font-weight:bold'}> Click here to see solution to the Worked example. </summary>
+<!-- begin livecode -->
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FOR each spectrum:
+    Find absorption for $2600 &lt; \nu &lt; 3500$
+    fit background
+    IF absorption - background &gt; threshold:
+        assign as alcohol
+</pre></div>
+</div>
+<!-- end livecode -->
+</details><section id="some-potential-problems-to-consider-when-developing-an-algorithm">
+<h3>Some potential problems to consider when developing an algorithm<a class="headerlink" href="#some-potential-problems-to-consider-when-developing-an-algorithm" title="Permalink to this headline">#</a></h3>
+<p><strong>The OH-stretching region near 3000 cm<sup>-1</sup> is not unique</strong></p>
+<p><img alt="Benzene vs benzoic acid IR" src="../_images/benzene_benzoic_acid_IR.png" /></p>
+<p><em>Data obtained from Coblentz Society, Inc., “Evaluated Infrared Reference Spectra” in <strong>NIST Chemistry WebBook, NIST Standard Reference Database Number 69</strong>, Eds. P.J. Linstrom and W.G. Mallard, National Institute of Standards and Technology, Gaithersburg MD, 20899, <a class="reference external" href="https://doi.org/10.18434/T4D303">https://doi.org/10.18434/T4D303</a>, (retrieved December 14, 2022).</em></p>
+<ul class="simple">
+<li><p>One solution could be to examine the peak width - alcohol OH peaks are typically broad</p></li>
+</ul>
+<p><strong>The background signal is not guaranteed to be ~100% T</strong></p>
+<p><img alt="Comparison of IR background absorption" src="../_images/IR_background_comparison.png" /></p>
+</section>
+<section id="tasks-2-a-id-tasks-2-a">
+<h3>Tasks 2 <a id="tasks-2"></a><a class="headerlink" href="#tasks-2-a-id-tasks-2-a" title="Permalink to this headline">#</a></h3>
+<p>In your groups, discuss and solve the following problems. Try to use a “Pair Programming” approach.</p>
+<div class="alert alert-success"> 
+<b> Task 1.4: NMR spectroscopy </b>
+<p>Some reactions can be monitored in-situ by NMR spectroscopy, by following the growth of a new NMR peak with time. For such a reaction, what order would you need to perform the following steps in order to plot a concentration vs time profile?</p>
+<blockquote>
+<div><p>Drag the boxes into the correct order, remembering to indent things that should be performed inside the loop</p>
+</div></blockquote>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39; https://parsons.herokuapp.com/puzzle/17312c8d7d1d44348ed1bff8886c54da&#39;</span><span class="p">,</span> <span class="mi">950</span><span class="p">,</span> <span class="mi">600</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin answer -->
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 1.4 </summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FOR</span> <span class="n">each</span> <span class="n">NMR</span> <span class="n">spectrum</span><span class="p">:</span>
+    <span class="n">read</span> <span class="ow">in</span> <span class="n">NMR</span> <span class="n">data</span> <span class="n">file</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">extract</span> <span class="n">time</span> <span class="kn">from</span> <span class="nn">NMR</span> <span class="n">file</span>
+    <span class="n">fit</span> <span class="n">NMR</span> <span class="n">peak</span> <span class="n">of</span> <span class="n">interest</span>
+    <span class="n">extract</span> <span class="n">peak</span> <span class="n">area</span>
+    <span class="n">convert</span> <span class="n">area</span> <span class="n">to</span> <span class="n">concentration</span>
+<span class="n">plot</span> <span class="n">concentration</span> <span class="n">vs</span> <span class="n">time</span>
+</pre></div>
+</div>
+<!-- end answer --><div class="alert alert-success">
+<b>Task 1.5: Write a function that computes bond lengths:</b>
+<p>If you were given a sequence of atomic coordinates during a reaction that were for some reason in the wrong order, how might you try to put them back in the correct sequence? For example, consider the sequence of five steps from an S<sub>N</sub>2 reaction shown below (imagining you had the atomic coordinates):</p>
+<p><img alt="SN2 Reaction steps" src="../_images/SN2_reaction_steps.png" /></p>
+<blockquote>
+<div><p>Hint: If you know how far each atom must move to get to a different step, the next step along the S<sub>N</sub>2 reaction will be the one with the smallest (total) distance</p>
+</div></blockquote>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39; https://parsons.herokuapp.com/puzzle/7b69c59b740c4d8e82dcbd2875dd5ffe&#39;</span><span class="p">,</span> <span class="mi">950</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<!-- begin answer -->
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 1.5 </summary>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FOR each pair of structures:
+    Determine (summed) distance between equivalent pairs of atoms (e.g. O-O, Br-Br etc).
+Assign largest distance as that between start/end points
+Use starting point as `current` step
+LOOP continuously:
+    Find minimum distance from current step
+    IF not already part of sequence:
+        Assign to sequence.
+    IF next in sequence is the end point:
+        STOP - problem complete.
+    Change `current` step to next in sequence
+</pre></div>
+</div>
+<!-- end answer --><div class="alert alert-warning">
+<b>Advanced task: Pseudocode</b>
+ Write a pseudocode algorithm to determine the molecular weight from an arbitrary chemical formula, e.g. (CH3)3CBr or CH3C(O)CN.
+</div>  
+</section>
+</section>
+<section id="recap-a-id-recap-a">
+<h2>Recap <a id="recap"></a><a class="headerlink" href="#recap-a-id-recap-a" title="Permalink to this headline">#</a></h2>
+<p>This session has covered:</p>
+<ul class="simple">
+<li><p>How to break down a problem</p>
+<ul>
+<li><p>Know <em>what</em> you are trying to answer</p></li>
+<li><p>Determine if you have all the information you need before starting</p></li>
+</ul>
+</li>
+<li><p>Constructing an algorithm</p>
+<ul>
+<li><p>Multiple ways of solving the problem</p>
+<ul>
+<li><p>as long as it works, <em>how</em> isn’t important</p></li>
+</ul>
+</li>
+<li><p>Try to think of pitfalls of your solution</p>
+<ul>
+<li><p>One solution may often be faster, more robust, easier to read, etc…</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="feedback-a-id-14-feedback-a">
+<h3>Feedback <a id="14-feedback"></a><a class="headerlink" href="#feedback-a-id-14-feedback-a" title="Permalink to this headline">#</a></h3>
+<p>Please say what you did and didn’t like about this session!</p>
+<p>Students are asked to give feedback at the end of each session. Separate Mentimeter quizzes ask for positive and negative feedback in order help improve the course unit.
+<a class="reference internal" href="../_images/feedback_1.png"><img alt="feedback_1" src="../_images/feedback_1.png" style="width: 400px;" /></a></img></p>
+</section>
+</section>
+<section id="end-unit-1">
+<h2>END UNIT 1<a class="headerlink" href="#end-unit-1" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unit_01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Unit_01_problem_solving_I.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Unit 01: Problem Solving I</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Unit_02/Unit_02_variables_I.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit 02: First steps in Python I</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Edinburgh Chemistry Teaching<br/>
+  
+      &copy; Copyright 2022-2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
