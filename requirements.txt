@@ -1,7 +1,12 @@
-pandas==1.4.4
-numpy==1.23.1
+pandas==1.4.2
+numpy==1.22.1
 matplotlib==3.5.2
-scipy==1.9.1
-ipywidgets==7.7.1
-jupyterlab==3.4.4
+scipy==1.7.3
+ipywidgets==7.7.0
+jupyterlab==3.3.4
 nglview==3.0.3
+pint
+pytraj
+mendeleev==0.10.0
+vpython
+py3Dmol==1.8.1
