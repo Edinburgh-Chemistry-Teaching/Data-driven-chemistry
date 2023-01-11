@@ -17,7 +17,7 @@ authors:
   - name: J. Jasmin Güven
     orcid: 0000-0003-1555-0075
     affiliation: "1"
-  - name: Claire Hobday
+  - name: Claire L. Hobday
     orcid: 0000-0003-4925-4557
     affiliation: "1"
   - name: Antonia S. J. S. Mey
@@ -91,7 +91,7 @@ To ensure sufficient support to students, at each 3-hour long workshop attended 
 
 # Assessment and feedback
 
-The course was formally assessed at the University of Edinburgh using NBGrader [@jupyter2019nbgrader]. However, we also made use of informal feedback within the sessions with built-in quizzes in the Jupyter Notebooks using (Mentimeter)[https://www.mentimeter.com] and an associated Python Class. We polled students to test their understanding of the material, to promote critical thinking, and check their background knowledge. We also used Mentimeter to gather feedback after each session, which helped us to improve the material further. Generally, the usage of embedded quizzes helped with engagement from students. Figure 1 shows an example of a Mentimeter quiz.   
+The course was formally assessed at the University of Edinburgh using NBGrader [@jupyter2019nbgrader]. It was important to initially test the students summatively with weekly online quizzes, which could be completed multiple times. This gave students instant feedback on their performance, and allowed them to improve. In later weeks, the course was assessed formatively. However, we still made use of informal feedback within the sessions with built-in quizzes in the Jupyter Notebooks using (Mentimeter)[https://www.mentimeter.com] and an associated Python Class. We polled students to test their understanding of the material, to promote critical thinking, and check their background knowledge. We also used Mentimeter to gather feedback after each session, which helped us to improve the material further. Generally, the usage of embedded quizzes helped with engagement from students. Figure 1 shows an example of a Mentimeter quiz.   
 ![image](figures/Mentimeter.png)
 *Figure 1: Example of how a Mentimeter poll can be directly embedded into a Jupyter notebook using the provided `Mentimeter` class.*
 
@@ -102,13 +102,13 @@ We present a modular course to teach Python for chemistry undergraduate students
 
 # Author's Contribution
 
-Authors are listed in alphabetical order; specific contributions by each author are found in the following: James Cumby (JC), Valentina Erastova (VE), Claire Hobday (CH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since academic year 2021/22 and contributed roughly equally to the material creation and teaching. See below for more details. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during pandemic. Matteo T Degiacomi (MTD) has shared his original materials, developed in 2018 for the Durham University chemistry research students.
+Authors are listed in alphabetical order; specific contributions by each author are found in the following: James Cumby (JC), Valentina Erastova (VE), Claire L. Hobday (CLH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since academic year 2021/22 and contributed roughly equally to the material creation and teaching. See below for more details. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during pandemic. Matteo T Degiacomi (MTD) has shared his original materials, developed in 2018 for the Durham University chemistry research students.
 
 **JC:** Is the course organiser for the module taught at the University of Edinburgh and created the material for `Unit_01`, `Unit_10` and the `helper_functions`, gave feedback on other materials, and helped edit the manuscript.   
 **MTD:** Contributed material to `Unit_03` and `Unit_05`, and helped edit the manuscript.    
 **VE:** Created material for `Unit_05` and `Unit_08`, contributed to `Unit_06`, and helped edit the manuscript.   
 **JJG:** Contributed material to `Unit_09`, and helped edit the manuscript.    
-**CH:** Created material for `Unit_03` and `Unit_04`, and helped edit the manuscript.   
+**CLH:** Created material for `Unit_03` and `Unit_04`, and helped edit the manuscript.   
 **ASJSM:** Created material for `Unit_02`, `Unit_06`, `Unit_07`, and `Unit_09`, provided feedback and small contributions to most other units, and wrote the manuscript.    
 **HP:** Contributed material to `Unit_05` and  `Unit_08`, and helped edit the manuscript.    
 **RS:** Created the material for molecular geometries forming part of `Unit_06` and gave feedback on the manuscript. 
