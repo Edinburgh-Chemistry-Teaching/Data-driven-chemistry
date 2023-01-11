@@ -1,0 +1,1266 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit 03: Loops, Pandas and Simple Plotting II &#8212; Data-Driven Chemistry</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit 04: Functions I" href="../Unit_04/Unit_04_functions_I.html" />
+    <link rel="prev" title="Unit 03: Loops, Pandas and Simple Plotting I" href="Unit_03_loops_I.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data-Driven Chemistry</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Welcome to Data-Driven Chemistry
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About Data-Driven Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../book_intro.html">
+   Data Driven Chemistry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_I.html">
+   Unit 01: Problem Solving I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_II.html">
+   Unit 01: Problem Solving II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_I.html">
+   Unit 02: First steps in Python I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_II.html">
+   Unit 02: First steps in Python II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Unit_03_loops_I.html">
+   Unit 03: Loops, Pandas and Simple Plotting I
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unit 03: Loops, Pandas and Simple Plotting II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_I.html">
+   Unit 04: Functions I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_II.html">
+   Unit 04: Functions II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Plotting and Statistics
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_I_numerical_data.html">
+   Unit 05: Introduction to NumPy and Plotting, part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_05/Unit_05_II_plotting.html">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_statistics_I.html">
+   Unit 06: Comparing Statistical Distributions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Molecular Geometries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_molecular_geometries_II.html">
+   Unit 06: An Introduction to Molecular Geometries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fitting Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_I.html">
+   Unit 07 Fitting Part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_II.html">
+   Unit 07: Fitting Part II – Linear and non-linear Fits
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Applications of Python in Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_08/Unit_08_Applications_I.html">
+   Unit 08: Applications to Chemistry – Mass Spectrometry and Radioactive Decay
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_I.html">
+   Unit 09: Applications II UV-Vis Spectroscopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_II.html">
+   Unit 09: Applications II  Protein SAXS and simulation data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_student.html">
+   Unit 10: Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_solution.html">
+   Unit 10: Solutions to Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/main?urlpath=tree/Unit_03/Unit_03_loops_II.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/issues/new?title=Issue%20on%20page%20%2FUnit_03/Unit_03_loops_II.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Unit_03/Unit_03_loops_II.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 03: Loops, Pandas and Simple Plotting II
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives">
+     Learning objectives:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#table-of-contents">
+       Table of Contents
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#links-to-documentation">
+       Links to documentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import libraries
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-idexing-a-class-anchor-id-1-boolean-indexing-a">
+   1. Boolean idexing
+   <a class="anchor" id="1-boolean-indexing">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bitwise-operators">
+     Bitwise Operators
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-tests-a-class-anchor-id-booltest-a">
+     Boolean Tests
+     <a class="anchor" id="booltest">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-indexing-in-series-a-class-anchor-id-boolind-a">
+     Boolean Indexing in Series
+     <a class="anchor" id="boolind">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-indexing-in-dataframes">
+     Boolean Indexing in DataFrames
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks-1-a-id-tasks-1-a">
+   Tasks 1
+   <a id="tasks-1">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-pandas-dataframes-with-loops-to-analyse-data-a-id-2-using-pandas-dataframes-with-loops-to-analyse-data-a">
+   2. Using Pandas DataFrames with loops to analyse data
+   <a id="2-using-pandas-dataframes-with-loops-to-analyse-data">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-with-pandas-a-id-3-plotting-with-pandas-a">
+   3. Plotting with Pandas
+   <a id="3-plotting-with-pandas">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks-2-a-id-tasks-2-a">
+   Tasks 2
+   <a id="tasks-2">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unit 03: Loops, Pandas and Simple Plotting II</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 03: Loops, Pandas and Simple Plotting II
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives">
+     Learning objectives:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#table-of-contents">
+       Table of Contents
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#links-to-documentation">
+       Links to documentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import libraries
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boolean-idexing-a-class-anchor-id-1-boolean-indexing-a">
+   1. Boolean idexing
+   <a class="anchor" id="1-boolean-indexing">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bitwise-operators">
+     Bitwise Operators
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-tests-a-class-anchor-id-booltest-a">
+     Boolean Tests
+     <a class="anchor" id="booltest">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-indexing-in-series-a-class-anchor-id-boolind-a">
+     Boolean Indexing in Series
+     <a class="anchor" id="boolind">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-indexing-in-dataframes">
+     Boolean Indexing in DataFrames
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks-1-a-id-tasks-1-a">
+   Tasks 1
+   <a id="tasks-1">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-pandas-dataframes-with-loops-to-analyse-data-a-id-2-using-pandas-dataframes-with-loops-to-analyse-data-a">
+   2. Using Pandas DataFrames with loops to analyse data
+   <a id="2-using-pandas-dataframes-with-loops-to-analyse-data">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-with-pandas-a-id-3-plotting-with-pandas-a">
+   3. Plotting with Pandas
+   <a id="3-plotting-with-pandas">
+   </a>
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tasks-2-a-id-tasks-2-a">
+   Tasks 2
+   <a id="tasks-2">
+   </a>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-03-loops-pandas-and-simple-plotting-ii">
+<h1>Unit 03: Loops, Pandas and Simple Plotting II<a class="headerlink" href="#unit-03-loops-pandas-and-simple-plotting-ii" title="Permalink to this headline">#</a></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" class="align-right" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></p>
+<p>Author: Dr Claire Hobday</p>
+<p>Email: <a class="reference external" href="mailto:claire&#46;hobday&#37;&#52;&#48;ed&#46;ac&#46;uk">claire<span>&#46;</span>hobday<span>&#64;</span>ed<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="learning-objectives">
+<h2>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">#</a></h2>
+<p>By the end of this unit, you should be able to</p>
+<ul class="simple">
+<li><p>use in-built functionality in Python</p></li>
+<li><p>import modules and libraries</p></li>
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">math</span></code> module to do some simple scientific computing tasks</p></li>
+<li><p>develop more <code class="docutils literal notranslate"><span class="pre">pandas</span></code> skills to deal with large volumes of data</p></li>
+<li><p>use logical operations to filter data</p></li>
+<li><p>understand and use the different types of loops to do repetitive tasks including:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">else</span></code>/<code class="docutils literal notranslate"><span class="pre">elif</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span></code></p></li>
+</ul>
+</li>
+<li><p>combine these tools to analyse data in a large file containing information about the periodic table</p></li>
+<li><p>use tools from Python to understand trends in the periodic table</p></li>
+</ul>
+<p>Some of the material was adapted from <a class="reference external" href="https://github.com/Degiacomi-Lab/python4science/blob/master/2_Python_numerical_data.ipynb">Python4Science</a>, as well as <a class="reference external" href="http://swcarpentry.github.io/python-novice-gapminder/index.html">Software Carpentries</a>.</p>
+<section id="table-of-contents">
+<h3>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h3>
+<ol class="simple">
+<li><p><a class="reference external" href="#1-boolean-indexing">Boolean Indexing</a><br />
+1.1. <a class="reference external" href="#tasks-1">Tasks 1</a></p></li>
+<li><p><a class="reference external" href="#2-using-pandas-dataframes-with-loops-to-analyse-data">Using Pandas DataFrames with loops to analyse data</a></p></li>
+<li><p><a class="reference external" href="#3-plotting-with-pandas">Plotting with Pandas</a><br />
+3.1 <a class="reference external" href="#tasks-2">Tasks 2</a></p></li>
+</ol>
+<p><strong><span style="color:black">Jupyter Cheat Sheet</span></strong></p>
+<ul class="simple">
+<li><p>To run the currently highlighted cell and move focus to the next cell, hold <kbd>⇧ Shift</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To run the currently highlighted cell and keep focus in the same cell, hold <kbd>⇧ Ctrl</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To get help for a specific function, place the cursor within the function’s brackets, hold <kbd>⇧ Shift</kbd>, and press <kbd>⇥ Tab</kbd>;</p></li>
+</ul>
+</section>
+<section id="links-to-documentation">
+<h3>Links to documentation<a class="headerlink" href="#links-to-documentation" title="Permalink to this headline">#</a></h3>
+<p>You can find useful information about using <code class="docutils literal notranslate"><span class="pre">math</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/math.html">math</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/">pandas</a></p></li>
+<li><p><a class="reference external" href="https://anaconda.org">anaconda</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org">PyPI</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="import-libraries">
+<h1>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">#</a></h1>
+<p>Run the cell below to import all the required libraries</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="boolean-idexing-a-class-anchor-id-1-boolean-indexing-a">
+<h1>1. Boolean idexing<a class="anchor" id="1-boolean-indexing"></a><a class="headerlink" href="#boolean-idexing-a-class-anchor-id-1-boolean-indexing-a" title="Permalink to this headline">#</a></h1>
+<p><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg" src="https://upload.wikimedia.org/wikipedia/commons/c/ce/George_Boole_color.jpg" style="width: 250px;" /></a></img></p>
+<p>Related to <code class="docutils literal notranslate"><span class="pre">if</span></code>,  <code class="docutils literal notranslate"><span class="pre">elif</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code> conditions are Booleans.</p>
+<p><strong>George Boole</strong> was a 19th century self-taught English mathematician, philosopher and logician. He is known for Boolean algerbra, that is based on variables being <strong>True</strong> or <strong>False</strong>, denoted as <strong>1</strong> and <strong>0</strong> respectively.</p>
+<p>The operations in Boolean algebra are <strong>and</strong> denoted as <span class="math notranslate nohighlight">\(\wedge\)</span>, <strong>or</strong> denoted as <span class="math notranslate nohighlight">\(\vee\)</span> , and <strong>not</strong> denoted as <span class="math notranslate nohighlight">\(\neg\)</span>.</p>
+<p><a class="reference internal" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Vennandornot.svg/2560px-Vennandornot.svg.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Vennandornot.svg/2560px-Vennandornot.svg.png" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Vennandornot.svg/2560px-Vennandornot.svg.png" style="width: 300px;" /></a> <em><center>Venn diagram</center></em></img></p>
+<p>In fact, in using <code class="docutils literal notranslate"><span class="pre">if</span></code> we have already asked python to do a Boolean operation. If our answer to our if statement is true, we continue with our conditional loop. The return of the Boolean variable <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> is what determines the fate of our <code class="docutils literal notranslate"><span class="pre">if</span></code> loop.</p>
+<section id="bitwise-operators">
+<h2>Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Permalink to this headline">#</a></h2>
+<p>In python there are many ways to do the same Boolean operations, we are going to use Bitwise operators which compare binary</p>
+<div class="alert alert-info">
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Operator</p></th>
+<th class="text-align:left head"><p>Name</p></th>
+<th class="text-align:left head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code></p></td>
+<td class="text-align:left"><p>AND</p></td>
+<td class="text-align:left"><p>Sets each bit to 1 if both bits are 1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>|</p></td>
+<td class="text-align:left"><p>OR</p></td>
+<td class="text-align:left"><p>Sets each bit to 1 if one of two bits is 1</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">^</span></code></p></td>
+<td class="text-align:left"><p>XOR</p></td>
+<td class="text-align:left"><p>Sets each bit to 1 if only one of two bits is 1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td class="text-align:left"><p>NOT</p></td>
+<td class="text-align:left"><p>Inverts all the bits</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code></p></td>
+<td class="text-align:left"><p>Zero fill left shift</p></td>
+<td class="text-align:left"><p>Shift left by pushing zeros in from the right and let the leftmost bits fall off</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code></p></td>
+<td class="text-align:left"><p>Signed right shift</p></td>
+<td class="text-align:left"><p>Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off</p></td>
+</tr>
+</tbody>
+</table>
+</div></section>
+<section id="boolean-tests-a-class-anchor-id-booltest-a">
+<h2>Boolean Tests <a class="anchor" id="booltest"></a><a class="headerlink" href="#boolean-tests-a-class-anchor-id-booltest-a" title="Permalink to this headline">#</a></h2>
+<p>Boolean tests on an array produce an array of booleans:</p>
+<a class="reference internal image-reference" href="../_images/BooleanOp.png"><img alt="../_images/BooleanOp.png" src="../_images/BooleanOp.png" style="width: 500px;" /></a>
+<p>What we can see here is for each value in this series, what the Boolean outcome would be for two tests.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declare a series dataframe (just 1D dataframe, like one column of an excel sheet)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">56</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take a look at the format of the series</span>
+<span class="c1"># &quot;\n&quot; means new-line, so the variable gets printed on the line below followed by an empty line </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Series a </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Declare tests</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;condition c = a&gt;15 </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;condition d = a&lt;0 </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both tests c and d are satisfied one after the other.
+What if we want to satisfy both tests at the same time?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># AND logic</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span> <span class="o">&amp;</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, you can see the output is False, and shows you all the indices where they are False.</p>
+<p>Now if we try <code class="docutils literal notranslate"><span class="pre">or</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># OR logic</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span> <span class="o">|</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="boolean-indexing-in-series-a-class-anchor-id-boolind-a">
+<h2>Boolean Indexing in Series <a class="anchor" id="boolind"></a><a class="headerlink" href="#boolean-indexing-in-series-a-class-anchor-id-boolind-a" title="Permalink to this headline">#</a></h2>
+<p>We can also use an array of booleans to index another array, i.e. only elements coresponding to <code class="docutils literal notranslate"><span class="pre">True</span></code> are extracted from the indexed array.</p>
+<a class="reference internal image-reference" href="../_images/Boolean.png"><img alt="../_images/Boolean.png" src="../_images/Boolean.png" style="width: 500px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">15</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span>
+<span class="n">a_cVd</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">c</span> <span class="o">|</span> <span class="n">d</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_cVd</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="boolean-indexing-in-dataframes">
+<h2>Boolean Indexing in DataFrames<a class="headerlink" href="#boolean-indexing-in-dataframes" title="Permalink to this headline">#</a></h2>
+<p>Using these same logical principles, we can index whole dataframes to recover just the data we need.
+Let’s take a look at the dataframe below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dictionary of lists</span>
+<span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:[</span><span class="s2">&quot;Toni&quot;</span><span class="p">,</span> <span class="s2">&quot;James&quot;</span><span class="p">,</span> <span class="s2">&quot;Claire&quot;</span><span class="p">,</span> <span class="s2">&quot;Valentina&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;degree&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Chemistry&quot;</span><span class="p">,</span> <span class="s2">&quot;Medicinal and Biological Chemistry&quot;</span><span class="p">,</span> <span class="s2">&quot;Chemical Physics&quot;</span><span class="p">,</span> <span class="s2">&quot;Chemical Physics&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;score&quot;</span><span class="p">:[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">98</span><span class="p">]}</span>
+ 
+<span class="c1"># creating a dataframe from a dictionary</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s use the comparison operator to filter just those who do MBC.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using a comparison operator for filtering of data</span>
+    
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;degree&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Medicinal and Biological Chemistry&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">criterion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the indexing to our dataframe to return only those that fit our criteria</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">criterion</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Apply the indexing to our dataframe to return only those that DO NOT fit our criteria</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">criterion</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tasks-1-a-id-tasks-1-a">
+<h1>Tasks 1 <a id="tasks-1"></a><a class="headerlink" href="#tasks-1-a-id-tasks-1-a" title="Permalink to this headline">#</a></h1>
+<div class="alert alert-success">
+    <b>Task 1.1: Mass spectrometry</b>
+<p>Using the mass spectometry data in the file <code class="docutils literal notranslate"><span class="pre">ms.txt</span></code>, find m/z values in the region between m/z 6400 and 6600.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+<span class="c1"># Read the file ms.txt into the dataframe, and make sure to give the data column names</span>
+<span class="n">ms_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="n">____</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="n">___</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">____</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">_____</span><span class="p">])</span>
+
+<span class="c1"># Criteria for slicing data</span>
+<span class="c1"># FIXME</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 1.1</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ms_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="s2">&quot;files/ms.txt&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;m/z&quot;</span><span class="p">,</span> <span class="s2">&quot;intensity&quot;</span><span class="p">])</span>
+
+<span class="c1"># Criteria for slicing data</span>
+<span class="n">criterion_1</span> <span class="o">=</span> <span class="n">ms_data</span><span class="p">[</span><span class="s2">&quot;m/z&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">6400</span>
+<span class="n">criterion_2</span> <span class="o">=</span> <span class="n">ms_data</span><span class="p">[</span><span class="s2">&quot;m/z&quot;</span><span class="p">]</span><span class="o">&lt;</span> <span class="mi">6600</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">ms_data</span><span class="p">[</span><span class="n">criterion_1</span> <span class="o">&amp;</span> <span class="n">criterion_2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p><em>Explanation</em>: we need to know the path to the file, look at the file to work out how the columns of data are separated, does the data have headers? What should the column names be?</p>
+ </details><div class="alert alert-success">
+    <b>Task 1.2 </b> : Assess at what m/z value there is a peak between 6400 and 6600. 
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 1.2</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">intensity</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;intensity&quot;</span><span class="p">]</span>
+<span class="n">m_z</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">&quot;m/z&quot;</span><span class="p">]</span>
+<span class="n">max_value</span> <span class="o">=</span> <span class="n">intensity</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">max_index</span> <span class="o">=</span> <span class="n">intensity</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;peak&quot;</span><span class="p">,</span> <span class="n">max_value</span><span class="p">,</span> <span class="s2">&quot;at m/z&quot;</span><span class="p">,</span> <span class="n">m_z</span><span class="p">[</span><span class="n">max_index</span><span class="p">])</span>
+
+</pre></div>
+</div>
+ </details></section>
+<section class="tex2jax_ignore mathjax_ignore" id="using-pandas-dataframes-with-loops-to-analyse-data-a-id-2-using-pandas-dataframes-with-loops-to-analyse-data-a">
+<h1>2. Using Pandas DataFrames with loops to analyse data <a id='2-using-pandas-dataframes-with-loops-to-analyse-data'></a><a class="headerlink" href="#using-pandas-dataframes-with-loops-to-analyse-data-a-id-2-using-pandas-dataframes-with-loops-to-analyse-data-a" title="Permalink to this headline">#</a></h1>
+<p>We are now going to play around with the dataframe we looked at earlier containing information about the periodic table and pull out some more information from this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;files/ptable.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The entries in the df are ordered 0 to 117 for each element. </span>
+<span class="c1"># 0 is hydrogen.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ptable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:])</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that there are some variables which return <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (which stands for “Not a Number”), we can remove or fill these values easily in pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># drop all values</span>
+<span class="n">ptable</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span> 
+<span class="c1"># or fill with zeros </span>
+<span class="n">ptable</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We are going to add a new column to our dataframe, which will calculate the mass number from the number of neutron and protons which we already have in two columns. This is just done as a simple addition of the two columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add new column to the dataframe</span>
+<span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;Calculated_mass_number&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;NumberofNeutrons&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;NumberofProtons&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the difference between our calculated value <code class="docutils literal notranslate"><span class="pre">Calculated_mass_number</span></code> and the value given in the array originally <code class="docutils literal notranslate"><span class="pre">AtomicMass</span></code>. <br>
+Think about why the values would be different.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;Difference_in_mass&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;Calculated_mass_number&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;AtomicMass&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ptable</span><span class="p">)):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">ptable</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">difference</span> <span class="o">=</span> <span class="n">ptable</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Difference in mass for </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">difference</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s use some Boolean logic on the periodic table data. Below we will look for all elements that exist as solid as standard temperature and pressure.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">solids</span> <span class="o">=</span> <span class="n">ptable</span><span class="p">[</span><span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;Phase&quot;</span><span class="p">]</span> <span class="o">==</span><span class="s2">&quot;solid&quot;</span><span class="p">]</span>
+<span class="n">solids</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-success">
+    <b>Task 1.3 </b>: Set boolean tests to check what elements are liquid at 297 K, and extract the names of those elements.
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># What columns from the dataframe will we need?</span>
+
+<span class="c1"># FIXME</span>
+
+<span class="c1"># Set Boolean tests to check what is liquid at 297 K (room T)</span>
+
+<span class="c1"># FIXME</span>
+
+<span class="c1"># Run the test and print names of elements that are liquid at room temperature</span>
+
+<span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details> <summary {style="color:green;font-weight:bold"}> Click here to see the full solution to Task 1.3 </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    
+<span class="c1"># What columns from the dataframe will we need?    </span>
+<span class="n">element</span> <span class="o">=</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;Element&quot;</span><span class="p">]</span>
+<span class="n">melting</span> <span class="o">=</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;MeltingPoint&quot;</span><span class="p">]</span>
+<span class="n">boiling</span> <span class="o">=</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;BoilingPoint&quot;</span><span class="p">]</span>
+    
+<span class="c1"># Boolean to check what is liquid at 297 K (room T)</span>
+    
+<span class="n">temperature_1</span> <span class="o">=</span> <span class="n">melting</span> <span class="o">&lt;</span> <span class="mi">297</span>
+<span class="n">temperature_2</span> <span class="o">=</span> <span class="n">boiling</span> <span class="o">&gt;</span> <span class="mi">297</span>
+
+<span class="n">criteria</span> <span class="o">=</span> <span class="n">temperature_1</span> <span class="o">&amp;</span> <span class="n">temperature_2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="n">criteria</span><span class="p">])</span>
+
+</pre></div>
+</div>
+</details>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotting-with-pandas-a-id-3-plotting-with-pandas-a">
+<h1>3. Plotting with Pandas <a id='3-plotting-with-pandas'></a><a class="headerlink" href="#plotting-with-pandas-a-id-3-plotting-with-pandas-a" title="Permalink to this headline">#</a></h1>
+<p>Plotting can be done in many ways within python. At first we will just use plotting straight from pandas. It uses a popular library <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> in the background. As we progress to later sessions we will use this directly, but for now we will just stick to pandas plotting.</p>
+<p>We can use the pandas dataframe to easily plot columns with matplotlib. <br></p>
+<p>The easiest thing we could do, would be to plot all variables against our index</p>
+<p>with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptable</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>However, we can see that this is not very informative, and we must use our knowledge that we have learned in the previous session and earlier in this session to plot the data more sensibly. <br>
+We can access what columns we can plot against each other with this command:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptable</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s take two variables from the column headers and plot them against each other.<br>
+Let’s see if we can see trends in the periods of the periodic table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ptable</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;AtomicNumber&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;AtomicRadius&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can clearly see the trends of each period in the periodic table.</p>
+<p>Now lets try another type of plot which isn’t scatter.
+We can use a pie chart to show how many elements were discovered in each location.</p>
+<p>Pandas has a handy <code class="docutils literal notranslate"><span class="pre">values_counts()</span></code> function that we can use on our column of this data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counting</span> <span class="o">=</span> <span class="n">ptable</span><span class="o">.</span><span class="n">discovery_location</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counting</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Then we can plot these data as a piechart</span>
+
+<span class="n">counting</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also loop over our columns in ptable and plot them as a function of “Element”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ptable</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">9</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;Element&quot;</span><span class="p">],</span> <span class="n">ptable</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+<span class="c1"># Note how we rotate the xticks 90 degrees to see the name on its side!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="tasks-2-a-id-tasks-2-a">
+<h1>Tasks 2 <a id="tasks-2"></a><a class="headerlink" href="#tasks-2-a-id-tasks-2-a" title="Permalink to this headline">#</a></h1>
+<div class="alert alert-success">
+<b>Task 2.1: Selecting individual values in a dataframe</b>
+<p>Using the ptable dataframe, write an expression to find and print the boiling point of argon.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 2.1 </summary>
+<p>Like most things in python, this can be approached in a few ways, e.g. we know that Argon is the 18th element in the periodic table, therefore it is going to be index 17 in our dataframe (python counts from zero)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ptable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">17</span><span class="p">,</span> <span class="s2">&quot;BoilingPoint&quot;</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<p>Another way to search for this would be to do some Boolean indexing.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">criteria_ar</span> <span class="o">=</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;Element&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Argon&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">criteria_ar</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">ptable</span><span class="p">[</span><span class="n">criteria_ar</span><span class="p">][</span><span class="s2">&quot;BoilingPoint&quot;</span><span class="p">])</span>
+  
+</pre></div>
+</div>
+ </details><div class="alert alert-success">
+<b>Task 2.2: Slicing dataframes</b>
+</div>
+<p>Have a look at these two ways of slicing, what is different about them?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ptable</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ptable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;4&quot;</span><span class="p">:</span><span class="s2">&quot;6&quot;</span><span class="p">,</span> <span class="s2">&quot;AtomicNumber&quot;</span><span class="p">:</span><span class="s2">&quot;Symbol&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 2.2 </summary>
+<p>Notice how the second statement produces additional columns and many additional row compared to the first statement.</p>
+<p>What conclusion can we draw? We see that a numerical slice, (first example) omits the final index (i.e. 6) in the range provided, while a named slice, <code class="docutils literal notranslate"><span class="pre">&quot;AtomicNumber&quot;:&quot;Symbol&quot;</span></code>, includes the final element “Symbol”.</p>
+<p>A funny quirk of not naming our index is that all rows between 40 and 60 are printed with the second method.</p>
+ </details>
+<div class="alert alert-success">
+<b>Task 2.3: Use a loop to identify all symbols with 1 letter</b>
+</div>
+<p>Using the symbol column in the dataframe <code class="docutils literal notranslate"><span class="pre">ptable</span></code> use a loop to identify and count all the elements which have a one letter symbol.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style='color:green;font-weight:bold'}> Click here to see solution to Task 2.3 </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">one_etter</span><span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ptable</span><span class="p">[</span><span class="s2">&quot;Symbol&quot;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">one_letter</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">one_letter</span><span class="p">)</span>
+</pre></div>
+</div>
+ </details>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unit_03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Unit_03_loops_I.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Unit 03: Loops, Pandas and Simple Plotting I</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Unit_04/Unit_04_functions_I.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit 04: Functions I</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Edinburgh Chemistry Teaching<br/>
+  
+      &copy; Copyright 2022-2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

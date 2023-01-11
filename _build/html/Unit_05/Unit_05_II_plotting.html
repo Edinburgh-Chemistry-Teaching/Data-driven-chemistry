@@ -1,0 +1,1623 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Unit 05: Introduction to NumPy and Plotting, part II &#8212; Data-Driven Chemistry</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Unit 06: Comparing Statistical Distributions" href="../Unit_06/Unit_06_statistics_I.html" />
+    <link rel="prev" title="Unit 05: Introduction to NumPy and Plotting, part I" href="Unit_05_I_numerical_data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Data-Driven Chemistry</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../overview.html">
+                    Welcome to Data-Driven Chemistry
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About Data-Driven Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../book_intro.html">
+   Data Driven Chemistry
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_I.html">
+   Unit 01: Problem Solving I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_01/Unit_01_problem_solving_II.html">
+   Unit 01: Problem Solving II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_I.html">
+   Unit 02: First steps in Python I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_02/Unit_02_variables_II.html">
+   Unit 02: First steps in Python II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_I.html">
+   Unit 03: Loops, Pandas and Simple Plotting I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_03/Unit_03_loops_II.html">
+   Unit 03: Loops, Pandas and Simple Plotting II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_I.html">
+   Unit 04: Functions I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_04/Unit_04_functions_II.html">
+   Unit 04: Functions II
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction to Plotting and Statistics
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Unit_05_I_numerical_data.html">
+   Unit 05: Introduction to NumPy and Plotting, part I
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_statistics_I.html">
+   Unit 06: Comparing Statistical Distributions
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Molecular Geometries
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_06/Unit_06_molecular_geometries_II.html">
+   Unit 06: An Introduction to Molecular Geometries
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Fitting Data
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_I.html">
+   Unit 07 Fitting Part I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_07/Unit_07_fitting_II.html">
+   Unit 07: Fitting Part II – Linear and non-linear Fits
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Applications of Python in Chemistry
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_08/Unit_08_Applications_I.html">
+   Unit 08: Applications to Chemistry – Mass Spectrometry and Radioactive Decay
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_I.html">
+   Unit 09: Applications II UV-Vis Spectroscopy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_09/Unit_09_applications_II_part_II.html">
+   Unit 09: Applications II  Protein SAXS and simulation data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_student.html">
+   Unit 10: Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Unit_10/Unit_10_NMR_application_solution.html">
+   Unit 10: Solutions to Analysing NMR Data from Start to Finish
+   <a class="tocSkip">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/main?urlpath=tree/Unit_05/Unit_05_II_plotting.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/issues/new?title=Issue%20on%20page%20%2FUnit_05/Unit_05_II_plotting.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/Unit_05/Unit_05_II_plotting.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives-a-id-learning-a">
+     Learning objectives
+     <a id="learning">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links-to-documentation">
+     Links to documentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-libraries">
+     Import libraries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-data-a-id-1-plotting-data-a">
+   1. Plotting data
+   <a id="1-plotting-data">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-plot-a-id-11-simple-plot-a">
+     1.1 A simple plot
+     <a id="11-simple-plot">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-10">
+       Example 10
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-11">
+       Example 11
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#labeling-the-plot-and-the-data-a-class-anchor-id-labelplt-a">
+       Labeling the plot and the data
+       <a class="anchor" id="labelplt">
+       </a>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-aside-on-string-formatting-a-id-11-quick-aside-on-string-formatting-a">
+     1.2 Quick aside on string formatting
+     <a id="11-quick-aside-on-string-formatting">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-oriented-plotting-a-id-3-oo-plotting-a">
+     1.3 Object Oriented Plotting
+     <a id="3-oo-plotting">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#declare-a-figure-object">
+       Declare a figure
+       <em>
+        object
+       </em>
+       :
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#add-the-data-onto-the-axes-of-the-plot-with">
+       Add the data onto the axes of the plot with:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#add-other-elements-such-as-labels">
+       Add other elements, such as labels:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adjust-figure-size-and-resolution">
+       Adjust figure size and resolution:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-finish-the-figure-render-it-together">
+       To finish the figure, render it together:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#errors-a-discussion-a-id-2-errors-a-discussion-a">
+   2. Errors: a Discussion
+   <a id="2-errors-a-discussion">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sources-of-errors-and-uncertainties-a-id-21-sources-of-errors-and-uncertainties-a">
+     2.1. Sources of Errors and Uncertainties
+     <a id="21-sources-of-errors-and-uncertainties">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accuracy-vs-precision-a-id-22-accuracy-vs-precision-a">
+     2.2. Accuracy vs Precision
+     <a id="22-accuracy-vs-precision">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-statistics-a-id-3-introduction-to-statistics-a">
+   3. Introduction to Statistics
+   <a id="3-introduction-to-statistics">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistical-distributions-a-id-31-statistical-distributions-a">
+     3.1 Statistical Distributions
+     <a id="31-statistical-distributions">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-12">
+     Example 12
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribution-of-measurements">
+     3.2 Distribution of Measurements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-13">
+     Example 13
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-14">
+     Example 14
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-15">
+     Example 15
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalising-the-data-a-id-33-normalising-the-data-a">
+     3.3 Normalising the Data
+     <a id="33-normalising-the-data">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantifying-uncertainty-a-id-33-quantifying-uncertainty-a">
+     3.4 Quantifying Uncertainty
+     <a id="33-quantifying-uncertainty">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-mean-mu-a-class-anchor-id-mean-a">
+       The mean,
+       <span class="math notranslate nohighlight">
+        \(\mu\)
+       </span>
+       <a class="anchor" id="mean">
+       </a>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-standard-deviation-std-sigma-a-class-anchor-id-std-a">
+       The standard deviation (STD),
+       <span class="math notranslate nohighlight">
+        \(\sigma\)
+       </span>
+       <a class="anchor" id="STD">
+       </a>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-points-a-id-recap-a">
+   Key Points
+   <a id="recap">
+   </a>
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Unit 05: Introduction to NumPy and Plotting, part II</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Unit 05: Introduction to NumPy and Plotting, part II
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#learning-objectives-a-id-learning-a">
+     Learning objectives
+     <a id="learning">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-contents">
+     Table of Contents
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#links-to-documentation">
+     Links to documentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-libraries">
+     Import libraries
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting-data-a-id-1-plotting-data-a">
+   1. Plotting data
+   <a id="1-plotting-data">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-plot-a-id-11-simple-plot-a">
+     1.1 A simple plot
+     <a id="11-simple-plot">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-10">
+       Example 10
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#example-11">
+       Example 11
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#labeling-the-plot-and-the-data-a-class-anchor-id-labelplt-a">
+       Labeling the plot and the data
+       <a class="anchor" id="labelplt">
+       </a>
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quick-aside-on-string-formatting-a-id-11-quick-aside-on-string-formatting-a">
+     1.2 Quick aside on string formatting
+     <a id="11-quick-aside-on-string-formatting">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#object-oriented-plotting-a-id-3-oo-plotting-a">
+     1.3 Object Oriented Plotting
+     <a id="3-oo-plotting">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#declare-a-figure-object">
+       Declare a figure
+       <em>
+        object
+       </em>
+       :
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#add-the-data-onto-the-axes-of-the-plot-with">
+       Add the data onto the axes of the plot with:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#add-other-elements-such-as-labels">
+       Add other elements, such as labels:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#adjust-figure-size-and-resolution">
+       Adjust figure size and resolution:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#to-finish-the-figure-render-it-together">
+       To finish the figure, render it together:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#errors-a-discussion-a-id-2-errors-a-discussion-a">
+   2. Errors: a Discussion
+   <a id="2-errors-a-discussion">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sources-of-errors-and-uncertainties-a-id-21-sources-of-errors-and-uncertainties-a">
+     2.1. Sources of Errors and Uncertainties
+     <a id="21-sources-of-errors-and-uncertainties">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#accuracy-vs-precision-a-id-22-accuracy-vs-precision-a">
+     2.2. Accuracy vs Precision
+     <a id="22-accuracy-vs-precision">
+     </a>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction-to-statistics-a-id-3-introduction-to-statistics-a">
+   3. Introduction to Statistics
+   <a id="3-introduction-to-statistics">
+   </a>
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#statistical-distributions-a-id-31-statistical-distributions-a">
+     3.1 Statistical Distributions
+     <a id="31-statistical-distributions">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-12">
+     Example 12
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribution-of-measurements">
+     3.2 Distribution of Measurements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-13">
+     Example 13
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-14">
+     Example 14
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-15">
+     Example 15
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalising-the-data-a-id-33-normalising-the-data-a">
+     3.3 Normalising the Data
+     <a id="33-normalising-the-data">
+     </a>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantifying-uncertainty-a-id-33-quantifying-uncertainty-a">
+     3.4 Quantifying Uncertainty
+     <a id="33-quantifying-uncertainty">
+     </a>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-mean-mu-a-class-anchor-id-mean-a">
+       The mean,
+       <span class="math notranslate nohighlight">
+        \(\mu\)
+       </span>
+       <a class="anchor" id="mean">
+       </a>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-standard-deviation-std-sigma-a-class-anchor-id-std-a">
+       The standard deviation (STD),
+       <span class="math notranslate nohighlight">
+        \(\sigma\)
+       </span>
+       <a class="anchor" id="STD">
+       </a>
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#key-points-a-id-recap-a">
+   Key Points
+   <a id="recap">
+   </a>
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="unit-05-introduction-to-numpy-and-plotting-part-ii">
+<h1>Unit 05: Introduction to NumPy and Plotting, part II<a class="headerlink" href="#unit-05-introduction-to-numpy-and-plotting-part-ii" title="Permalink to this headline">#</a></h1>
+<p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" class="align-right" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a></p>
+<p>Authors:</p>
+<ul class="simple">
+<li><p>Dr Valentina Erastova</p></li>
+<li><p>Dr Matteo Degiacomi</p></li>
+<li><p>Hannah Pollak</p></li>
+</ul>
+<p>Email: <a class="reference external" href="mailto:valentina&#46;erastova&#37;&#52;&#48;ed&#46;ac&#46;uk">valentina<span>&#46;</span>erastova<span>&#64;</span>ed<span>&#46;</span>ac<span>&#46;</span>uk</a></p>
+<section id="learning-objectives-a-id-learning-a">
+<h2>Learning objectives  <a id="learning"></a><a class="headerlink" href="#learning-objectives-a-id-learning-a" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>plot data using <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code></p></li>
+<li><p>understand sources of errors and how to mitigate them</p></li>
+<li><p>analyse numerical data statistically using in-built functions</p></li>
+<li><p>quantify uncertainties</p></li>
+</ul>
+<p>Some of the material was adapted from <a class="reference external" href="https://github.com/Degiacomi-Lab/python4science/blob/master/2_Python_numerical_data.ipynb">Python4Science</a>.</p>
+</section>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p><a class="reference external" href="#1-plotting-data">Plotting Data</a><br />
+1.1 <a class="reference external" href="#11-simple-plot">A simple plot</a><br />
+1.2 <a class="reference external" href="#11-quick-aside-on-string-formatting">String Formatting</a><br />
+1.3.<a class="reference external" href="#3-oo-plotting">Object Oriented Plotting</a></p></li>
+<li><p><a class="reference external" href="#2-errors">Errors: a Discussion</a><br />
+2.1 <a class="reference external" href="#21-sources-of-errors-and-uncertainties">Sources of Errors and Uncertainties</a><br />
+2.2 <a class="reference external" href="#22-accuracy-vs-precision">Accuracy vs Precision</a></p></li>
+<li><p><a class="reference external" href="#3-introduction-to-statistics">Introduction to Statistics</a><br />
+3.1 <a class="reference external" href="#31-statistical-distributions">Statistical Distributions</a><br />
+3.2 <a class="reference external" href="#32-distribution-of-measurements">Distribution of Measurements</a><br />
+3.3 <a class="reference external" href="#33-quantifying-uncertainty">Quantifying Uncertainty</a></p></li>
+<li><p><a class="reference external" href="#recap">Key Points</a></p></li>
+</ol>
+<p><strong><span style="color:black">Jupyter Cheat Sheet</span></strong></p>
+<ul class="simple">
+<li><p>To run the currently highlighted cell and move focus to the next cell, hold <kbd>⇧ Shift</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To run the currently highlighted cell and keep focus in the same cell, hold <kbd>⇧ Ctrl</kbd> and press <kbd>⏎ Enter</kbd>;</p></li>
+<li><p>To get help for a specific function, place the cursor within the function’s brackets, hold <kbd>⇧ Shift</kbd>, and press <kbd>⇥ Tab</kbd>;</p></li>
+</ul>
+</section>
+<section id="links-to-documentation">
+<h2>Links to documentation<a class="headerlink" href="#links-to-documentation" title="Permalink to this headline">#</a></h2>
+<p>You can find useful information about using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> at</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org">NumPy</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org">matplotlib</a></p></li>
+</ul>
+</section>
+<section id="import-libraries">
+<h2>Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="plotting-data-a-id-1-plotting-data-a">
+<h1>1. Plotting data <a id="1-plotting-data"></a><a class="headerlink" href="#plotting-data-a-id-1-plotting-data-a" title="Permalink to this headline">#</a></h1>
+<p>We can use the <a class="reference external" href="http://matplotlib.org">matplotlib</a> package to plot data using Python.</p>
+<p>We first look at the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> functional interface, which allows us to manipulate a given current figure. <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> is great to quickly visualize data we are working with, but it is <strong>not suitable</strong> for plots of multiple data quantities, subplots, or more complex customizations.  In this case, an <em>object-oriented</em> plotting approach is needed. We will discuss the object-oriented plotting in Section 1.3.</p>
+<section id="a-simple-plot-a-id-11-simple-plot-a">
+<h2>1.1 A simple plot <a id="11-simple-plot"></a><a class="headerlink" href="#a-simple-plot-a-id-11-simple-plot-a" title="Permalink to this headline">#</a></h2>
+<section id="example-10">
+<h3>Example 10<a class="headerlink" href="#example-10" title="Permalink to this headline">#</a></h3>
+<p>As always, we begin with <strong>importing the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> module</strong> with the alias <code class="docutils literal notranslate"><span class="pre">plt</span></code>.</p>
+<p>This is the community-agreed alias for <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME </span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Example 10.</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</details></section>
+<section id="example-11">
+<h3>Example 11<a class="headerlink" href="#example-11" title="Permalink to this headline">#</a></h3>
+<p>To create a plot, we use the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> function <code class="docutils literal notranslate"><span class="pre">plt.plot()</span></code>.</p>
+<p>Load in the file <code class="docutils literal notranslate"><span class="pre">data/sub_intensities.txt</span></code> that you created in Task 2.3 in the notebook of <a class="reference internal" href="Unit_05_I_numerical_data.html"><span class="doc std std-doc">Unit 05, part I</span></a>.</p>
+<p>It is good practice to use <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> to show the plot, even though the plot will pop up in Jupyter without this as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Example 11.</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># Read the file</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;data/sub_intensities.txt&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</details><p><strong>Note:</strong> the plot displayed is generated from the sub-sampled data, which only has intensities. Therefore, this data does not have the m/z column, so x-axis is just the row number.</p>
+</section>
+<section id="labeling-the-plot-and-the-data-a-class-anchor-id-labelplt-a">
+<h3>Labeling the plot and the data <a class="anchor" id="labelplt"></a><a class="headerlink" href="#labeling-the-plot-and-the-data-a-class-anchor-id-labelplt-a" title="Permalink to this headline">#</a></h3>
+<p>It is always good practice to <strong>label the plots</strong>. <a class="anchor" id="labelplt"></a></p>
+<p>Use the following commands to add the labels to your plot:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xlabel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ylabel()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title()</span></code></p></li>
+</ul>
+<div class="alert alert-success">
+    <b>Task 1.1</b> : Plot the <code>ms.txt</code> data as m/z vs Intensity, label the plot.
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Task 1.1.</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load in the data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;data/ms.txt&quot;</span><span class="p">)</span>
+
+<span class="c1"># Assign the columns to &#39;mz&#39; and &#39;intensity&#39;</span>
+<span class="n">mz</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">intensity</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># plot mz against intensity</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mz</span><span class="p">,</span> <span class="n">intensity</span><span class="p">)</span>
+
+<span class="c1"># label the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mass spectrometry&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;m/z&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Intensity&quot;</span><span class="p">)</span>
+
+<span class="c1"># save the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;images/myfigure.png&quot;</span><span class="p">)</span>
+
+<span class="c1"># show the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</details></section>
+</section>
+<section id="quick-aside-on-string-formatting-a-id-11-quick-aside-on-string-formatting-a">
+<h2>1.2 Quick aside on string formatting <a id="11-quick-aside-on-string-formatting"></a><a class="headerlink" href="#quick-aside-on-string-formatting-a-id-11-quick-aside-on-string-formatting-a" title="Permalink to this headline">#</a></h2>
+<p>We can use <strong>f-strings</strong> to format strings in a nice way. This is useful for, e.g., labelling scientific plots.</p>
+<p>For example, let’s say we want to creare a plot label for pressure as “Pressure (<span class="math notranslate nohighlight">\(\mathrm{N / m}^2\)</span>)” in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pressure (N / m$^2$)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can do this using LaTex notation given inside the <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">$</span></code> signs.</p>
+<p><a class="reference external" href="https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols">Click here</a> for a list of some of the mathematical symbols you can write in this format.</p>
+<p>Some of the most useful ones for chemists are <strong>superscripts</strong> <code class="docutils literal notranslate"><span class="pre">$^{-2}$</span></code> and <strong>subscripts</strong> <code class="docutils literal notranslate"><span class="pre">$_{\mathrm{exp}}$</span></code>. The expression <code class="docutils literal notranslate"><span class="pre">\mathrm{}</span></code> stands for “maths roman” which ensures the superscript is written in non-italic.</p>
+<p>You can use this “math mode” in markdown cells in a similar way to write equations.</p>
+<p>Another useful method of f-strings is formatting the number of significant figures of values. For example, let’s say we want to print the mass of something with 2 significant figures:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">mass</span> <span class="o">=</span> <span class="mf">0.198</span> <span class="c1"># in g</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The final mass is </span><span class="si">{</span><span class="n">mass</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> g.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which prints: <code class="docutils literal notranslate"><span class="pre">The</span> <span class="pre">final</span> <span class="pre">mass</span> <span class="pre">is</span> <span class="pre">0.20</span> <span class="pre">g.</span></code></p>
+</section>
+<section id="object-oriented-plotting-a-id-3-oo-plotting-a">
+<h2>1.3 Object Oriented Plotting <a id="3-oo-plotting"></a><a class="headerlink" href="#object-oriented-plotting-a-id-3-oo-plotting-a" title="Permalink to this headline">#</a></h2>
+<p>In <a class="reference external" href="#11-simple-plot">Section 1.1</a>, we have done only very basic plots  with the <code class="docutils literal notranslate"><span class="pre">pyplot</span></code> module of the matplotlib package. In this section, we will introduce more complex plotting, by adopting a more sophisticad <strong>Object Oriented Plotting</strong> approach. If you are eager to know more, please see discussion on <a class="reference external" href="https://matplotlib.org/matplotblog/posts/pyplot-vs-object-oriented-interface/">PyPlot vs. Object Oriented Interfaces</a> on the matplotlib blog.</p>
+<div class="alert alert-info">
+<b> Note:</b> a cheatsheet and an example of usage of matplotlib is available as <a href="Extra_Plotting.ipynb">Extra material</a> in this Unit.
+</div><p>Object oriented plotting enables us to get control on all the components of a plot, shown in the figure below.</p>
+<p><a class="reference internal" href="../_images/anatomy-of-a-figure.webp"><img alt="../_images/anatomy-of-a-figure.webp" src="../_images/anatomy-of-a-figure.webp" style="width: 600px;" /></a></img></p>
+<p>To achieve this, we start with declaring an <em>object</em> which is a container for all elements (shown in <span style="color:blue"> <em>blue</em> </span> in the image above) that are rendered onto the object, i.e. our <strong>figure</strong>.</p>
+<section id="declare-a-figure-object">
+<h3>Declare a figure <em>object</em>:<a class="headerlink" href="#declare-a-figure-object" title="Permalink to this headline">#</a></h3>
+<p>The following command produces a single figure (called <code class="docutils literal notranslate"><span class="pre">fig</span></code>) containing a single axes (i.e. a single plot called <code class="docutils literal notranslate"><span class="pre">ax</span></code> inside figure)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>With matplotlib, a figure can be created in different ways:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># an empty figure with no Axes</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>  
+<span class="c1"># a figure with a single Axes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>  
+<span class="c1"># a figure with a 2x2 grid of Axes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  
+</pre></div>
+</div>
+</section>
+<section id="add-the-data-onto-the-axes-of-the-plot-with">
+<h3>Add the data onto the axes of the plot with:<a class="headerlink" href="#add-the-data-onto-the-axes-of-the-plot-with" title="Permalink to this headline">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can also include labels, markers, colors:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot some data on the axes</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>  
+<span class="c1"># Plot more data on the axes...</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;quadratic&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">)</span>  
+<span class="c1"># ... and some more:</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;cubic&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="add-other-elements-such-as-labels">
+<h3>Add other elements, such as labels:<a class="headerlink" href="#add-other-elements-such-as-labels" title="Permalink to this headline">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a y-label to the axes.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Distance (m)&quot;</span><span class="p">)</span>
+<span class="c1"># Add an x-label to the axes. </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="c1"># Add a title to the axes.  </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;My plot&quot;</span><span class="p">)</span>  
+<span class="c1"># Add a legend.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>  
+</pre></div>
+</div>
+</section>
+<section id="adjust-figure-size-and-resolution">
+<h3>Adjust figure size and resolution:<a class="headerlink" href="#adjust-figure-size-and-resolution" title="Permalink to this headline">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_dpi</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="to-finish-the-figure-render-it-together">
+<h3>To finish the figure, render it together:<a class="headerlink" href="#to-finish-the-figure-render-it-together" title="Permalink to this headline">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In <a class="reference external" href="#3-introduction-to-statistics">Section 3</a>, we will look at an example of how using object oriented plotting to plot a statistical distribution.</p>
+<div class="alert alert-warning">
+    <b>Advanced Task 1.2</b> : plot again the <code>ms.txt</code> data using object oriented plotting, modifying the plot;s look to your taste.
+</div></section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="errors-a-discussion-a-id-2-errors-a-discussion-a">
+<h1>2. Errors: a Discussion <a id="2-errors-a-discussion"></a><a class="headerlink" href="#errors-a-discussion-a-id-2-errors-a-discussion-a" title="Permalink to this headline">#</a></h1>
+<div class="alert alert-info"><b>In groups, discuss errors in scientific experiments and data handling</b>
+<p>Here are some questions to help you get started:</p>
+<ul class="simple">
+<li><p>What kind or errors we often found in scientific experiments?</p></li>
+<li><p>Are there any less obvious sources that may go unnoticed?</p></li>
+<li><p>What are the sources of uncertainty?</p></li>
+<li><p>How can we mitigate the errors?</p></li>
+<li><p>What about the code we write? Can we make it more reproducible, minimising human error?</p></li>
+<li><p>What are the differences between <em>random error</em>, <em>systematic error</em> and <em>mistakes</em>?</p></li>
+<li><p>How does repeating measurements reduce (or not?) the effect on the above errors?</p></li>
+<li><p>What is the difference between <em>accuracy</em> and <em>precision</em>?</p></li>
+<li><p>Can you give examples of situations where accuracy is important and where it is not?</p></li>
+<li><p>Why are repeat measurements  important for characterising accuracy. What about precision?</p></li>
+</ul>
+</div>
+<section id="sources-of-errors-and-uncertainties-a-id-21-sources-of-errors-and-uncertainties-a">
+<h2>2.1. Sources of Errors and Uncertainties <a id="21-sources-of-errors-and-uncertainties"></a><a class="headerlink" href="#sources-of-errors-and-uncertainties-a-id-21-sources-of-errors-and-uncertainties-a" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><strong>Random Error:</strong></p>
+<ul>
+<li><p>Noise in the experimental data</p></li>
+<li><p>Some scatter of the values</p></li>
+<li><p>Repeated careful experiments can reduce this error</p></li>
+<li><p>Statistical tools are for dealing with these errors</p></li>
+<li><p>Not present in calculations, calculations return same output value (within the precision)</p></li>
+</ul>
+</li>
+<li><p><strong>Systematic Error:</strong></p>
+<ul>
+<li><p>Systematically shifted values by a given value/ percentage</p></li>
+<li><p>Must be handled at the source, for example by recalibration of equipment</p></li>
+<li><p>May be accounted for during data processing if identified, example: shift all weights by 15 g</p></li>
+<li><p>Calculations are rarely exact, and so are subject to this error for any approximations that are used</p></li>
+</ul>
+</li>
+<li><p><strong>Mistakes:</strong></p>
+<ul>
+<li><p>Mainly human, may be in the equipment or in the code</p></li>
+<li><p>Must identify, redo/debug</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="accuracy-vs-precision-a-id-22-accuracy-vs-precision-a">
+<h2>2.2. Accuracy vs Precision <a id="22-accuracy-vs-precision"></a><a class="headerlink" href="#accuracy-vs-precision-a-id-22-accuracy-vs-precision-a" title="Permalink to this headline">#</a></h2>
+<a class="reference internal image-reference" href="../_images/DartPic2.png"><img alt="../_images/DartPic2.png" src="../_images/DartPic2.png" style="width: 500px;" /></a>
+<ul class="simple">
+<li><p>High <strong>precision</strong> = a low spread of results (low random error)</p></li>
+<li><p>High <strong>accuracy</strong> = that the average result is close to “true” answer (low systematic error)</p></li>
+</ul>
+<p>High precision and high accuracy are always desirable, but not always essential.</p>
+<br>
+We can only access accuracy and precision from multiple data points!
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="introduction-to-statistics-a-id-3-introduction-to-statistics-a">
+<h1>3. Introduction to Statistics    <a id="3-introduction-to-statistics"></a><a class="headerlink" href="#introduction-to-statistics-a-id-3-introduction-to-statistics-a" title="Permalink to this headline">#</a></h1>
+<section id="statistical-distributions-a-id-31-statistical-distributions-a">
+<h2>3.1 Statistical Distributions <a id="31-statistical-distributions"></a><a class="headerlink" href="#statistical-distributions-a-id-31-statistical-distributions-a" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="example-12">
+<h2>Example 12<a class="headerlink" href="#example-12" title="Permalink to this headline">#</a></h2>
+<p>A set of 50 samples were weighed in the lab, returning the following results:</p>
+<p>|Sample No.| Weight, g ||Sample No.| Weight, g |
+| —-| —–|| —-| —–|
+| 1 | 12.7867 || 26 | 13.060 |
+| 2 | 11.2558 || 27 | 12.67 |
+| 3 | 11.8226 || 28 | 9.284  |
+| 4 | 14.2157 || 29 | 11.32  |
+| 5 | 11.9955 || 30 | 12.57 |
+| 6 | 12.753 || 31 | 11.909 |
+| 7 | 10.604 || 32 | 12.055 |
+| 8 | 12.7267 || 33 | 11.98 |
+| 9 | 11.3204 || 34 | 11.48  |
+| 10 | 11.3616 || 35 | 10.99  |
+| 11 | 12.1384 || 36 | 11.79 |
+| 12 | 12.301 || 37 | 11.357 |
+| 13 | 11.032 || 38 | 10.196 |
+| 14 | 10.8086 || 39 | 12.16 |
+| 15 | 13.58 || 40 | 11.01  |
+| 16 | 12.59  || 41 | 12.33  |
+| 17 | 11.93  || 42 | 12.14 |
+| 18 | 12.41 || 43 | 11.711 |
+| 19 | 12.426 || 44 | 12.373 |
+| 20 | 10.435 || 45 | 13.26 |
+| 21 | 10.39 || 46 | 11.26  |
+| 22 | 12.89  || 47 | 12.79 |
+| 23 | 11.49  || 48 | 12.11 |
+| 24 | 12.45 || 49 | 11.831 |
+| 25 | 12.022 || 50 | 10.810 |</p>
+<p>The data is stored in a file <code class="docutils literal notranslate"><span class="pre">data/Weights.txt</span></code> and may have a header! Let’s load this data using <code class="docutils literal notranslate"><span class="pre">numpy</span></code> (storing it in a variable called <code class="docutils literal notranslate"><span class="pre">data</span></code>), plot it, and get some statistics!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Example 12. </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Load data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;data/Weights.txt&quot;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+    
+<span class="c1"># Initialise the figure object</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Add data and labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;X&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Sample No.&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Weight (g)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Show plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+</pre></div>
+</div>
+</details></section>
+<section id="distribution-of-measurements">
+<h2>3.2 Distribution of Measurements<a class="headerlink" href="#distribution-of-measurements" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="example-13">
+<h2>Example 13<a class="headerlink" href="#example-13" title="Permalink to this headline">#</a></h2>
+<p>If we measure a value many times, we should get a distribution, which can be visualised as a <strong>histogram</strong></p>
+<div class="alert alert-info">
+⚠️ A histogram is a distribution and is characteristic for different statistical (random) processes.
+</div>
+<p>Here, we look at the histogram for a <strong>population</strong> of 50 measurements.</p>
+<p>We can get a histogram using the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html#numpy.histogram"><code class="docutils literal notranslate"><span class="pre">np.histogram(a,</span> <span class="pre">bins=10)</span></code></a> function, where <code class="docutils literal notranslate"><span class="pre">a</span></code> is a numpy array.</p>
+<p>How many bins do you think are needed to display the data we have previously loaded? Try it!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Example 13.</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">w</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</details></section>
+<section id="example-14">
+<h2>Example 14<a class="headerlink" href="#example-14" title="Permalink to this headline">#</a></h2>
+<p>We can now plot it, using <code class="docutils literal notranslate"><span class="pre">ax.stairs(counts,</span> <span class="pre">bins)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Example 14 </summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">stairs</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Weight, g&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</details></section>
+<section id="example-15">
+<h2>Example 15<a class="headerlink" href="#example-15" title="Permalink to this headline">#</a></h2>
+<p>Alternatively, we can use a the function <code class="docutils literal notranslate"><span class="pre">plt.hist(a,</span> <span class="pre">bins=10)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Example 15</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">w</span><span class="p">,</span><span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Weight, g&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</details></section>
+<section id="normalising-the-data-a-id-33-normalising-the-data-a">
+<h2>3.3 Normalising the Data <a id="33-normalising-the-data"></a><a class="headerlink" href="#normalising-the-data-a-id-33-normalising-the-data-a" title="Permalink to this headline">#</a></h2>
+<p>In the example above we created a <strong>histogram</strong> with 10 bins (default).</p>
+<p>If we change the bin number, the distribution changes.</p>
+<p>If we add more samples, it changes again. It’s difficult to compare two datasets sets of various size.</p>
+<p>Therefore, we should express the data as a <strong>probability distribution</strong> instead of just a sample count.</p>
+<p>We can do it by <strong>normalising</strong> the the data:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7347514d-deb1-42ad-9b8e-1e24b1f82292">
+<span class="eqno">(2)<a class="headerlink" href="#equation-7347514d-deb1-42ad-9b8e-1e24b1f82292" title="Permalink to this equation">#</a></span>\[\begin{equation}
+x_{\mathrm{norm}} = \dfrac{x-x_{\mathrm{max}}}{x_{\mathrm{max}}-x_{\mathrm{min}}},
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is the value of the sample being normalised , while <span class="math notranslate nohighlight">\(x_{\mathrm{max}}\)</span> and <span class="math notranslate nohighlight">\(x_{\mathrm{min}}\)</span> are the maximum and minimum values, respectively.</p>
+<p>We can do this in Python by writing a function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalise</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">max_value</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">min_value</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">min_value</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">max_value</span> <span class="o">-</span> <span class="n">min_value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span>  
+<span class="c1"># To have the data in percentages, mutliply by 100:</span>
+<span class="n">n_ints</span> <span class="o">=</span> <span class="n">normalise</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="mi">100</span> 
+</pre></div>
+</div>
+<p>Or, you can also use <code class="docutils literal notranslate"><span class="pre">np.histogram(w,</span> <span class="pre">bins=15,</span> <span class="pre">density=True)</span></code> to obtain a probability density, i.e. a normalised histogram.</p>
+<ul class="simple">
+<li><p>What does this histogram tell us about the data?</p></li>
+<li><p>How do <strong>random</strong> and <strong>systematic errors</strong> show up in histograms like his one?</p></li>
+</ul>
+<p>This is another way to show the <strong>accuracy</strong> vs <strong>precision</strong> we saw on the ‘dart board’ image in <a class="reference external" href="#22-accuracy-vs-precision">Section 2.2</a>:</p>
+<p><a class="reference internal" href="../_images/Accuracy_Precision.png"><img alt="../_images/Accuracy_Precision.png" src="../_images/Accuracy_Precision.png" style="width: 500px;" /></a></img></p>
+</section>
+<section id="quantifying-uncertainty-a-id-33-quantifying-uncertainty-a">
+<h2>3.4 Quantifying Uncertainty <a id="33-quantifying-uncertainty"></a><a class="headerlink" href="#quantifying-uncertainty-a-id-33-quantifying-uncertainty-a" title="Permalink to this headline">#</a></h2>
+<p>Let’s analyse this data a bit more to quantify the <strong>uncertainties</strong>.</p>
+<p>We first represent data as a <strong>normal distribution</strong> of the population. The normal distribution, or Gaussian distribution, is a distribution centered around the <strong>mean value</strong> and having a spread of the <strong>standard deviation</strong>.</p>
+<section id="the-mean-mu-a-class-anchor-id-mean-a">
+<h3>The mean, <span class="math notranslate nohighlight">\(\mu\)</span> <a class="anchor" id="mean"></a><a class="headerlink" href="#the-mean-mu-a-class-anchor-id-mean-a" title="Permalink to this headline">#</a></h3>
+<div class="amsmath math notranslate nohighlight" id="equation-e443a34c-c804-44b3-82a9-d74b812773b3">
+<span class="eqno">(3)<a class="headerlink" href="#equation-e443a34c-c804-44b3-82a9-d74b812773b3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\mu = \frac{1}{N} \sum_i^N x_i ,
+\end{equation}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of samples. As the <span class="math notranslate nohighlight">\(N\)</span> increases, the mean becomes closer to the ‘true’ value. This is know as the <a class="reference external" href="https://en.wikipedia.org/wiki/Law_of_large_numbers">law of large numbers</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or, we can just use the NumPy function <code class="docutils literal notranslate"><span class="pre">np.mean(a)</span></code>.</p>
+<p><em>Note:</em> <strong>Median</strong> is a middle value separating the greater and lesser halves of a data set, since the normal distribution is symmetric, mean and median are equivalent.</p>
+</section>
+<section id="the-standard-deviation-std-sigma-a-class-anchor-id-std-a">
+<h3>The standard deviation (STD), <span class="math notranslate nohighlight">\(\sigma\)</span><a class="anchor" id="STD"></a><a class="headerlink" href="#the-standard-deviation-std-sigma-a-class-anchor-id-std-a" title="Permalink to this headline">#</a></h3>
+<p>The STD quantifies how much the numbers in our set deviate from the mean, <span class="math notranslate nohighlight">\(\mu\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-65d63467-b777-4109-b668-d796e00c6660">
+<span class="eqno">(4)<a class="headerlink" href="#equation-65d63467-b777-4109-b668-d796e00c6660" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\sigma = \sqrt{\frac{1}{N}\sum_{i=1}^N(x_i-\mu)^2}.
+\end{equation}\]</div>
+<p>We can write the above as a function in python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">a</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">a</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>or, we can just use the NumPy function <code class="docutils literal notranslate"><span class="pre">np.std(a)</span></code>.</p>
+<p>In a <strong>normal distribution</strong> the values that are less than 1 <span class="math notranslate nohighlight">\(\sigma\)</span> away from the mean, <span class="math notranslate nohighlight">\(\mu\)</span>, will account for the 68.27% of the set - this is our <strong>confidence interval</strong></p>
+<div class="amsmath math notranslate nohighlight" id="equation-b685bc0f-f9ef-433b-9768-214bb3ec428f">
+<span class="eqno">(5)<a class="headerlink" href="#equation-b685bc0f-f9ef-433b-9768-214bb3ec428f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(x) = \frac{1}{\sigma \sqrt{2 \pi} }  \exp\left(\frac{-(x-\mu)^2}{2\sigma^2} \right)
+\end{equation}\]</div>
+<p><a class="reference internal" href="../_images/NormalDist.png"><img alt="../_images/NormalDist.png" src="../_images/NormalDist.png" style="width: 500px;" /></a></img></p>
+<div class="aler alert-warning"><b>Advanced Task 3.1: 
+Analyse the data of weights of 50 samples given above.</b>
+<p>Find the lightest and the heaviest samples, calculate the mean and standard deviation.</p>
+<p>Plot the normal distribution for this data:</p>
+<p>Create a plot, that will present:</p>
+<ul class="simple">
+<li><p>a normalised histogram, shaded with a transparency</p></li>
+<li><p>a line for mean and median (are they same?)</p></li>
+<li><p>normalised probability distribution</p></li>
+<li><p>make sure the plot is labeled</p></li>
+</ul>
+<p><strong>Hint</strong></p>
+<p>You can use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html#scipy.stats.norm"><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code> python package</a> to plot the <strong>normal probability distribution</strong> of our data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where the <code class="docutils literal notranslate"><span class="pre">loc</span></code> specifies the mean and <code class="docutils literal notranslate"><span class="pre">scale</span></code> specifies standard deviation.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Advanced Task 3.1</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Smallest value and its index</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lightest sample weight </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="si">}</span><span class="s2"> g and the sample no. is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Biggest value and its index</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Heaviest sample weight </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="si">}</span><span class="s2"> g and the sample no. is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Note we add +1 to the output of argmin/argmax, as they begin counting at 0 </span>
+
+<span class="c1"># Mean and standard deviation</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean value is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The standard deviation is </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Calculate the probability distribution function (pdf) at each x</span>
+<span class="n">pdf</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">w</span><span class="p">))</span>
+
+<span class="c1"># Initialise the figure object </span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Add a normalised histogram</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="s2">&quot;True&quot;</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lime&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;histogram&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add mean and a median as a line</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;darkorange&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;magenta&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;median&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add a PDF</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">pdf</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;normal distribution&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Weight (g)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability, p(w)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add the legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</details><div class="alert alert-success"><b>Task 3.1: Analyse the kinetic data for a reaction at 250 and 300 K given below.</b>
+<p>Plot a relative likelihood that a particular value of rate constant, <span class="math notranslate nohighlight">\(K\)</span> would be measured, showing the relative probability of each <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<p>Produce a histogram for the data.</p>
+</div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here are some rates, K, at a T:</span>
+<span class="n">K_250</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.567111</span><span class="p">,</span> <span class="mf">2.562323</span><span class="p">,</span> <span class="mf">2.61557</span><span class="p">,</span> <span class="mf">2.4366565</span><span class="p">,</span> <span class="mf">2.495657</span><span class="p">,</span> <span class="mf">2.516454</span><span class="p">,</span> <span class="mf">3.671456</span><span class="p">])</span>
+<span class="n">K_300</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5700804</span><span class="p">,</span> <span class="mf">2.5660756</span><span class="p">,</span> <span class="mf">2.6201404</span><span class="p">,</span> <span class="mf">2.437922</span><span class="p">,</span>  <span class="mf">2.4999964</span><span class="p">,</span> <span class="mf">2.5190192</span><span class="p">,</span> <span class="mf">3.6754052</span><span class="p">])</span>
+
+<span class="c1"># FIXME</span>
+</pre></div>
+</div>
+</div>
+</div>
+<details><summary {style="color:green; font-weight:bold"}> Click here to see the solution to Task 3.1</summary>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># Print the data</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;250 K mean = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">K_250</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, std = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">K_250</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;300 K mean = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">K_300</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, std = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">K_300</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Generate 100 linearly spaced x values </span>
+<span class="c1"># Start a bit before and finish a bit after the min and max of K_250</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">K_250</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+<span class="n">finish</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">K_250</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">finish</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Calculate the probability distribution at each x</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">K_250</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">K_250</span><span class="p">))</span>
+
+<span class="c1"># Plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Rate (K)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Population, p(K)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">normal_distribution</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">K_250</span><span class="p">),</span> <span class="n">scale</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">K_250</span><span class="p">))</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">normal_distribution</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">5000</span><span class="p">)</span>
+
+<span class="c1"># Plot a histogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Use min and max of random numbers to create a range</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Plot the probability in that range</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">normal_distribution</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Rate (K)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Population, p(K)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
+</pre></div>
+</div>
+</details></section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="key-points-a-id-recap-a">
+<h1>Key Points <a id="recap"></a><a class="headerlink" href="#key-points-a-id-recap-a" title="Permalink to this headline">#</a></h1>
+<div class="alert alert-info">
+<ul class="simple">
+<li><p><code>matplotlib</code> allows you to plot numerical data.</p></li>
+<li><p>Besides line plots, <code>matplotlib</code> many more different types of data visualization.</p></li>
+<li><p>Programming a <code>matplotlib</code> Figure using an object oriented style allows you to control and customise every element in the plot.</p></li>
+<li><p>Most scientific data comes with characteristic uncertainties. Make sure you quantify them, and report them with appropriate Figures.</p></li>
+</ul>
+</div></section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Unit_05"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Unit_05_I_numerical_data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Unit 05: Introduction to NumPy and Plotting, part I</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../Unit_06/Unit_06_statistics_I.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Unit 06: Comparing Statistical Distributions</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Edinburgh Chemistry Teaching<br/>
+  
+      &copy; Copyright 2022-2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
