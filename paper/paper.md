@@ -10,7 +10,7 @@ authors:
     affiliation: "1"
   - name: Matteo T. Degiacomi
     orcid: 0000-0003-4672-471X 
-    affiliation: "3"
+    affiliation: "2"
   - name: Valentina Erastova
     orcid: 0000-0002-6747-3297
     affiliation: "1"  
@@ -28,16 +28,17 @@ authors:
     affiliation: "1"
   - name: Rafal Szabla
     orcid: 0000-0002-1668-8044
-    affiliation: "2"
+    affiliation: "3"
 affiliations:
  - name: EaStCHEM School of Chemistry, University of Edinburgh, Joseph Black Building, David Brewster Road, Edinburgh, EH9 3FJ, United Kingdom 
    index: 1
- - name: Department of Physical and Quantum Chemistry, Faculty of Chemistry, Wrocław University of Science and Technology, Wrocław, Poland
-   index: 2
  - name: Department of Physics, Durham University, South Road, Durham, DH1 3LE, United Kingdom 
-   index: 3 
+   index: 2 
+ - name: Department of Physical and Quantum Chemistry, Faculty of Chemistry, Wrocław University of Science and Technology, Wrocław, Poland
+   index: 3
 
-date: 13 December 2022
+
+date: 11 January 2023
 bibliography: paper.bib
 ---
 
