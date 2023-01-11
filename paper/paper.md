@@ -107,7 +107,7 @@ Authors are listed in alphabetical order; specific contributions by each author 
 **JC:** Is the course organiser for the module taught at the University of Edinburgh and created the material for `Unit_01`, `Unit_10` and the `helper_functions`, gave feedback on other materials, and helped edit the manuscript.   
 **MTD:** Contributed material to `Unit_03` and `Unit_05`, and helped edit the manuscript.    
 **VE:** Created material for `Unit_05` and `Unit_08`, contributed to `Unit_06`, and helped edit the manuscript.   
-**JG:** Contributed material to `Unit_09`, and helped edit the manuscript.    
+**JJG:** Contributed material to `Unit_09`, and helped edit the manuscript.    
 **CH:** Created material for `Unit_03` and `Unit_04`, and helped edit the manuscript.   
 **ASJSM:** Created material for `Unit_02`, `Unit_06`, `Unit_07`, and `Unit_09`, provided feedback and small contributions to most other units, and wrote the manuscript.    
 **HP:** Contributed material to `Unit_05` and  `Unit_08`, and helped edit the manuscript.    
