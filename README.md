@@ -43,5 +43,5 @@ Units will require different packages from the scientific Python ecosystem. The 
 
 Contributions to the learning resource are welcome. Contributions can be made through creating an issue or a pull request.
 
-To create an issue, contributors are encouraged to follow the [GitHub quickstart guide on creating an issue.](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
-To create a pull request, contributors are encouraged to follow the [GitHub quickstart guide on creating a fork and submitting a pull request.](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
+- To create an issue, contributors are encouraged to follow the [GitHub quickstart guide on creating an issue.](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
+- To create a pull request, contributors are encouraged to follow the [GitHub quickstart guide on creating a fork and submitting a pull request.](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
