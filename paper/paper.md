@@ -61,6 +61,7 @@ The course is aimed at early-year undergraduate students in Chemistry, either fi
 Overwhelmingly (62%), students replied with "I have no prior coding experience", while an additional 30% replied - "I only have some basic Python or coding experience". Only one respondent answered that they were confident in the use of Python. 
 
 By the end of the course, students should be proficient in using Python to:
+
 - Break a problem into logical steps, and use loops and decision operations to solve tasks;
 - Perform numerical operations such as vector algebra and calculate simple statistics on data sets;
 - Read and clean experimental data, visualise the data and draw appropriate conclusions from the data through simple statistical analysis;
