@@ -83,8 +83,7 @@ A summary of each unit can be found in Table 1 below:
 | 06    | Comparison of distributions, t-tests and working with molecular geometries             |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_06/Unit_06_statistics_I.ipynb) |
 | 07    | Correlations in data and model fitting                                  |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_07/Unit_07_fitting_I.ipynb) |
 | 08    | Applications I: Finding peaks in mass spectrometry data, fitting radioactive decay pathways and writing a chemistry quiz                                                        |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_08/Unit_08_Applications_I.ipynb) |
-| 09    | Applications II: Working with UV-Vis and small angle X-ray scattering (SAXS) data                                                        |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_09/Unit_09_applications_II_part_I.ipynb
-) |
+| 09    | Applications II: Working with UV-Vis and small angle X-ray scattering (SAXS) data                                                        |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_09/Unit_09_applications_II_part_I.ipynb)|
 | 10   | Applications III: Nuclear magnetic resonance (NMR) data                                                       |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_10/Unit_10_NMR_application_student.ipynb)|
 *Table 1: Summary of course material.*
 
