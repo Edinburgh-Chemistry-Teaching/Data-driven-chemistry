@@ -1,5 +1,5 @@
 # Data-Driven Chemistry
-
+[![status](https://jose.theoj.org/papers/b4bb200d717653e896a84e2bbef8aa83/status.svg)](https://jose.theoj.org/papers/b4bb200d717653e896a84e2bbef8aa83)
 [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![License: CC-BY 4.0](https://img.shields.io/badge/License-CC--BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Github All Releases](https://img.shields.io/github/downloads/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/total)]()
