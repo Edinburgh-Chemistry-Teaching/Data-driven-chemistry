@@ -43,13 +43,13 @@ Units will require different packages from the scientific Python ecosystem. The 
 Authors are listed in alphabetical order; specific contributions by each author are found in the following: James Cumby (JC), Valentina Erastova (VE), Claire L. Hobday (CLH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since the academic year 2021/22. See below for their detailed contributions. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. Matteo T Degiacomi (MTD) shared materials, developed in 2018 for his course at Durham University aimed at chemistry research students from which material was adapted. He made some additional contributions beyond his original material.
 
 JC: Is the course organiser for the module taught at the University of Edinburgh and created the material for Unit_01, Unit_10 and the helper_functions, gave feedback on other materials, and helped edit the manuscript.
-MTD: Contributed material to Unit_03, Unit_05 and Unit_08, and helped edit the manuscript.
-VE: Created material for Unit_05 and Unit_08, contributed to Unit_06, and helped edit the manuscript.
-JJG: Contributed material to Unit_09, and helped edit the manuscript.
-CLH: Created material for Unit_03 and Unit_04, and helped edit the manuscript.
-ASJSM: Created material for Unit_02, Unit_06, Unit_07, and Unit_09, provided feedback and small contributions to most other units, and wrote the manuscript.
-HP: Contributed material to Unit_05 and  Unit_08, and helped edit the manuscript.
-RS: Created the material for molecular geometries forming part of Unit_06 and gave feedback on the manuscript.
+MTD: Contributed material to `Unit_03`, `Unit_05` and `Unit_08`, and helped edit the manuscript.
+VE: Created material for `Unit_05` and `Unit_08`, contributed to `Unit_06`, and helped edit the manuscript.
+JJG: Contributed material to `Unit_09`, and helped edit the manuscript.
+CLH: Created material for `Unit_03` and `Unit_04`, and helped edit the manuscript.
+ASJSM: Created material for `Unit_02`, `Unit_06`, `Unit_07`, and `Unit_09`, provided feedback and small contributions to most other units, and wrote the manuscript.
+HP: Contributed material to `Unit_05` and  `Unit_08`, and helped edit the manuscript.
+RS: Created the material for molecular geometries forming part of `Unit_06` and gave feedback on the manuscript.
 
 ## Acknowledgements
 
@@ -66,9 +66,23 @@ Contributions to the learning resource are welcome. Contributions can be made th
 - To create an issue, contributors are encouraged to follow the [GitHub quickstart guide on creating an issue.](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue)
 - To create a pull request, contributors are encouraged to follow the [GitHub quickstart guide on creating a fork and submitting a pull request.](https://docs.github.com/en/get-started/quickstart/contributing-to-projects)
 
+
+## Reusing and building on the material for your own course
+
+The easiest way is by cloning the material and adapting it to your needs. This can be just using some partial material or expanding on the existing material. The best way to do this is by either [cloning](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) the repo and building up on it, or using the current repository as a [template repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) for your own or your organisations GitHub account. 
+
+
 ## Reference
 
 TBC
+
+## You might also like resouces from
+
+- [CCPBioSim Training Material](https://github.com/CCPBioSim)
+- [A computational chemistry Python book developped at Bath University](https://pythoninchemistry.org/ch40208/introduction/about_this_book.html)
+- [MolSSi training Material](http://education.molssi.org)
+- [Software Carpentries introduction to Python and Data](https://software-carpentry.org/lessons/)
+
 
 ## License
 
