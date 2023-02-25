@@ -41,7 +41,7 @@ Units are written and available as [Jupyter Notebooks](https://jupyter.org/). If
 	
 	``` 
 	conda activate ddc
-	conda install jupyter pandas scipy nglview==3.0.3 ipywidgets==7.6.0 pint mendeleev vpython matplotlib
+	conda install jupyter pandas scipy nglview==3.0.3 ipywidgets==7.6.0 pint mendeleev vpython matplotlib jupyter-server==1.23.6
 	```
 	
 4. Now you can start your Jupyter notebooks as:
@@ -49,6 +49,10 @@ Units are written and available as [Jupyter Notebooks](https://jupyter.org/). If
 	```
 	jupyter notebook Unit_01/Unit_01_problem_solving_I.ipynb
 	```
+
+## Getting started with the material
+
+This [overview](overview.md) document will give you an idea of how to engage with the material either as a student or instructor. Please read this first before getting started. 
 
 ## Authors and their contributions:
 

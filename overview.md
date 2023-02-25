@@ -21,4 +21,13 @@ This is an example of the type of questions students get asked to answer via Men
 Please see [mentimeter_example.ipynb](mentimeter_example.ipynb) for an example on how to embed Mentimeters into markdown cells. All following notebooks will have images of Mentimeter questions embedded.
 
 #### If you are an instructor:
-If you want to use in-class quizzes replace the images with your own questions using your [Mentimeter](https://www.mentimeter.com) account 
+If you want to use in-class quizzes replace the images with your own questions using your [Mentimeter](https://www.mentimeter.com) account
+
+
+# Mention extras in some units! 
+
+
+Include mentimeter info code:
+```
+from helper_functions.mentimeter import Mentimeter
+```
