@@ -37,9 +37,9 @@ def get_molecule(verbose=True):
         #print(color.DCY + '    - * - * - * - * - * - * - !  !  ! - * - * - * - * - * - * -'+ color.END)
         #print("\n") #empty line
         print(color.BOLD + color.DCY + 'Your molecule is', m,'!'+ color.END)
-        print('The structure file for your molecule %s is named data/%s.mol'%(m, m))
-        print('The MassSpec data file for your molecule %s is named data/MS_%s.txt'%(m, m))
-        print(f'Interesting facts about %s are on {w}')#'http://www.chm.bris.ac.uk/motm%s'%(m,w))
+        print(f'The structure file for your molecule {m} is named data/{m}.mol')
+        print(f'The MassSpec data file for your molecule {m} is named data/MS_{m}.txt')
+        print(f'Interesting facts about {m} are on {w}')#'http://www.chm.bris.ac.uk/motm%s'))
         #print("\n")
         #print(color.DCY + '    - * - * - * - * - * - * - !  !  ! - * - * - * - * - * - * -'+ color.END)
         
