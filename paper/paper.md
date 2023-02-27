@@ -46,7 +46,7 @@ bibliography: paper.bib
 
 Data-Driven Chemistry is a course aimed at undergraduate students in chemistry with no prior knowledge of programming and programmatic data analysis. It is designed as a 10-week-long course,^[This is a 20 SCQF credit course including assessments, roughly equivalent to 10 ECTS or 5 US credits] introducing Python programming and its usage in data analysis typically required for a Chemistry degree. The course consists of 10 Units, designed to be used in a blended learning environment of live coding and explanations, followed by a set of in-course tasks to be solved individually or through pair programming.
 Generally, we aimed to follow Software Carpentry [@wilson-software-carpentry] teaching philosophy as closely as possible for each Unit. While, in principle, this course is designed to be taught as a whole, each Unit will cover a set of self-contained topics. The idea behind the modular design is to make the reuse and mix-and-match with other courses as easy as possible.
-The original material was hosted online using the [Noteable](https://noteable.edina.ac.uk/) service provided by the University of Edinburgh, but for convenience, we have migrated the content to [Binder](https://mybinder.org). The online hosting on Binder will enable self-guided learning, as well as classroom-based learning, ensuring that the learning is not only limited to a university classroom setting.
+The original material is hosted online using the [Noteable](https://noteable.edina.ac.uk/) service provided by the University of Edinburgh, but to make it available outside of the University of Edinburgh, we have migrated the content to [Google CoLab](https://colab.research.google.com). The online hosting on CoLab will enable self-guided learning, as well as classroom-based learning, ensuring that the learning is not only limited to a university classroom setting.
 
 # Statement of Need
 
@@ -100,7 +100,7 @@ The course was formally assessed at the University of Edinburgh using NBGrader [
 
 # Conclusion
 
-We present a modular course to teach Python for chemistry undergraduate students, targeted at complete novices. We hope it is of value to other Chemistry students and educators. Running the material through Binder removes all installation requirements, making the course more easily accessible to novices - from students in guided university settings to other chemistry enthusiasts. 
+We present a modular course to teach Python for chemistry undergraduate students, targeted at complete novices. We hope it is of value to other Chemistry students and educators. Running the material through CoLab removes all installation requirements, making the course more easily accessible to novices - from students in guided university settings to other chemistry enthusiasts. 
 
 # Author's Contribution
 
