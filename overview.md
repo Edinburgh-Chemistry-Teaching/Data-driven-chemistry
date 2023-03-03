@@ -12,7 +12,7 @@ The easiest way to do this is by using the provided Colab links. They should wor
 ### 1.2 Using a local installation
 If you want to use a local isntallation, please follow the instructions on how to install necessary dependencies provided in the main [README.md](README.md) file. 
 
-In which ever way you load the notebooks, you will be able to execute cells and follow the explanations and instructions. Tasks are marked as such and will each provide a template solution in a drop down box. 
+In which ever way you load the notebooks, you will be able to execute cells and follow the explanations and instructions. Tasks are marked as such and will each provide a template solution in a drop down box. Any cells using the `# FIXME` tag means you are required to write code to answer the task. 
 
 ### 1.3 Metimeter
 Some cells currently show images of Mentimeter quizzes. These are used for in-class quizzes. You can look at them and think of an answer you may give, but are not essential the course. They are meant more as a guide for instructors to add should they so desire. 
