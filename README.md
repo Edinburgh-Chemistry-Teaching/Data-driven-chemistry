@@ -67,7 +67,7 @@ This [overview](overview.md) document will give you an idea of how to engage wit
 
 Authors are listed in alphabetical order; specific contributions by each author are found in the following: James Cumby (JC), Valentina Erastova (VE), Claire L. Hobday (CLH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since the academic year 2021/22. See below for their detailed contributions. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. Matteo T Degiacomi (MTD) shared materials, developed in 2018 for his course at Durham University aimed at chemistry research students from which material was adapted. He made some additional contributions beyond his original material.
 
-JC: Is the course organiser for the module taught at the University of Edinburgh and created the material for Unit_01, Unit_10 and the helper_functions, gave feedback on other materials, and helped edit the manuscript.    
+JC: Is the course organiser for the module taught at the University of Edinburgh and created the material for `Unit_01`, `Unit_10` and the helper_functions, gave feedback on other materials, and helped edit the manuscript.    
 MTD: Contributed material to `Unit_03`, `Unit_05` and `Unit_08`, and helped edit the manuscript.    
 VE: Created material for `Unit_05` and `Unit_08`, contributed to `Unit_06`, and helped edit the manuscript.   
 JJG: Contributed material to `Unit_09`, and helped edit the manuscript.   
