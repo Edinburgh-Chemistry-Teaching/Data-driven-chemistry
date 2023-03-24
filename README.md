@@ -66,7 +66,7 @@ Authors are, in alphabetical order:
 - Hannah Pollak (HP)
 - Rafal Szabla (RS)
 
-JC, VE, CLH, and ASJSM have been teaching this course at the University of Edinburgh since the academic year 2021/22. JJG and AP have been teaching assistants for the course. RS taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. MTD shared and adapted materials developed in 2018 for his course at Durham University aimed at chemistry research students, and made some additional contributions.
+JC, VE, CLH, and ASJSM have been teaching this course at the University of Edinburgh since the academic year 2021/22. JJG and AP have been course demonstrators. RS taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. MTD shared and adapted materials developed in 2018 for his course at Durham University aimed at chemistry research students, and made some additional contributions.
 
 Specific contributions by each author are as follows.
 - JC: Created the material for `Unit_01`, `Unit_10` and the helper_functions, gave feedback on other materials, and helped edit the manuscript.    
