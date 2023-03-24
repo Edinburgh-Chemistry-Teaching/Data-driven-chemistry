@@ -54,8 +54,9 @@ Units are written and available as [Jupyter Notebooks](https://jupyter.org/). If
 
 This [overview](overview.md) document will give you an idea of how to engage with the material either as a student or instructor. Please read this first before getting started. 
 
-## Authors and their contributions:
+## Authors and their contributions
 
+Authors are, in alphabetical order:
 - James Cumby (JC)
 - Valentina Erastova (VE)
 - Matteo Degiacomi (MTD)
@@ -65,16 +66,17 @@ This [overview](overview.md) document will give you an idea of how to engage wit
 - Hannah Pollak (HP)
 - Rafal Szabla (RS)
 
-Authors are listed in alphabetical order; specific contributions by each author are found in the following: James Cumby (JC), Valentina Erastova (VE), Claire L. Hobday (CLH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since the academic year 2021/22. See below for their detailed contributions. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. Matteo T Degiacomi (MTD) shared materials, developed in 2018 for his course at Durham University aimed at chemistry research students from which material was adapted. He made some additional contributions beyond his original material.
+JC, VE, CLH, and ASJSM have been teaching this course at the University of Edinburgh since the academic year 2021/22. JJG and AP have been teaching assistants for the course. RS taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. MTD shared and adapted materials developed in 2018 for his course at Durham University aimed at chemistry research students, and made some additional contributions.
 
-JC: Is the course organiser for the module taught at the University of Edinburgh and created the material for `Unit_01`, `Unit_10` and the helper_functions, gave feedback on other materials, and helped edit the manuscript.    
-MTD: Contributed material to `Unit_03`, `Unit_05`, `Unit_07` and `Unit_08`, and helped edit the manuscript.    
-VE: Created material for `Unit_05` and `Unit_08`, contributed to `Unit_06`, and helped edit the manuscript.   
-JJG: Contributed material to `Unit_09`, and helped edit the manuscript.   
-CLH: Created material for `Unit_03` and `Unit_04`, and helped edit the manuscript.    
-ASJSM: Created material for `Unit_02`, `Unit_06`, `Unit_07`, and `Unit_09`, provided feedback and small contributions to most other units, and wrote the manuscript.   
-HP: Contributed material to `Unit_05` and  `Unit_08`, and helped edit the manuscript.   
-RS: Created the material for molecular geometries forming part of `Unit_06` and gave feedback on the manuscript.   
+Specific contributions by each author are as follows.
+- JC: Created the material for `Unit_01`, `Unit_10` and the helper_functions, gave feedback on other materials, and helped edit the manuscript.    
+- MTD: Contributed material to `Unit_03`, `Unit_05`, `Unit_07` and `Unit_08`, and helped edit the manuscript.    
+- VE: Created material for `Unit_05` and `Unit_08`, contributed to `Unit_06`, and helped edit the manuscript.   
+- JJG: Contributed material to `Unit_09`, and helped edit the manuscript.   
+- CLH: Created material for `Unit_03` and `Unit_04`, and helped edit the manuscript.    
+- ASJSM: Created material for `Unit_02`, `Unit_06`, `Unit_07`, and `Unit_09`, provided feedback and small contributions to most other units, and wrote the manuscript.   
+- HP: Contributed material to `Unit_05` and  `Unit_08`, and helped edit the manuscript.   
+- RS: Created the material for molecular geometries forming part of `Unit_06` and gave feedback on the manuscript.   
 
 ## Acknowledgements
 
@@ -111,7 +113,7 @@ The easiest way is by cloning the material and adapting it to your needs. This c
 
 TBC
 
-## You might also like resouces from
+## Further resources
 
 - [CCPBioSim Training Material](https://github.com/CCPBioSim)
 - [A computational chemistry Python book developped at Bath University](https://pythoninchemistry.org/ch40208/introduction/about_this_book.html)
