@@ -44,7 +44,7 @@ bibliography: paper.bib
 
 # Summary
 
-Data-Driven Chemistry is a course aimed at undergraduate students in chemistry with no prior knowledge of programming and programmatic data analysis. It is designed as a 10-week-long course,^[This is a 20 SCQF credit course including assessments, roughly equivalent to 10 ECTS or 5 US credits] introducing Python programming and its usage in data analysis typically required for a Chemistry degree. The course consists of 10 Units, designed to be used in a blended learning environment of live coding and explanations, followed by a set of in-course tasks to be solved individually or through pair programming.
+Data-Driven Chemistry is a course aimed at undergraduate students in chemistry with no prior knowledge of programming and programmatic data analysis. It is designed as a 10-week-long course,^[This is a 20 SCQF credit course including assessments, roughly equivalent to 10 ECTS or 5 US credits] introducing Python programming and its usage in data analysis typically required for a chemistry degree. The course consists of 10 Units, designed to be used in a blended learning environment of live coding and explanations, followed by a set of in-course tasks to be solved individually or through pair programming.
 Generally, we aimed to follow Software Carpentry [@wilson-software-carpentry] teaching philosophy as closely as possible for each Unit. While, in principle, this course is designed to be taught as a whole, each Unit will cover a set of self-contained topics. The idea behind the modular design is to make the reuse and mix-and-match with other courses as easy as possible.
 The original material is hosted online using the [Noteable](https://noteable.edina.ac.uk/) service provided by the University of Edinburgh, but to make it available outside of the University of Edinburgh, we have migrated the content to [Google CoLab](https://colab.research.google.com). The online hosting on CoLab will enable self-guided learning, as well as classroom-based learning, ensuring that the learning is not only limited to a university classroom setting.
 
@@ -57,7 +57,7 @@ In recent years, programming has been integrated into chemistry degrees as a cou
 # Overview, Content, and Structure
 ## Target Audience 
 
-The course is aimed at early-year undergraduate students in Chemistry, either first or second year, with little or no programming background in Python or other languages. The cohort size is typically around 100 students. During the first lecture, the 2022/23 cohort was asked the question: "Do you know how to code?". 
+The course is aimed at early-year undergraduate students in chemistry, either first or second year, with little or no programming background in Python or other languages. The cohort size is typically around 100 students. During the first lecture, the 2022/23 cohort was asked the question: "Do you know how to code?". 
 Overwhelmingly (62%), students replied with "I have no prior coding experience", while an additional 30% replied - "I only have some basic Python or coding experience". Only one respondent answered that they were confident in the use of Python. 
 
 By the end of the course, students should be proficient in using Python to:
@@ -78,7 +78,7 @@ A summary of each unit can be found in Table 1 below:
 | 01    | An Introduction to algorithmic thinking and using Jupyter notebooks              |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_01/Unit_01_problem_solving_I.ipynb)|
 | 02    | Variables (`int`, `float`, `string`), lists, dictionaries and tuples in Python|[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_02/Unit_02_variables_I.ipynb) |
 | 03    | Loops and conditional statements                                                  |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_03/Unit_03_loops_I.ipynb) |
-| 04    | Functions and basic Input/Output                                        |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_04/Unit_04_functions_I.ipynb) |
+| 04    | Functions and basic input/output                                        |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_04/Unit_04_functions_I.ipynb) |
 | 05    | An introduction to plotting, using units and statistical analysis                    |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_05/Unit_05_I_numerical_data.ipynb)  |
 | 06    | Comparison of distributions, t-tests and working with molecular geometries             |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_06/Unit_06_statistics_I.ipynb) |
 | 07    | Correlations in data and model fitting                                  |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_07/Unit_07_fitting_I.ipynb) |
@@ -100,7 +100,7 @@ The course was formally assessed at the University of Edinburgh using NBGrader [
 
 # Conclusion
 
-We present a modular course to teach Python for chemistry undergraduate students, targeted at complete novices. We hope it is of value to other Chemistry students and educators. Running the material through CoLab removes all installation requirements, making the course more easily accessible to novices - from students in guided university settings to other chemistry enthusiasts. 
+We present a modular course to teach Python for chemistry undergraduate students, targeted at complete novices. We hope it is of value to other chemistry students and educators. Running the material through CoLab removes all installation requirements, making the course more easily accessible to novices - from students in guided university settings to other chemistry enthusiasts. 
 
 # Author's Contribution
 
