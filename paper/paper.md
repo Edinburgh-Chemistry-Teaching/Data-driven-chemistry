@@ -63,11 +63,11 @@ The course is aimed at early-year undergraduate students in chemistry, either fi
 
 By the end of the course, students should be proficient in using Python to:
 
-Break a problem into logical steps and use loops and decision operations to solve tasks;
-Perform numerical operations such as vector algebra and calculate simple statistics on data sets;
-Read and clean experimental data, visualize the data, and draw appropriate conclusions from the data through simple statistical analysis;
-Fit models to numerical data and present results in a clear and well-documented manner;
-Write readable, well-documented short snippets of code for data analysis, making use of functions, loops, and conditionals.
+- Break a problem into logical steps and use loops and decision operations to solve tasks;
+- Perform numerical operations such as vector algebra and calculate simple statistics on data sets;
+- Read and clean experimental data, visualize the data, and draw appropriate conclusions from the data through simple statistical analysis;
+- Fit models to numerical data and present results in a clear and well-documented manner;
+- Write readable, well-documented short snippets of code for data analysis, making use of functions, loops, and conditionals.
 
 ## Content
 
