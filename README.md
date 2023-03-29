@@ -111,7 +111,7 @@ The easiest way is by cloning the material and adapting it to your needs. This c
 
 ## Reference
 
-TBC
+Paper v. 1.0.1
 
 ## Further resources
 
