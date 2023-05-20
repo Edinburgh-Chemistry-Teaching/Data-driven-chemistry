@@ -97,6 +97,7 @@ To ensure sufficient student support, ten teaching assistants are available at e
 # Assessment and feedback
 
 The course was formally assessed at the University of Edinburgh using nbgrader [@jupyter2019nbgrader]. It was important to initially test the students formatively with weekly online quizzes, which could be completed multiple times. This gave students instant feedback on their performance, and allowed them to improve. In later weeks, the course was assessed summatively. However, we still made use of informal feedback within the sessions with built-in quizzes in the Jupyter Notebooks using [Mentimeter](https://www.mentimeter.com) and an associated Python Class. We polled students to test their understanding of the material, to promote critical thinking, and check their background knowledge. We also used Mentimeter to gather feedback after each session, which helped us to improve the material further. Generally, the usage of embedded quizzes helped with engagement from students. Figure 1 shows an example of a Mentimeter quiz.   
+
 ![Example of how a Mentimeter poll can be directly embedded into a Jupyter notebook using the provided `Mentimeter` class.\label{fig:1}](figures/Mentimeter.png)
 
 
