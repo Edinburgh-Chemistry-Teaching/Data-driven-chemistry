@@ -3,6 +3,7 @@
 [![Project Status: Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![License: CC-BY 4.0](https://img.shields.io/badge/License-CC--BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Github All Releases](https://img.shields.io/github/downloads/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/total)]()
+[![DOI](https://jose.theoj.org/papers/10.21105/jose.00192/status.svg)](https://doi.org/10.21105/jose.00192)
 
 Data-Driven Chemistry is a collection of learning material for an introductory Python course for undergraduate chemistry students. The presented material here serves as a public version of [Data-Driven Chemistry](http://www.drps.ed.ac.uk/22-23/dpt/cxchem08031.htm) as taught at the University of Edinburgh in the School of Chemistry. 
 
