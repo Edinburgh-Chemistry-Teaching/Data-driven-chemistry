@@ -74,6 +74,7 @@ By the end of the course, students should be proficient in using Python to:
 The course is structured similarly to the PCP Notebooks of @muller2022pcp. Data-Driven Chemistry consists of 10 Units, each designed as a 3-hour workshop session, either in-person or online. Additional tasks are provided for completion after the workshop sessions. 
 A summary of each unit can be found in Table 1 below:
 
+Table: Summary of course material.
 | Unit | Content Summary                 | Materials |
 |------|---------------------------------|-----------|
 | 01    | An Introduction to algorithmic thinking and using Jupyter notebooks              |[Unit 1 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_01/Unit_01_problem_solving_I.ipynb)|
@@ -86,7 +87,7 @@ A summary of each unit can be found in Table 1 below:
 | 08    | Applications I: Finding peaks in mass spectrometry data, fitting radioactive decay pathways and writing a chemistry quiz                                                        |[Unit 8 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_08/Unit_08_Applications_I.ipynb) |
 | 09    | Applications II: Working with UV-Vis and small angle X-ray scattering (SAXS) data                                                        |[Unit 9 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_09/Unit_09_applications_II_part_I.ipynb)|
 | 10   | Applications III: Nuclear magnetic resonance (NMR) data                                                       |[Unit 10 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_10/Unit_10_NMR_application_student.ipynb)|
-*Table 1: Summary of course material.*
+
 
 The content is grouped into three main parts. `Unit_01` to `Unit_04` introduces concepts around algorithmic thinking and Python syntax, including variables, loops, functions, libraries, documentation, how to get help, and how to read files. These were largely adapted from [Plotting and Programming in Python](http://swcarpentry.github.io/python-novice-gapminder/). `Unit_05` to `Unit_07` introduce concepts from SciPy [@virtanen2020scipy], NumPy [@harris2020array], Matplotlib [@hunter2007matplotlib] and Pandas [@team2022pandasdev] to carry out basic statistical analysis and plotting of chemistry-related data. Our strategy was to incorporate as many chemistry topics or techniques already familiar to students while teaching new Python content. For example, we assume that students have already studied mathematical concepts such as fitting data and comparing distributions, but now are presented with a dataset relevant to their degree. The domain-specific twist aims to boost motivation in students to engage with these mathematical concepts. Therefore, `Unit_08` to `Unit_10` cover specific application examples from different areas of chemistry, and some of the applications directly tie into the students' lab experiments (*e.g.* UV-Vis spectroscopy and NMR data). 
 To ensure sufficient support to students, at each 3-hour long workshop attended by around 100 learners, ten teaching assistants were available. Furthermore, 1-hour long Q&A sessions with the teaching assistants were organised on alternate weeks.  
