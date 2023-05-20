@@ -75,6 +75,7 @@ The course is structured similarly to the PCP Notebooks of @muller2022pcp. Data-
 A summary of each unit can be found in Table 1 below:
 
 Table: Summary of course material.
+
 | Unit | Content Summary                 | Materials |
 |------|---------------------------------|-----------|
 | 01    | An Introduction to algorithmic thinking and using Jupyter notebooks              |[Unit 1 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_01/Unit_01_problem_solving_I.ipynb)|
