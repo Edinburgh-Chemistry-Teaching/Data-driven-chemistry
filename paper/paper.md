@@ -71,41 +71,43 @@ By the end of the course, students should be proficient in using Python to:
 
 ## Content
 
-The course is structured similarly to [@muller2022pcp]. Data-Driven Chemistry consists of 10 Units, each designed as a 3-hour workshop session, either in-person or online. Additional tasks are provided for completion after the workshop sessions. 
+The course is structured similarly to the PCP Notebooks of @muller2022pcp. Data-Driven Chemistry consists of 10 Units, each designed as a 3-hour workshop session, either in-person or online. Additional tasks are provided for completion after the workshop sessions. 
 A summary of each unit can be found in Table 1 below:
+
+Table: Summary of course material.
 
 | Unit | Content Summary                 | Materials |
 |------|---------------------------------|-----------|
-| 01    | An Introduction to algorithmic thinking and using Jupyter notebooks              |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_01/Unit_01_problem_solving_I.ipynb)|
-| 02    | Variables (`int`, `float`, `string`), lists, dictionaries and tuples in Python|[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_02/Unit_02_variables_I.ipynb) |
-| 03    | Loops and conditional statements                                                  |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_03/Unit_03_loops_I.ipynb) |
-| 04    | Functions and basic input/output                                        |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_04/Unit_04_functions_I.ipynb) |
-| 05    | An introduction to plotting, using units and statistical analysis                    |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_05/Unit_05_I_numerical_data.ipynb)  |
-| 06    | Comparison of distributions, t-tests and working with molecular geometries             |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_06/Unit_06_statistics_I.ipynb) |
-| 07    | Correlations in data and model fitting                                  |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_07/Unit_07_fitting_I.ipynb) |
-| 08    | Applications I: Finding peaks in mass spectrometry data, fitting radioactive decay pathways and writing a chemistry quiz                                                        |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_08/Unit_08_Applications_I.ipynb) |
-| 09    | Applications II: Working with UV-Vis and small angle X-ray scattering (SAXS) data                                                        |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_09/Unit_09_applications_II_part_I.ipynb)|
-| 10   | Applications III: Nuclear magnetic resonance (NMR) data                                                       |[Link to Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_10/Unit_10_NMR_application_student.ipynb)|
-*Table 1: Summary of course material.*
+| 01    | An Introduction to algorithmic thinking and using Jupyter notebooks              |[Unit 1 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_01/Unit_01_problem_solving_I.ipynb)|
+| 02    | Variables (`int`, `float`, `string`), lists, dictionaries and tuples in Python|[Unit 2 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_02/Unit_02_variables_I.ipynb) |
+| 03    | Loops and conditional statements                                                  |[Unit 3 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_03/Unit_03_loops_I.ipynb) |
+| 04    | Functions and basic input/output                                        |[Unit 4 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_04/Unit_04_functions_I.ipynb) |
+| 05    | An introduction to plotting, using units and statistical analysis                    |[Unit 5 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_05/Unit_05_I_numerical_data.ipynb)  |
+| 06    | Comparison of distributions, t-tests and working with molecular geometries             |[Unit 6 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_06/Unit_06_statistics_I.ipynb) |
+| 07    | Correlations in data and model fitting                                  |[Unit 7 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_07/Unit_07_fitting_I.ipynb) |
+| 08    | Applications I: Finding peaks in mass spectrometry data, fitting radioactive decay pathways and writing a chemistry quiz                                                        |[Unit 8 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_08/Unit_08_Applications_I.ipynb) |
+| 09    | Applications II: Working with UV-Vis and small angle X-ray scattering (SAXS) data                                                        |[Unit 9 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/Data-driven-chemistry/blob/main/Unit_09/Unit_09_applications_II_part_I.ipynb)|
+| 10   | Applications III: Nuclear magnetic resonance (NMR) data                                                       |[Unit 10 Notebook](https://github.com/Edinburgh-Chemistry-Teaching/DDC/blob/main/Unit_10/Unit_10_NMR_application_student.ipynb)|
 
-The content is grouped into three main parts. `Unit_01` to `Unit_04` introduces concepts around algorithmic thinking and Python syntax, including variables, loops, functions, libraries, documentation, how to get help, and how to read files. These were largely adapted from [Plotting and Programming in Python](http://swcarpentry.github.io/python-novice-gapminder/). `Unit_05` to `Unit_07` introduce concepts from SciPy [@virtanen2020scipy], NumPy [@harris2020array], Matplotlib [@hunter2007matplotlib] and Pandas [@team2022pandasdev] to carry out basic statistical analysis and plotting of chemistry-related data. Our strategy was to incorporate as many chemistry topics or techniques already familiar to students while teaching new Python content. For example, we assume that students have already studied mathematical concepts such as fitting data and comparing distributions, but now are presented with a dataset relevant to their degree. The domain-specific twist aims to boost motivation in students to engage with these mathematical concepts. Therefore, `Unit_08` to `Unit_10` cover specific application examples from different areas of chemistry, and some of the applications directly tie into the students' lab experiments (*e.g.* UV-Vis spectroscopy and NMR data). 
-To ensure sufficient support to students, at each 3-hour long workshop attended by around 100 learners, ten teaching assistants were available. Furthermore, 1-hour long Q&A sessions with the teaching assistants were organised on alternate weeks.  
+
+The content is grouped into three main parts. `Unit_01` to `Unit_04` introduce concepts around algorithmic thinking and Python syntax, including variables, loops, functions, libraries, documentation, how to get help, and how to read files. These were largely adapted from [Plotting and Programming in Python](http://swcarpentry.github.io/python-novice-gapminder/). `Unit_05` to `Unit_07` introduce concepts from SciPy [@virtanen2020scipy], NumPy [@harris2020array], Matplotlib [@hunter2007matplotlib] and Pandas [@team2022pandasdev] to carry out basic statistical analysis and plotting of chemistry-related data. Our strategy was to incorporate as many chemistry topics or techniques already familiar to students while teaching new Python content. For example, we assume that students have already studied mathematical concepts such as fitting data and comparing distributions, but now are presented with a dataset relevant to their degree. The domain-specific twist aims to boost student motivation to engage with these mathematical concepts. Therefore, `Unit_08` to `Unit_10` cover specific application examples from different areas of chemistry, and some of the applications directly tie into the students' lab experiments (e.g., UV-Vis spectroscopy and NMR data). 
+To ensure sufficient student support, ten teaching assistants are available at each 3-hour long workshop attended by around 100 learners. Furthermore, 1-hour long Q&A sessions with the teaching assistants were organised on alternate weeks.  
 
 
 # Assessment and feedback
 
 The course was formally assessed at the University of Edinburgh using nbgrader [@jupyter2019nbgrader]. It was important to initially test the students formatively with weekly online quizzes, which could be completed multiple times. This gave students instant feedback on their performance, and allowed them to improve. In later weeks, the course was assessed summatively. However, we still made use of informal feedback within the sessions with built-in quizzes in the Jupyter Notebooks using [Mentimeter](https://www.mentimeter.com) and an associated Python Class. We polled students to test their understanding of the material, to promote critical thinking, and check their background knowledge. We also used Mentimeter to gather feedback after each session, which helped us to improve the material further. Generally, the usage of embedded quizzes helped with engagement from students. Figure 1 shows an example of a Mentimeter quiz.   
-![image](figures/Mentimeter.png)
-*Figure 1: Example of how a Mentimeter poll can be directly embedded into a Jupyter notebook using the provided `Mentimeter` class.*
+![Example of how a Mentimeter poll can be directly embedded into a Jupyter notebook using the provided `Mentimeter` class.\label{fig:1}](figures/Mentimeter.png)
+
 
 
 # Conclusion
 
-We present a modular course to teach Python for chemistry undergraduate students, targeted at complete novices. We hope it is of value to other chemistry students and educators. Running the material through CoLab removes all installation requirements, making the course more easily accessible to novices - from students in guided university settings to other chemistry enthusiasts. 
+We present a modular course to teach Python for chemistry undergraduate students, targeted at complete novices. We hope it is of value to other chemistry students and educators. Running the material through CoLab removes all installation requirements, making the course more easily accessible to novices, from students in guided university settings to other chemistry enthusiasts. 
 
 # Author's Contribution
 
-Authors are listed in alphabetical order. James Cumby (JC), Valentina Erastova (VE), Claire L. Hobday (CLH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since the academic year 2021/22. Jasmin Güven (JJG) and Hannah Pollak (HP) have been course demonstrators. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. Matteo T Degiacomi (MTD) shared materials, developed in 2018 for his course at Durham University aimed at chemistry research students from which material was adapted. He made some additional contributions beyond his original material. Specific contributions by each author are as follows:
+Authors are listed in alphabetical order. James Cumby (JC), Valentina Erastova (VE), Claire L. Hobday (CLH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since the academic year 2021/22. Jasmin Güven (JJG) and Hannah Pollak (HP) have been course demonstrators. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. Material was adapted from Matteo T. Degiacomi (MTD), who shared content developed in 2018 for his course at Durham University aimed at chemistry research students. He made some additional contributions beyond his original material. Specific contributions by each author are as follows:
 
 **JC:** Created material for `Unit_01`, `Unit_10`, and the `helper_functions`, gave feedback on other materials, and helped edit the manuscript.   
 **MTD:** Contributed material for `Unit_03`, `Unit_05`, `Unit_07`, and `Unit_08`, and helped edit the manuscript.    
@@ -119,6 +121,6 @@ Authors are listed in alphabetical order. James Cumby (JC), Valentina Erastova (
 
 # Acknowledgements 
 
-We would like to acknowledge Software Carpentries for material and inspiration and all PhD student demonstrators who helped with teaching the material, giving feedback and creating some of the assignments.
+We would like to acknowledge The Carpentries for material and inspiration, and all PhD student demonstrators who helped with teaching the material, giving feedback and creating some of the assignments.
 
 # References
