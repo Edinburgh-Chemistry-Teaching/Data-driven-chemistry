@@ -103,11 +103,11 @@ The course was formally assessed at the University of Edinburgh using nbgrader [
 
 # Conclusion
 
-We present a modular course to teach Python for chemistry undergraduate students, targeted at complete novices. We hope it is of value to other chemistry students and educators. Running the material through CoLab removes all installation requirements, making the course more easily accessible to novices - from students in guided university settings to other chemistry enthusiasts. 
+We present a modular course to teach Python for chemistry undergraduate students, targeted at complete novices. We hope it is of value to other chemistry students and educators. Running the material through CoLab removes all installation requirements, making the course more easily accessible to novices, from students in guided university settings to other chemistry enthusiasts. 
 
 # Author's Contribution
 
-Authors are listed in alphabetical order. James Cumby (JC), Valentina Erastova (VE), Claire L. Hobday (CLH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since the academic year 2021/22. Jasmin Güven (JJG) and Hannah Pollak (HP) have been course demonstrators. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. Matteo T Degiacomi (MTD) shared materials, developed in 2018 for his course at Durham University aimed at chemistry research students from which material was adapted. He made some additional contributions beyond his original material. Specific contributions by each author are as follows:
+Authors are listed in alphabetical order. James Cumby (JC), Valentina Erastova (VE), Claire L. Hobday (CLH), and Antonia Mey (ASJSM) have been teaching this course at the University of Edinburgh since the academic year 2021/22. Jasmin Güven (JJG) and Hannah Pollak (HP) have been course demonstrators. Rafał Szabla (RS) taught one unit and created content for it in 2020/21, when the course was run in a shortened form as a replacement for physical chemistry laboratory practicals during the pandemic. Material was adapted from Matteo T. Degiacomi (MTD), who shared content developed in 2018 for his course at Durham University aimed at chemistry research students. He made some additional contributions beyond his original material. Specific contributions by each author are as follows:
 
 **JC:** Created material for `Unit_01`, `Unit_10`, and the `helper_functions`, gave feedback on other materials, and helped edit the manuscript.   
 **MTD:** Contributed material for `Unit_03`, `Unit_05`, `Unit_07`, and `Unit_08`, and helped edit the manuscript.    
@@ -121,6 +121,6 @@ Authors are listed in alphabetical order. James Cumby (JC), Valentina Erastova (
 
 # Acknowledgements 
 
-We would like to acknowledge Software Carpentries for material and inspiration and all PhD student demonstrators who helped with teaching the material, giving feedback and creating some of the assignments.
+We would like to acknowledge The Carpentries for material and inspiration, and all PhD student demonstrators who helped with teaching the material, giving feedback and creating some of the assignments.
 
 # References
