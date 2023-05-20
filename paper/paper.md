@@ -71,7 +71,7 @@ By the end of the course, students should be proficient in using Python to:
 
 ## Content
 
-The course is structured similarly to [@muller2022pcp]. Data-Driven Chemistry consists of 10 Units, each designed as a 3-hour workshop session, either in-person or online. Additional tasks are provided for completion after the workshop sessions. 
+The course is structured similarly to the PCP Notebooks of @muller2022pcp. Data-Driven Chemistry consists of 10 Units, each designed as a 3-hour workshop session, either in-person or online. Additional tasks are provided for completion after the workshop sessions. 
 A summary of each unit can be found in Table 1 below:
 
 | Unit | Content Summary                 | Materials |
