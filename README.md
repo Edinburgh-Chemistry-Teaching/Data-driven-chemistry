@@ -82,9 +82,6 @@ Specific contributions by each author are as follows.
 
 The authors would like to acknowledge the help of all the PhD student demonstrators on this course, who helped with assessment material, testing the course content and providing teaching assistance in the classes. 
 
-21/22: TBC
-
-22/23: TBC
 
 ## Contributing to the resource and raising issues
 
